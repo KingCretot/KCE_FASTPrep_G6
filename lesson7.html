@@ -1,0 +1,1132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FAST Prep Grade 6 — Lesson 7: Voices & Rhythms | KingCretot Experience</title>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0A1F3D; --gold:#C9A84C; --blue:#0047BA; --red:#DB2F30; --cream:#FAF7EF;
+  --ink:#1c1c1c; --ok:#2E7D32; --bad:#C0392B; --field:#1e4d2b;
+  --shadow:0 8px 24px rgba(10,31,61,.18);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{font-family:'Nunito',sans-serif;background:linear-gradient(160deg,#F4F1EA 0%,#EAE3D3 100%);color:var(--ink);min-height:100vh;font-size:17px;line-height:1.6}
+h1,h2,h3,.hud-title,.btn{font-family:'Oswald',sans-serif}
+.hud{position:fixed;top:0;left:0;right:0;background:linear-gradient(135deg,var(--navy),#071630);color:#fff;padding:10px 20px;display:flex;justify-content:space-between;align-items:center;z-index:100;box-shadow:var(--shadow);flex-wrap:wrap;gap:8px}
+.hud-left{display:flex;align-items:center;gap:12px}
+.kc-box{background:var(--navy);border:2px solid var(--gold);color:var(--gold);font-weight:700;font-size:1.05rem;border-radius:7px;padding:5px 10px;line-height:1}
+.hud-title{font-size:1rem;font-weight:600;letter-spacing:.3px}
+.hud-title small{display:block;font-family:'Nunito',sans-serif;font-size:.7rem;color:var(--gold);letter-spacing:1.5px;text-transform:uppercase;font-weight:800}
+.hud-right{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.stat{background:rgba(255,255,255,.12);padding:6px 14px;border-radius:20px;font-weight:800;font-size:.9rem;display:flex;align-items:center;gap:6px}
+.stat .big{color:var(--gold)}
+.xpbar{width:110px;height:9px;background:rgba(255,255,255,.2);border-radius:5px;overflow:hidden}
+.xpfill{height:100%;background:linear-gradient(90deg,var(--gold),#e8c874);transition:width .4s;width:0%}
+.wrap{max-width:900px;margin:0 auto;padding:100px 18px 44px}
+.slide{background:#fff;border-radius:20px;padding:32px;box-shadow:var(--shadow);min-height:480px;display:none;animation:pop .3s ease;border-top:5px solid var(--gold)}
+.slide.on{display:block}
+@keyframes pop{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+@keyframes confettiFall{0%{transform:translate(0,0) rotate(0deg);opacity:1}100%{transform:translate(var(--drift),105vh) rotate(var(--rot));opacity:.15}}
+.eyebrow{letter-spacing:2.5px;font-size:.72rem;color:var(--blue);text-transform:uppercase;font-weight:800;margin-bottom:6px}
+h1{font-size:2rem;color:var(--navy);letter-spacing:.3px;margin-bottom:8px;font-weight:700}
+h2{font-size:1.4rem;color:var(--navy);margin-bottom:10px;font-weight:600}
+h3{font-size:1.05rem;color:var(--blue);margin:16px 0 6px;font-weight:600}
+p{margin:9px 0}
+.badge{display:inline-block;padding:5px 14px;border-radius:14px;font-weight:800;font-size:.72rem;letter-spacing:1px;text-transform:uppercase;background:linear-gradient(135deg,var(--gold),#e8c874);color:var(--navy);margin-bottom:10px;margin-right:6px}
+.badge.subj-math{background:linear-gradient(135deg,var(--blue),#3068cf);color:#fff}
+.badge.subj-ela{background:linear-gradient(135deg,var(--red),#e8574f);color:#fff}
+.badge.step{background:#e8e4d8;color:var(--navy)}
+.btn{padding:13px 26px;border-radius:12px;font-weight:700;border:none;cursor:pointer;font-size:.95rem;letter-spacing:.4px;transition:all .15s;display:inline-flex;align-items:center;gap:8px}
+.btn:active{transform:translateY(2px)}
+.btn:disabled{opacity:.5;cursor:default}
+.btn-go{background:var(--navy);color:#fff;box-shadow:0 4px 0 #051329}
+.btn-back{background:#e8e4d8;color:#374151}
+.nav{display:flex;justify-content:space-between;margin-top:26px;gap:10px;flex-wrap:wrap}
+.dots{display:flex;gap:5px;justify-content:center;margin-top:16px;flex-wrap:wrap}
+.dot{width:9px;height:9px;border-radius:50%;background:#d8d2c2;transition:all .2s}
+.dot.on{background:var(--gold);transform:scale(1.4)}
+.dot.done{background:var(--ok)}
+.card{background:var(--cream);border:2px solid #E8DFC4;border-radius:14px;padding:16px 18px;margin:14px 0}
+.card-field{background:#eef7f0;border-color:#c7e3cc}
+.card-idea{background:#fff;border:2px dashed #C9C1A6;border-radius:14px;padding:14px 18px;margin:12px 0}
+.card-tactic{background:#eef2fb;border-color:#c9d7f5;position:relative;padding-left:50px}
+.card-tactic::before{content:"🎯";position:absolute;left:14px;top:16px;font-size:1.3rem}
+.card-tactic .lbl{font-weight:800;color:var(--blue);font-size:.78rem;letter-spacing:1px;text-transform:uppercase;margin-bottom:3px}
+.card-narrative{background:#fdf3e7;border-color:#e8cfa0;border-left:5px solid var(--gold);font-style:italic}
+.appeal-tag{display:inline-block;font-size:.7rem;font-weight:800;letter-spacing:1px;padding:2px 10px;border-radius:12px;color:#fff;margin-right:6px}
+.appeal-ethos{background:#1c4587}
+.appeal-pathos{background:#a3401f}
+.appeal-logos{background:#2E7D32}
+.step-lbl{font-weight:800;font-size:.72rem;letter-spacing:1.5px;text-transform:uppercase;color:#888;margin:18px 0 6px;display:flex;align-items:center;gap:8px}
+.step-lbl::after{content:"";flex:1;height:1px;background:#e0dbc8}
+.qbox{background:#fff;border:2.5px solid #E2E8F0;border-radius:14px;padding:18px;margin:14px 0;transition:border-color .2s}
+.qbox.ok{border-color:var(--ok)}
+.qtext{font-weight:700;margin-bottom:10px;font-size:1.02rem}
+.opt{display:block;width:100%;text-align:left;padding:11px 14px;margin:7px 0;border:2px solid #d8d2c2;border-radius:10px;background:#fff;cursor:pointer;font-family:inherit;font-size:.95rem;transition:all .15s}
+.opt:hover{border-color:var(--blue)}
+.opt.sel{border-color:var(--blue);background:#eef2fb}
+.opt.correct{border-color:var(--ok);background:#e9f6ea;font-weight:700}
+.opt.wrong{border-color:var(--bad);background:#fdecea}
+.feedback{margin-top:10px;padding:10px 14px;border-radius:10px;font-size:.9rem;font-weight:600;display:none}
+.feedback.show{display:block}
+.feedback.ok{background:#e9f6ea;color:var(--ok)}
+.feedback.bad{background:#fdecea;color:var(--bad)}
+.passage{background:#fffdf7;border:1px solid #e8dfc4;border-radius:12px;padding:20px 22px;font-size:.98rem;line-height:1.75;margin:12px 0}
+.passage h3{margin-top:0}
+.vocab{background:var(--gold);color:var(--navy);padding:0 4px;border-radius:3px;font-weight:800;cursor:help}
+.multiselect-note{font-size:.82rem;color:var(--blue);font-weight:700;margin-bottom:8px}
+.hot-sentence{cursor:pointer;padding:1px 2px;border-radius:3px;transition:all .15s}
+.hot-sentence:hover{background:#eef2fb}
+.hot-sentence.sel{background:var(--blue);color:#fff}
+.hot-sentence.correct{background:var(--ok);color:#fff}
+.hot-sentence.wrong{background:#fdecea;text-decoration:line-through}
+.match-wrap{display:flex;gap:24px;flex-wrap:wrap;margin:14px 0}
+.match-col{flex:1;min-width:200px}
+.match-item{display:block;width:100%;text-align:left;padding:10px 14px;margin:6px 0;border:2px solid #d8d2c2;border-radius:9px;background:#fff;cursor:pointer;font-family:inherit;font-size:.92rem}
+.match-item.sel{border-color:var(--blue);background:#eef2fb}
+.match-item.paired{border-color:var(--ok);background:#e9f6ea;cursor:default}
+.final-badge{text-align:center;padding:20px}
+.final-badge .medal{font-size:4rem}
+.scorebox{display:flex;gap:14px;justify-content:center;margin:18px 0;flex-wrap:wrap}
+.scorebox .cell{background:var(--cream);border:2px solid #E8DFC4;border-radius:12px;padding:14px 22px;text-align:center}
+.scorebox .cell .num{font-size:1.7rem;font-weight:800;color:var(--navy)}
+.scorebox .cell .lbl{font-size:.72rem;text-transform:uppercase;letter-spacing:1px;color:#888;margin-top:2px}
+.footer-note{text-align:center;font-size:.78rem;color:#999;margin-top:20px}
+.inline-input{padding:10px 12px;border:2px solid #d8d2c2;border-radius:8px;font-family:inherit;font-size:1rem}
+</style>
+</head>
+<body>
+
+<div class="hud">
+  <div class="hud-left">
+    <div class="kc-box">KC</div>
+    <div class="hud-title">FAST Prep — Grade 6<br><small>Lesson 7 · Voices & Rhythms</small></div>
+  </div>
+  <div class="hud-right">
+    <div class="stat">⚙ <span class="big" id="streakStat">0</span> Streak</div>
+    <div class="stat">⭐ <span class="big" id="xpStat">0</span> XP</div>
+    <div class="xpbar"><div class="xpfill" id="xpFill"></div></div>
+  </div>
+</div>
+
+<div class="wrap">
+
+<!-- SLIDE 0: WELCOME -->
+<div class="slide on" id="s0">
+  <div class="eyebrow">KingCretot Experience · FAST Readiness Track</div>
+  <h1>Voices & Rhythms</h1>
+  <p style="font-size:1.05rem">The community council is voting on whether to name the new practice room after Odessa Marsh, who taught free piano lessons on her porch for forty years. Malik Turner is presenting the case. Everything in this lesson runs through his speech — and the rhythm patterns her students used to practice.</p>
+  <div class="card card-field">
+    <h3 style="color:var(--field);margin-top:0">Today's plan</h3>
+    <p><strong>First Half — Math, four rhythm problems:</strong> writing algebraic expressions from beat patterns, then evaluating them by substitution.</p>
+    <p><strong>Switch:</strong> the sheet music closes, Malik's speech opens.</p>
+    <p><strong>Second Half — ELA:</strong> the three ways Malik makes his case, the theme underneath it, vocabulary, and matching his strongest evidence to his argument.</p>
+  </div>
+  <p>What's your name?</p>
+  <input type="text" id="studentName" placeholder="Type your name here" style="width:100%;padding:12px 14px;border:2px solid #d8d2c2;border-radius:10px;font-family:inherit;font-size:1rem;margin-bottom:16px">
+  <div class="nav">
+    <span></span>
+    <button class="btn btn-go" onclick="goTo(1)">Begin  →</button>
+  </div>
+</div>
+
+<!-- SLIDE 1: MATH TEACH - WRITING EXPRESSIONS -->
+<div class="slide" id="s1">
+  <span class="badge subj-math">Math · MA.6.AR.1.1</span>
+  <span class="badge step">I Do</span>
+  <h2>Pattern 1: Writing the Beat Count</h2>
+  <p>One of Odessa's rhythm exercises has a conga drum play <strong>3 beats every measure</strong>. If a song has <strong>m</strong> measures, the total number of beats is an <strong>algebraic expression</strong>: <strong>3m</strong>.</p>
+  <div class="card-idea">
+    <p>The variable <strong>m</strong> stands in for a measure count we don't know yet. "3 beats per measure" becomes multiplication — the rate (3) times the variable (m).</p>
+  </div>
+  <div class="card-tactic">
+    <div class="lbl">Test Tactic</div>
+    <p>"Per," "each," or "every" paired with a rate almost always means multiply that rate by the variable. Watch for a second detail added on top — that usually means add or subtract a fixed number after the multiplication.</p>
+  </div>
+  <div class="nav">
+    <button class="btn btn-back" onclick="goTo(0)">← Back</button>
+    <button class="btn btn-go" onclick="goTo(2)">Guided Practice  →</button>
+  </div>
+</div>
+
+<!-- SLIDE 2: WRITING EXPRESSIONS PRACTICE + ASSESS -->
+<div class="slide" id="s2">
+  <span class="badge subj-math">Math</span>
+  <span class="badge step">We Do</span>
+  <h2>Write the Next Pattern</h2>
+  <div class="qbox" id="wq1box">
+    <div class="qtext">A tambourine hits twice per measure. Which expression represents total hits across m measures?</div>
+    <div id="wq1opts"></div>
+    <div class="feedback" id="wq1fb"></div>
+  </div>
+  <div class="step-lbl">You Do — Scored</div>
+  <span class="badge subj-math">FAST-Format Item</span>
+  <div class="qbox" id="q1box">
+    <div class="qtext">A bass line plays 5 notes per measure. Which expression represents the total notes across m measures?</div>
+    <div id="q1opts"></div>
+    <div class="feedback" id="q1fb"></div>
+  </div>
+  <div class="qbox" id="q2box">
+    <div class="qtext">A drum solo has a 2-beat pickup at the very start, then plays 4 beats per measure for m measures. Which expression represents total beats?</div>
+    <div id="q2opts"></div>
+    <div class="feedback" id="q2fb"></div>
+  </div>
+  <div class="nav">
+    <button class="btn btn-back" onclick="goTo(1)">← Back</button>
+    <button class="btn btn-go" onclick="goTo(3)">Pattern 2  →</button>
+  </div>
+</div>
+
+<!-- SLIDE 3: MATH TEACH - SUBSTITUTION -->
+<div class="slide" id="s3">
+  <span class="badge subj-math">Math · MA.6.AR.1.3</span>
+  <span class="badge step">I Do</span>
+  <h2>Pattern 2: Plugging in the Measure Count</h2>
+  <p>Once you know how many measures a song actually has, you can find the exact total. If the conga pattern (<strong>3m</strong>) plays across a song with <strong>8 measures</strong>, substitute <strong>m = 8</strong>: 3(8) = <strong>24 beats total</strong>.</p>
+  <div class="card-idea">
+    <p><strong>Substitution</strong> just means replacing the variable with the actual number, then doing the arithmetic exactly as written.</p>
+  </div>
+  <div class="card-tactic">
+    <div class="lbl">Test Tactic</div>
+    <p>Replace the variable with its value first, then follow order of operations exactly — parentheses and multiplication before any addition or subtraction outside them.</p>
+  </div>
+  <div class="nav">
+    <button class="btn btn-back" onclick="goTo(2)">← Back</button>
+    <button class="btn btn-go" onclick="goTo(4)">Guided Practice  →</button>
+  </div>
+</div>
+
+<!-- SLIDE 4: SUBSTITUTION PRACTICE + ASSESS -->
+<div class="slide" id="s4">
+  <span class="badge subj-math">Math</span>
+  <span class="badge step">We Do</span>
+  <h2>Plug In the Next Value</h2>
+  <div class="qbox" id="wq2box">
+    <div class="qtext">Evaluate 2m when m = 6.</div>
+    <div id="wq2opts"></div>
+    <div class="feedback" id="wq2fb"></div>
+  </div>
+  <div class="step-lbl">You Do — Scored</div>
+  <span class="badge subj-math">FAST-Format Item</span>
+  <div class="qbox" id="q3box">
+    <div class="qtext">Evaluate 5m when m = 9. Type your answer.</div>
+    <input type="text" id="q3answer" class="inline-input" placeholder="Answer" style="width:140px">
+    <button class="btn btn-back" style="padding:10px 16px;margin-left:8px" onclick="checkQ3()">Check</button>
+    <div class="feedback" id="q3fb"></div>
+  </div>
+  <div class="qbox" id="q4box">
+    <div class="qtext">Evaluate 4m + 2 when m = 10. Type your answer.</div>
+    <input type="text" id="q4answer" class="inline-input" placeholder="Answer" style="width:140px">
+    <button class="btn btn-back" style="padding:10px 16px;margin-left:8px" onclick="checkQ4()">Check</button>
+    <div class="feedback" id="q4fb"></div>
+  </div>
+  <div class="nav">
+    <button class="btn btn-back" onclick="goTo(3)">← Back</button>
+    <button class="btn btn-go" onclick="goTo(5)">Pattern 3  →</button>
+  </div>
+</div>
+
+<!-- SLIDE 5: MATH TEACH - GROUPING/PARENTHESES -->
+<div class="slide" id="s5">
+  <span class="badge subj-math">Math · MA.6.AR.1.3</span>
+  <span class="badge step">I Do</span>
+  <h2>Pattern 3: Expressions With Grouping</h2>
+  <p>Some patterns need parentheses. Evaluate <strong>3(m + 2)</strong> when <strong>m = 5</strong>: follow order of operations — add inside the parentheses first, 5 + 2 = 7, then multiply: 3 &times; 7 = <strong>21</strong>.</p>
+  <div class="card-idea">
+    <p>Skipping the parentheses and multiplying first would give a completely different, wrong answer. Whatever is grouped inside parentheses always happens first.</p>
+  </div>
+  <div class="card-tactic">
+    <div class="lbl">Test Tactic</div>
+    <p>"Add [something] to m, then multiply the result by [a number]" is written as [number](m + [something]) — the grouping symbol is what tells you the addition happens before the multiplication.</p>
+  </div>
+  <div class="nav">
+    <button class="btn btn-back" onclick="goTo(4)">← Back</button>
+    <button class="btn btn-go" onclick="goTo(6)">Guided Practice  →</button>
+  </div>
+</div>
+
+<!-- SLIDE 6: GROUPING PRACTICE + ASSESS -->
+<div class="slide" id="s6">
+  <span class="badge subj-math">Math</span>
+  <span class="badge step">We Do</span>
+  <h2>Evaluate the Next Grouped Expression</h2>
+  <div class="qbox" id="wq3box">
+    <div class="qtext">Evaluate 2(m + 3) when m = 4.</div>
+    <div id="wq3opts"></div>
+    <div class="feedback" id="wq3fb"></div>
+  </div>
+  <div class="step-lbl">You Do — Scored</div>
+  <span class="badge subj-math">FAST-Format Item</span>
+  <div class="qbox" id="q5box">
+    <div class="qtext">Evaluate 4(m + 1) when m = 6. Type your answer.</div>
+    <input type="text" id="q5answer" class="inline-input" placeholder="Answer" style="width:140px">
+    <button class="btn btn-back" style="padding:10px 16px;margin-left:8px" onclick="checkQ5()">Check</button>
+    <div class="feedback" id="q5fb"></div>
+  </div>
+  <div class="qbox" id="q6box">
+    <div class="qtext">Which expression means "add 5 to m, then multiply the result by 2"?</div>
+    <div id="q6opts"></div>
+    <div class="feedback" id="q6fb"></div>
+  </div>
+  <div class="nav">
+    <button class="btn btn-back" onclick="goTo(5)">← Back</button>
+    <button class="btn btn-go" onclick="goTo(7)">Pattern 4  →</button>
+  </div>
+</div>
+
+<!-- SLIDE 7: MATH TEACH - MIXED REVIEW -->
+<div class="slide" id="s7">
+  <span class="badge subj-math">Math</span>
+  <span class="badge step">I Do</span>
+  <h2>Pattern 4: Reading the Whole Chart</h2>
+  <p>Real sheet music mixes rates, extra beats, and grouped expressions together. The skill FAST actually tests is building the RIGHT expression from the words before doing any arithmetic.</p>
+  <div class="card-idea">
+    <p><strong>"[Number] beats per measure"</strong> &rarr; multiply the rate by the variable.</p>
+    <p><strong>"[Number] more beats added"</strong> &rarr; add a fixed number, no multiplication.</p>
+    <p><strong>"Add [something], then multiply"</strong> &rarr; use parentheses to group the addition first.</p>
+  </div>
+  <div class="card-tactic">
+    <div class="lbl">Test Tactic</div>
+    <p>"Per measure," "each measure," and "times as many" all signal multiplication. "More," "extra," and "added on" signal addition — mixing these up is where most points get lost.</p>
+  </div>
+  <div class="nav">
+    <button class="btn btn-back" onclick="goTo(6)">← Back</button>
+    <button class="btn btn-go" onclick="goTo(8)">Guided Practice  →</button>
+  </div>
+</div>
+
+<!-- SLIDE 8: MIXED REVIEW PRACTICE + ASSESS -->
+<div class="slide" id="s8">
+  <span class="badge subj-math">Math</span>
+  <span class="badge step">We Do</span>
+  <h2>Call the Signal Word</h2>
+  <div class="qbox" id="wq4box">
+    <div class="qtext">Which phrase signals ADDITION, not multiplication?</div>
+    <div id="wq4opts"></div>
+    <div class="feedback" id="wq4fb"></div>
+  </div>
+  <div class="step-lbl">You Do — Scored</div>
+  <span class="badge subj-math">FAST-Format Item</span>
+  <div class="qbox" id="q7box">
+    <div class="qtext">Evaluate 6m &minus; 4 when m = 3. Type your answer.</div>
+    <input type="text" id="q7answer" class="inline-input" placeholder="Answer" style="width:140px">
+    <button class="btn btn-back" style="padding:10px 16px;margin-left:8px" onclick="checkQ7()">Check</button>
+    <div class="feedback" id="q7fb"></div>
+  </div>
+  <div class="qbox" id="q8box">
+    <div class="qtext">Select ALL statements below that are true.</div>
+    <div class="multiselect-note">Select all that apply</div>
+    <div id="q8opts"></div>
+    <div class="feedback" id="q8fb"></div>
+  </div>
+  <div class="qbox" id="q9box">
+    <div class="qtext">Which phrase means you should ADD, not multiply, when writing an expression?</div>
+    <div id="q9opts"></div>
+    <div class="feedback" id="q9fb"></div>
+  </div>
+  <div class="nav">
+    <button class="btn btn-back" onclick="goTo(7)">← Back</button>
+    <button class="btn btn-go" onclick="goTo(9)">Switch  →</button>
+  </div>
+</div>
+
+<!-- SLIDE 9: SWITCH / TRANSITION -->
+<div class="slide" id="s9">
+  <div class="eyebrow">Switch</div>
+  <h2>Sheet Music Closed, Speech Open</h2>
+  <div class="card-narrative">
+    <p>The rhythm patterns are done — now comes the part of the evening Malik has been rehearsing for weeks: standing in front of the council and making the case for Odessa Marsh's name on that door.</p>
+    <p>Stand up. Take a breath like you're about to speak in front of a room. Same evening, different kind of performance.</p>
+  </div>
+  <div class="nav">
+    <span></span>
+    <button class="btn btn-go" onclick="goTo(10)">Hear the Speech  →</button>
+  </div>
+</div>
+
+<!-- SLIDE 10: ELA TEACH - RHETORICAL APPEALS -->
+<div class="slide" id="s10">
+  <span class="badge subj-ela">ELA · ELA.6.R.3.4</span>
+  <span class="badge step">I Do</span>
+  <h2>Three Ways to Make a Case</h2>
+  <p>A strong persuasive speech usually leans on three different kinds of <strong>rhetorical appeals</strong>.</p>
+  <div class="card-idea">
+    <p><span class="appeal-tag appeal-ethos">ETHOS</span> builds credibility. <em>"As a science teacher with fifteen years in this building, I've seen firsthand what hands-on learning does for students."</em></p>
+    <p><span class="appeal-tag appeal-pathos">PATHOS</span> appeals to emotion. <em>"Picture a kid who's never grown anything, watching their first tomato turn red."</em></p>
+    <p><span class="appeal-tag appeal-logos">LOGOS</span> appeals to logic and evidence. <em>"Schools with gardens see measurably higher engagement in science class."</em></p>
+  </div>
+  <p>As you read Malik's speech, watch for all three — most strong speeches use each one at a different point to do a different job.</p>
+  <div class="nav">
+    <button class="btn btn-back" onclick="goTo(9)">← Back</button>
+    <button class="btn btn-go" onclick="goTo(11)">Read the Speech  →</button>
+  </div>
+</div>
+
+<!-- SLIDE 11: PASSAGE -->
+<div class="slide" id="s11">
+  <span class="badge subj-ela">Read · Persuasive Speech</span>
+  <h2>Malik's Speech to the Community Council</h2>
+  <div class="passage" id="passageReadOnly"></div>
+  <div class="nav">
+    <button class="btn btn-back" onclick="goTo(10)">← Back</button>
+    <button class="btn btn-go" onclick="goTo(12)">Break It Down  →</button>
+  </div>
+</div>
+
+<!-- SLIDE 12: GUIDED CLOSE READ -->
+<div class="slide" id="s12">
+  <span class="badge subj-ela">ELA</span>
+  <span class="badge step">We Do</span>
+  <h2>Find All Three Appeals</h2>
+  <p>Before scoring anything, let's spot each appeal together.</p>
+  <div class="card-idea">
+    <p><span class="appeal-tag appeal-ethos">ETHOS</span> Paragraph 1 establishes Odessa's forty years of consistent, generous teaching.</p>
+    <p><span class="appeal-tag appeal-pathos">PATHOS</span> Paragraph 2 describes how people get quiet remembering her lessons, and calls her porch "the only music room they ever had."</p>
+    <p><span class="appeal-tag appeal-logos">LOGOS</span> Paragraph 3 cites a specific number: at least eleven students became professional musicians.</p>
+  </div>
+  <div class="qbox" id="wq5box">
+    <div class="qtext">Which appeal does the CLOSING paragraph mainly use?</div>
+    <div id="wq5opts"></div>
+    <div class="feedback" id="wq5fb"></div>
+  </div>
+  <div class="nav">
+    <button class="btn btn-back" onclick="goTo(11)">← Back</button>
+    <button class="btn btn-go" onclick="goTo(13)">Scored Questions  →</button>
+  </div>
+</div>
+
+<!-- SLIDE 13: ELA ASSESS - ETHOS + PATHOS -->
+<div class="slide" id="s13">
+  <span class="badge subj-ela">FAST-Format Item</span>
+  <span class="badge step">You Do — Scored</span>
+  <h2>Name the Appeal</h2>
+  <div class="qbox" id="q10box">
+    <div class="qtext">Which sentence appeals to ETHOS — establishing credibility and character?</div>
+    <div id="q10opts"></div>
+    <div class="feedback" id="q10fb"></div>
+  </div>
+  <div class="qbox" id="q11box">
+    <div class="qtext">Which sentence appeals to PATHOS — the audience's emotions?</div>
+    <div id="q11opts"></div>
+    <div class="feedback" id="q11fb"></div>
+  </div>
+  <div class="nav">
+    <button class="btn btn-back" onclick="goTo(12)">← Back</button>
+    <button class="btn btn-go" onclick="goTo(14)">The Numbers  →</button>
+  </div>
+</div>
+
+<!-- SLIDE 14: ELA TEACH - LOGOS + THEME -->
+<div class="slide" id="s14">
+  <span class="badge subj-ela">ELA · ELA.6.R.1.2</span>
+  <span class="badge step">I Do</span>
+  <h2>Logos, and What the Speech Really Teaches</h2>
+  <p>Logos is the appeal built on facts and numbers — the kind of evidence you could check. But underneath all three appeals, a speech usually has one bigger idea holding it together: its <strong>theme</strong>.</p>
+  <div class="card-idea">
+    <p>Malik's speech isn't just "Odessa Marsh was a good teacher." Read closely, and the bigger idea is that <em>small, consistent effort, kept up over a long time, can build something that outlasts a single lifetime</em>.</p>
+  </div>
+  <div class="nav">
+    <button class="btn btn-back" onclick="goTo(13)">← Back</button>
+    <button class="btn btn-go" onclick="goTo(15)">Scored Round  →</button>
+  </div>
+</div>
+
+<!-- SLIDE 15: LOGOS + MULTISELECT + THEME SCORED -->
+<div class="slide" id="s15">
+  <span class="badge subj-ela">FAST-Format Item · Hot Text</span>
+  <span class="badge step">You Do — Scored</span>
+  <h2>Prove the Case</h2>
+  <div class="qbox" id="q12box">
+    <div class="qtext">Click the sentence below that appeals to LOGOS — logic and factual evidence.</div>
+    <div class="passage" id="passageScored"></div>
+    <div class="feedback" id="q12fb"></div>
+  </div>
+  <div class="qbox" id="q13box">
+    <div class="qtext">Select ALL statements below that correctly describe how a rhetorical appeal is used in this speech.</div>
+    <div class="multiselect-note">Select all that apply</div>
+    <div id="q13opts"></div>
+    <div class="feedback" id="q13fb"></div>
+  </div>
+  <div class="qbox" id="q14box">
+    <div class="qtext">What is the central theme of this speech?</div>
+    <div id="q14opts"></div>
+    <div class="feedback" id="q14fb"></div>
+  </div>
+  <div class="nav">
+    <button class="btn btn-back" onclick="goTo(14)">← Back</button>
+    <button class="btn btn-go" onclick="goTo(16)">Vocabulary  →</button>
+  </div>
+</div>
+
+<!-- SLIDE 16: VOCABULARY -->
+<div class="slide" id="s16">
+  <span class="badge subj-ela">ELA · ELA.6.V.1.1 / 1.2 / 1.3</span>
+  <span class="badge step">I Do</span>
+  <h2>Four Words From the Speech</h2>
+  <p><strong>Strategy — Context clues.</strong></p>
+  <div class="card-idea">
+    <p><em>"That's a measurable legacy, built one Saturday at a time"</em> — pairing "measurable" with a specific number of students right before it points to something that can be counted with real evidence.</p>
+    <p><em>"training three generations of local musicians"</em> — "generations" here means groups of people from different age ranges — grandparents, parents, and kids — all touched by her teaching.</p>
+  </div>
+  <div class="step-lbl">We Do</div>
+  <div class="qbox" id="wq6box">
+    <div class="qtext">The speech closes with "a Saturday morning and a little patience can turn into something that lasts for generations." Based on that sentence, what does "patience" most likely mean?</div>
+    <div id="wq6opts"></div>
+    <div class="feedback" id="wq6fb"></div>
+  </div>
+  <div class="nav">
+    <button class="btn btn-back" onclick="goTo(15)">← Back</button>
+    <button class="btn btn-go" onclick="goTo(17)">Scored Round  →</button>
+  </div>
+</div>
+
+<!-- SLIDE 17: VOCAB SCORED + MATCHING -->
+<div class="slide" id="s17">
+  <span class="badge subj-ela">FAST-Format Item</span>
+  <span class="badge step">You Do — Scored</span>
+  <h2>Word Check</h2>
+  <div class="qbox" id="q15box">
+    <div class="qtext">What does "legacy" mean as used in the speech?</div>
+    <div id="q15opts"></div>
+    <div class="feedback" id="q15fb"></div>
+  </div>
+  <div class="qbox" id="q16box">
+    <div class="qtext">What does "measurable" mean in "a measurable legacy"?</div>
+    <div id="q16opts"></div>
+    <div class="feedback" id="q16fb"></div>
+  </div>
+  <div class="qbox" id="q17box">
+    <div class="qtext">What does "patience" mean as used in the closing line?</div>
+    <div id="q17opts"></div>
+    <div class="feedback" id="q17fb"></div>
+  </div>
+  <div class="qbox" id="q18box">
+    <div class="qtext">What does "generations" mean in "training three generations of local musicians"?</div>
+    <div id="q18opts"></div>
+    <div class="feedback" id="q18fb"></div>
+  </div>
+  <h3>Bonus Mode: Match the Words</h3>
+  <p style="font-size:.9rem">Click a word, then click its matching meaning. Not scored toward your total — just extra XP.</p>
+  <div class="match-wrap">
+    <div class="match-col" id="matchWords"></div>
+    <div class="match-col" id="matchDefs"></div>
+  </div>
+  <div class="nav">
+    <button class="btn btn-back" onclick="goTo(16)">← Back</button>
+    <button class="btn btn-go" onclick="goTo(18)">The Argument  →</button>
+  </div>
+</div>
+
+<!-- SLIDE 18: ELA TEACH - MATCHING EVIDENCE TO ARGUMENT -->
+<div class="slide" id="s18">
+  <span class="badge subj-ela">ELA · ELA.6.R.2.4</span>
+  <span class="badge step">I Do</span>
+  <h2>Matching the Strongest Evidence</h2>
+  <p>A speech's conclusion is only as convincing as the single strongest piece of evidence behind it. When FAST asks which detail best supports an argument, look for the most specific, concrete proof — not just any detail that's related.</p>
+  <div class="card-idea">
+    <p>Malik's core argument is that the room should be named after Odessa because of her lasting impact. Several details in the speech are related to her — but the strongest proof of "lasting impact" specifically is the concrete number of students who became professional musicians, not a general description of how people feel remembering her.</p>
+  </div>
+  <div class="nav">
+    <button class="btn btn-back" onclick="goTo(17)">← Back</button>
+    <button class="btn btn-go" onclick="goTo(19)">Scored Round  →</button>
+  </div>
+</div>
+
+<!-- SLIDE 19: EVIDENCE-BASED SCORED -->
+<div class="slide" id="s19">
+  <span class="badge subj-ela">FAST-Format Item</span>
+  <span class="badge step">You Do — Scored</span>
+  <h2>Prove the Argument</h2>
+  <div class="qbox" id="q19box">
+    <div class="qtext"><strong>Evidence-Based Response, Part 1:</strong> What is Malik's main argument in this speech?</div>
+    <div id="q19opts"></div>
+  </div>
+  <div class="qbox" id="q20box" style="display:none">
+    <div class="qtext"><strong>Evidence-Based Response, Part 2:</strong> Which detail from the speech best supports that argument?</div>
+    <div id="q20opts"></div>
+    <div class="feedback" id="q20fb"></div>
+  </div>
+  <div class="card-tactic">
+    <div class="lbl">Test Tactic</div>
+    <p>Evidence-based items are graded as a pair — Part 2 only counts if Part 1 is right too. Pin down the exact argument before hunting for its strongest proof.</p>
+  </div>
+  <div class="nav">
+    <button class="btn btn-back" onclick="goTo(18)">← Back</button>
+    <button class="btn btn-go" onclick="goTo(20)">Closing Notes  →</button>
+  </div>
+</div>
+
+<!-- SLIDE 20: LOOKING AHEAD -->
+<div class="slide" id="s20">
+  <div class="eyebrow">Looking Ahead</div>
+  <h2>Scouting Report: Week 8</h2>
+  <p>Next week the theme shifts to <strong>Basketball — "Bracket Breakdown"</strong>: coordinate distance and area/perimeter in Math, central idea in ELA.</p>
+  <p>The council votes on the room's name at the end of the month — Malik will find out if his speech worked.</p>
+  <div class="nav">
+    <button class="btn btn-back" onclick="goTo(19)">← Back</button>
+    <button class="btn btn-go" onclick="goTo(21)">See Your Score  →</button>
+  </div>
+</div>
+
+<!-- SLIDE 21: FINAL SCORE -->
+<div class="slide" id="s21">
+  <div class="final-badge">
+    <div class="medal">🏆</div>
+    <h1 id="finalName">Great Work!</h1>
+    <p>Voices &amp; Rhythms complete.</p>
+    <div class="scorebox">
+      <div class="cell"><div class="num" id="finalXP">0</div><div class="lbl">Total XP</div></div>
+      <div class="cell"><div class="num" id="finalMath">0/9</div><div class="lbl">Math Correct</div></div>
+      <div class="cell"><div class="num" id="finalELA">0/10</div><div class="lbl">ELA Correct</div></div>
+    </div>
+    <p id="masteryMsg" style="font-weight:700;color:var(--navy)"></p>
+    <button class="btn btn-go" onclick="submitScore()" id="submitBtn">Submit My Results</button>
+    <p class="footer-note" id="submitStatus"></p>
+  </div>
+</div>
+
+<div class="dots" id="dots"></div>
+</div>
+
+<script>
+const TOTAL_SLIDES = 22;
+let current = 0;
+let xp = 0;
+let streak = 0;
+let mathCorrect = 0, mathTotal = 9;
+let elaCorrect = 0, elaTotal = 10;
+let q19Correct = false;
+
+function goTo(n){
+  document.getElementById('s'+current).classList.remove('on');
+  current = n;
+  document.getElementById('s'+current).classList.add('on');
+  renderDots();
+  window.scrollTo({top:0,behavior:'smooth'});
+  if(n===21){ finalizeScore(); }
+}
+
+function renderDots(){
+  const d = document.getElementById('dots');
+  d.innerHTML='';
+  for(let i=0;i<TOTAL_SLIDES;i++){
+    const dot = document.createElement('div');
+    dot.className = 'dot' + (i===current?' on':'') + (i<current?' done':'');
+    d.appendChild(dot);
+  }
+}
+
+function addXP(n){
+  xp += n;
+  document.getElementById('xpStat').textContent = xp;
+  document.getElementById('xpFill').style.width = Math.min(100,(xp/380)*100) + '%';
+  streak++;
+  document.getElementById('streakStat').textContent = streak;
+}
+
+function burstConfetti(){
+  const container = document.createElement('div');
+  container.style.cssText = 'position:fixed;inset:0;pointer-events:none;z-index:9999;overflow:hidden;';
+  document.body.appendChild(container);
+  const count = 28;
+  const colors = ['#C9A84C','#0047BA','#DB2F30','#0A1F3D','#ffffff'];
+  for(let i=0;i<count;i++){
+    const piece = document.createElement('div');
+    const startX = Math.random()*100;
+    const duration = 1.6 + Math.random()*1.3;
+    const delay = Math.random()*0.25;
+    const rotate = Math.random()*720-360;
+    const drift = (Math.random()*180-90);
+    piece.style.position='absolute';
+    piece.style.left=startX+'vw';
+    piece.style.top='-30px';
+    piece.style.setProperty('--drift', drift+'px');
+    piece.style.setProperty('--rot', rotate+'deg');
+    piece.style.animation = `confettiFall ${duration}s ease-in ${delay}s forwards`;
+    const c = colors[Math.floor(Math.random()*colors.length)];
+    const w = 8+Math.random()*6, h=12+Math.random()*8;
+    piece.style.width=w+'px'; piece.style.height=h+'px';
+    piece.style.background=c;
+    piece.style.borderRadius = Math.random()>0.5?'50%':'2px';
+    container.appendChild(piece);
+  }
+  setTimeout(()=>container.remove(), 3200);
+}
+
+function buildSingleSelect(optsId, fbId, data, onCorrect){
+  const container = document.getElementById(optsId);
+  data.forEach(o=>{
+    const b=document.createElement('button');
+    b.className='opt';
+    b.textContent=o.text;
+    b.onclick=()=>{
+      document.querySelectorAll('#'+optsId+' .opt').forEach(x=>x.classList.remove('sel','correct','wrong'));
+      const fb = document.getElementById(fbId);
+      if(o.correct){
+        b.classList.add('correct');
+        fb.textContent = o.explain || 'Correct.';
+        fb.className='feedback show ok';
+        b.closest('.qbox').classList.add('ok');
+        if(onCorrect) onCorrect();
+      } else {
+        b.classList.add('wrong');
+        fb.textContent = o.explain || 'Not quite — reread the clue and try again.';
+        fb.className='feedback show bad';
+      }
+    };
+    container.appendChild(b);
+  });
+}
+
+// ================= MATH: PATTERN 1 (WRITING EXPRESSIONS) =================
+
+buildSingleSelect('wq1opts','wq1fb',[
+  {text:'2m', correct:true, explain:'Right — 2 hits per measure times m measures.'},
+  {text:'m + 2', correct:false, explain:'That would mean 2 extra hits added once, not per measure.'},
+  {text:'m/2', correct:false, explain:'Dividing doesn\u2019t represent a per-measure rate here.'}
+], ()=>{addXP(5); burstConfetti();});
+
+buildSingleSelect('q1opts','q1fb',[
+  {text:'5m', correct:true, explain:'Correct — 5 notes per measure times m measures.'},
+  {text:'5 + m', correct:false, explain:'That would mean 5 extra notes added once, not per measure.'},
+  {text:'m/5', correct:false, explain:'Dividing doesn\u2019t represent a per-measure rate.'},
+  {text:'5 \u2212 m', correct:false, explain:'Subtracting doesn\u2019t represent a per-measure rate.'}
+], ()=>{addXP(10); mathCorrect++; burstConfetti();});
+
+buildSingleSelect('q2opts','q2fb',[
+  {text:'4m + 2', correct:true, explain:'Correct — 4 beats per measure (4m), plus a fixed 2-beat pickup added on.'},
+  {text:'4m \u2212 2', correct:false, explain:'The pickup is ADDED, not subtracted.'},
+  {text:'4(m + 2)', correct:false, explain:'That would mean the pickup repeats every measure — it only happens once, at the start.'},
+  {text:'2m + 4', correct:false, explain:'That reverses which number is the rate and which is the fixed extra.'}
+], ()=>{addXP(10); mathCorrect++; burstConfetti();});
+
+// ================= MATH: PATTERN 2 (SUBSTITUTION) =================
+
+buildSingleSelect('wq2opts','wq2fb',[
+  {text:'12', correct:true, explain:'Right — 2 times 6 = 12.'},
+  {text:'8', correct:false, explain:'That adds 2+6 instead of multiplying.'},
+  {text:'3', correct:false, explain:'That divides 6 by 2 instead of multiplying.'}
+], ()=>{addXP(5); burstConfetti();});
+
+function checkQ3(){
+  const val = document.getElementById('q3answer').value.trim();
+  const fb = document.getElementById('q3fb');
+  if(val === '45'){
+    fb.textContent='Correct — 5 times 9 = 45.';
+    fb.className='feedback show ok';
+    addXP(15); mathCorrect++;
+    burstConfetti();
+    document.getElementById('q3box').classList.add('ok');
+  } else {
+    fb.textContent='Not yet — substitute 9 for m, then multiply.';
+    fb.className='feedback show bad';
+  }
+}
+
+function checkQ4(){
+  const val = document.getElementById('q4answer').value.trim();
+  const fb = document.getElementById('q4fb');
+  if(val === '42'){
+    fb.textContent='Correct — 4 times 10 = 40, plus 2 = 42.';
+    fb.className='feedback show ok';
+    addXP(15); mathCorrect++;
+    burstConfetti();
+    document.getElementById('q4box').classList.add('ok');
+  } else {
+    fb.textContent='Not yet — multiply 4 by 10 first, then add 2.';
+    fb.className='feedback show bad';
+  }
+}
+
+// ================= MATH: PATTERN 3 (GROUPING) =================
+
+buildSingleSelect('wq3opts','wq3fb',[
+  {text:'14', correct:true, explain:'Right — 4+3=7 inside the parentheses first, then 2 times 7 = 14.'},
+  {text:'11', correct:false, explain:'That multiplies 2 times 4 first instead of adding inside the parentheses first.'},
+  {text:'20', correct:false, explain:'Recheck the order of operations — parentheses first.'}
+], ()=>{addXP(5); burstConfetti();});
+
+function checkQ5(){
+  const val = document.getElementById('q5answer').value.trim();
+  const fb = document.getElementById('q5fb');
+  if(val === '28'){
+    fb.textContent='Correct — 6+1=7 inside the parentheses first, then 4 times 7 = 28.';
+    fb.className='feedback show ok';
+    addXP(15); mathCorrect++;
+    burstConfetti();
+    document.getElementById('q5box').classList.add('ok');
+  } else {
+    fb.textContent='Not yet — add inside the parentheses first, then multiply.';
+    fb.className='feedback show bad';
+  }
+}
+
+buildSingleSelect('q6opts','q6fb',[
+  {text:'2(m + 5)', correct:true, explain:'Correct — the parentheses group the addition, which happens before the multiplication.'},
+  {text:'2m + 5', correct:false, explain:'That multiplies m by 2 first, then adds 5 — the opposite order.'},
+  {text:'(2m) + 5', correct:false, explain:'Same issue — multiplication happens before the addition here.'},
+  {text:'5(m + 2)', correct:false, explain:'That uses the wrong numbers in the wrong positions.'}
+], ()=>{addXP(10); mathCorrect++; burstConfetti();});
+
+// ================= MATH: PATTERN 4 (MIXED REVIEW) =================
+
+buildSingleSelect('wq4opts','wq4fb',[
+  {text:'"three beats per measure"', correct:false, explain:'"Per measure" signals multiplication, not addition.'},
+  {text:'"three more beats added to each measure"', correct:true, explain:'Correct — "more" and "added" both signal addition.'},
+  {text:'"three times as many beats"', correct:false, explain:'"Times as many" signals multiplication, not addition.'}
+], ()=>{addXP(5); burstConfetti();});
+
+function checkQ7(){
+  const val = document.getElementById('q7answer').value.trim();
+  const fb = document.getElementById('q7fb');
+  if(val === '14'){
+    fb.textContent='Correct — 6 times 3 = 18, minus 4 = 14.';
+    fb.className='feedback show ok';
+    addXP(15); mathCorrect++;
+    burstConfetti();
+    document.getElementById('q7box').classList.add('ok');
+  } else {
+    fb.textContent='Not yet — multiply 6 by 3 first, then subtract 4.';
+    fb.className='feedback show bad';
+  }
+}
+
+const q8data = [
+  {text:'5m when m=9 equals 45', correct:true},
+  {text:'4m+2 when m=10 equals 42', correct:true},
+  {text:'4(m+1) when m=6 equals 24', correct:false},
+  {text:'6m\u22124 when m=3 equals 14', correct:true},
+  {text:'2(m+5) means multiply m by 2 first, then add 5', correct:false}
+];
+const q8opts = document.getElementById('q8opts');
+let q8selected = new Set();
+q8data.forEach((o,idx)=>{
+  const b = document.createElement('button');
+  b.className='opt'; b.textContent=o.text;
+  b.onclick=()=>{
+    if(q8selected.has(idx)){ q8selected.delete(idx); b.classList.remove('sel'); }
+    else { q8selected.add(idx); b.classList.add('sel'); }
+  };
+  q8opts.appendChild(b);
+});
+const q8btn = document.createElement('button');
+q8btn.className='btn btn-back'; q8btn.style.marginTop='10px';
+q8btn.textContent='Check My Selections';
+q8btn.onclick=()=>{
+  const fb = document.getElementById('q8fb');
+  const correctSet = new Set(q8data.map((o,i)=>o.correct?i:null).filter(x=>x!==null));
+  const isRight = q8selected.size===correctSet.size && [...q8selected].every(i=>correctSet.has(i));
+  document.querySelectorAll('#q8opts .opt').forEach(b=>b.classList.remove('correct','wrong'));
+  if(isRight){
+    document.querySelectorAll('#q8opts .opt').forEach((b,i)=>{
+      if(q8data[i].correct) b.classList.add('correct');
+    });
+    fb.textContent='All three correct — 4(m+1) when m=6 is actually 28, not 24, and 2(m+5) means add first, then multiply.';
+    fb.className='feedback show ok';
+    addXP(15); mathCorrect++;
+    burstConfetti();
+    document.getElementById('q8box').classList.add('ok');
+  } else {
+    document.querySelectorAll('#q8opts .opt').forEach((b,i)=>{
+      if(q8selected.has(i)) b.classList.add('wrong');
+    });
+    fb.textContent='Close — exactly three of the five statements are true. Try again.';
+    fb.className='feedback show bad';
+  }
+};
+q8opts.appendChild(q8btn);
+
+buildSingleSelect('q9opts','q9fb',[
+  {text:'"four beats per measure"', correct:false, explain:'"Per measure" signals multiplication.'},
+  {text:'"two extra beats added at the end"', correct:true, explain:'Correct — "extra" and "added" both signal addition.'},
+  {text:'"twice as many beats"', correct:false, explain:'"Twice as many" signals multiplication.'},
+  {text:'"three beats each measure"', correct:false, explain:'"Each measure" signals multiplication.'}
+], ()=>{addXP(10); mathCorrect++; burstConfetti();});
+
+// ================= ELA SECTION =================
+
+const speechParagraphs = [
+  {id:'p1', text:"Odessa Marsh played piano in Arcadia\u2019s churches and community halls for over forty years, training three generations of local musicians for free, every single Saturday morning, rain or shine.", appeal:'ethos'},
+  {id:'p2', text:"Ask anyone over sixty in this town what Miss Odessa\u2019s Saturday lessons meant to them, and most of them get a little quiet before they answer. For a lot of families who couldn\u2019t afford private lessons, her porch was the only music room they ever had.", appeal:'pathos'},
+  {id:'p3', text:"In the four decades she taught, at least eleven of her students went on to become professional musicians, and dozens more still play in this town\u2019s churches and community bands today. That\u2019s a measurable legacy, built one Saturday at a time.", appeal:'logos'},
+  {id:'p4', text:"Naming this room after her isn\u2019t just about honoring the past. It\u2019s about telling every kid who walks through that door that a Saturday morning and a little patience can turn into something that lasts for generations.", appeal:'closing'}
+];
+
+function buildPassageBody(containerId, scored){
+  const c = document.getElementById(containerId);
+  speechParagraphs.forEach(s=>{
+    const p = document.createElement('p');
+    p.className='hot-sentence';
+    if(scored) p.setAttribute('tabindex','0');
+    p.textContent = s.text;
+    if(scored){
+      const activate = ()=>{
+        document.querySelectorAll('#'+containerId+' .hot-sentence').forEach(x=>x.classList.remove('sel','correct','wrong'));
+        const fb = document.getElementById('q12fb');
+        if(s.appeal==='logos'){
+          p.classList.add('correct');
+          fb.textContent='Correct — this paragraph cites a specific, checkable number: at least eleven students.';
+          fb.className='feedback show ok';
+          addXP(15); elaCorrect++;
+          burstConfetti();
+          document.getElementById('q12box').classList.add('ok');
+        } else {
+          p.classList.add('wrong');
+          fb.textContent='Not logos — look for the paragraph built on a specific, countable number.';
+          fb.className='feedback show bad';
+        }
+      };
+      p.onclick = activate;
+      p.onkeydown = (e)=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); activate(); } };
+    }
+    c.appendChild(p);
+  });
+}
+buildPassageBody('passageReadOnly', false);
+
+buildSingleSelect('wq5opts','wq5fb',[
+  {text:'Ethos', correct:false, explain:'The closing paragraph isn\u2019t primarily establishing credibility — that was paragraph 1.'},
+  {text:'Pathos', correct:false, explain:'The closing paragraph isn\u2019t primarily emotional — that was paragraph 2.'},
+  {text:'It mainly reinforces the theme, tying the appeals together rather than adding a new one', correct:true, explain:'Right — the closing paragraph pulls the argument together around its bigger idea.'}
+], ()=>{addXP(5); burstConfetti();});
+
+buildSingleSelect('q10opts','q10fb',[
+  {text:'Odessa Marsh played piano in Arcadia\u2019s churches and community halls for over forty years, training three generations of local musicians for free', correct:true, explain:'Correct — this establishes her decades of consistent, generous character.'},
+  {text:'Ask anyone over sixty in this town what Miss Odessa\u2019s Saturday lessons meant to them', correct:false, explain:'That appeals to emotion (pathos), not credibility.'},
+  {text:'At least eleven of her students went on to become professional musicians', correct:false, explain:'That appeals to logic and evidence (logos), not credibility.'}
+], ()=>{addXP(10); elaCorrect++; burstConfetti();});
+
+buildSingleSelect('q11opts','q11fb',[
+  {text:'Ask anyone over sixty in this town what Miss Odessa\u2019s Saturday lessons meant to them, and most of them get a little quiet before they answer', correct:true, explain:'Correct — this appeals directly to the audience\u2019s feelings.'},
+  {text:'Odessa Marsh played piano... for over forty years', correct:false, explain:'That establishes credibility (ethos), not emotion.'},
+  {text:'At least eleven of her students went on to become professional musicians', correct:false, explain:'That appeals to logic and evidence (logos), not emotion.'}
+], ()=>{addXP(10); elaCorrect++; burstConfetti();});
+
+buildPassageBody('passageScored', true);
+
+const q13data = [
+  {text:'The opening paragraph builds ethos by describing forty years of consistent, generous teaching', correct:true},
+  {text:'The second paragraph uses pathos by describing how quiet people get when asked about her lessons', correct:true},
+  {text:'The third paragraph uses logos by citing the number of students who became professional musicians', correct:true},
+  {text:'The closing paragraph uses logos by citing a brand-new statistic', correct:false},
+  {text:'The speech never uses pathos at all', correct:false}
+];
+const q13opts = document.getElementById('q13opts');
+let q13selected = new Set();
+q13data.forEach((o,idx)=>{
+  const b = document.createElement('button');
+  b.className='opt'; b.textContent=o.text;
+  b.onclick=()=>{
+    if(q13selected.has(idx)){ q13selected.delete(idx); b.classList.remove('sel'); }
+    else { q13selected.add(idx); b.classList.add('sel'); }
+  };
+  q13opts.appendChild(b);
+});
+const q13btn = document.createElement('button');
+q13btn.className='btn btn-back'; q13btn.style.marginTop='10px';
+q13btn.textContent='Check My Selections';
+q13btn.onclick=()=>{
+  const fb = document.getElementById('q13fb');
+  const correctSet = new Set(q13data.map((o,i)=>o.correct?i:null).filter(x=>x!==null));
+  const isRight = q13selected.size===correctSet.size && [...q13selected].every(i=>correctSet.has(i));
+  document.querySelectorAll('#q13opts .opt').forEach(b=>b.classList.remove('correct','wrong'));
+  if(isRight){
+    document.querySelectorAll('#q13opts .opt').forEach((b,i)=>{
+      if(q13data[i].correct) b.classList.add('correct');
+    });
+    fb.textContent='All three correct — the closing paragraph reinforces the theme rather than adding a new statistic, and the speech clearly does use pathos in paragraph 2.';
+    fb.className='feedback show ok';
+    addXP(15); elaCorrect++;
+    burstConfetti();
+    document.getElementById('q13box').classList.add('ok');
+  } else {
+    document.querySelectorAll('#q13opts .opt').forEach((b,i)=>{
+      if(q13selected.has(i)) b.classList.add('wrong');
+    });
+    fb.textContent='Close — exactly three of the five statements are true. Try again.';
+    fb.className='feedback show bad';
+  }
+};
+q13opts.appendChild(q13btn);
+
+buildSingleSelect('q14opts','q14fb',[
+  {text:'Consistent, small acts of dedication can build a legacy that lasts for generations', correct:true, explain:'Correct — the whole speech builds toward this idea, especially in the closing line.'},
+  {text:'Only professional musicians deserve to be honored', correct:false, explain:'The speech never argues that — it praises her impact on everyone she taught, not just the professionals.'},
+  {text:'Free lessons are always better than paid lessons', correct:false, explain:'The speech doesn\u2019t compare free and paid lessons at all.'},
+  {text:'Music rooms should always be named after teachers', correct:false, explain:'That is too broad a rule — the speech argues for THIS specific case.'}
+], ()=>{addXP(10); elaCorrect++; burstConfetti();});
+
+buildSingleSelect('wq6opts','wq6fb',[
+  {text:'The ability to keep trying without giving up quickly', correct:true, explain:'Right — the sentence credits patience, alongside consistency, with building something lasting.'},
+  {text:'A feeling of anger', correct:false, explain:'Nothing in the sentence describes anger.'},
+  {text:'Working very quickly', correct:false, explain:'Patience is closer to the opposite of rushing.'}
+], ()=>{addXP(5); burstConfetti();});
+
+buildSingleSelect('q15opts','q15fb',[
+  {text:'Something lasting that continues on after a person\u2019s direct involvement ends', correct:true, explain:'Correct — the eleven professional musicians and dozens of community players are her ongoing legacy.'},
+  {text:'A type of musical instrument', correct:false, explain:'That is unrelated to how "legacy" is used here.'},
+  {text:'A single performance', correct:false, explain:'A legacy is a lasting impact, not one event.'}
+], ()=>{addXP(10); elaCorrect++; burstConfetti();});
+
+buildSingleSelect('q16opts','q16fb',[
+  {text:'Able to be counted or shown with real evidence', correct:true, explain:'Correct — it\u2019s paired directly with a specific number of students.'},
+  {text:'Impossible to know for certain', correct:false, explain:'That is close to the opposite of "measurable."'},
+  {text:'Related to music specifically', correct:false, explain:'"Measurable" is a general word about evidence, not specifically about music.'}
+], ()=>{addXP(10); elaCorrect++; burstConfetti();});
+
+buildSingleSelect('q17opts','q17fb',[
+  {text:'The ability to keep trying without giving up quickly', correct:true, explain:'Correct — consistent with the "We Do" example, this is what "patience" means here too.'},
+  {text:'Skill at playing an instrument', correct:false, explain:'Nothing in the sentence describes musical skill specifically.'},
+  {text:'A type of reward', correct:false, explain:'Patience is a quality, not a reward.'}
+], ()=>{addXP(10); elaCorrect++; burstConfetti();});
+
+buildSingleSelect('q18opts','q18fb',[
+  {text:'Groups of people from different age ranges, often spanning grandparents, parents, and kids', correct:true, explain:'Correct — "three generations" spans a wide age range of students she taught over the decades.'},
+  {text:'Types of musical instruments', correct:false, explain:'That is unrelated to how "generations" is used here.'},
+  {text:'A specific year', correct:false, explain:'"Generations" refers to groups of people, not a single year.'}
+], ()=>{addXP(10); elaCorrect++; burstConfetti();});
+
+(function(){
+  const words = [
+    {id:'legacy', text:'legacy'}, {id:'measurable', text:'measurable'},
+    {id:'patience', text:'patience'}, {id:'generations', text:'generations'}
+  ];
+  const defs = [
+    {id:'legacy', text:'a lasting impact that continues on'}, {id:'measurable', text:'able to be counted with evidence'},
+    {id:'patience', text:'keeping at something without giving up'}, {id:'generations', text:'groups from different age ranges'}
+  ];
+  defs.sort(()=>Math.random()-0.5);
+  const wordsCol = document.getElementById('matchWords');
+  const defsCol = document.getElementById('matchDefs');
+  let selectedWord = null;
+  let pairedCount = 0;
+  words.forEach(w=>{
+    const b = document.createElement('button');
+    b.className='match-item'; b.textContent=w.text; b.dataset.id=w.id;
+    b.onclick=()=>{
+      if(b.classList.contains('paired')) return;
+      document.querySelectorAll('#matchWords .match-item').forEach(x=>x.classList.remove('sel'));
+      b.classList.add('sel');
+      selectedWord = w.id;
+    };
+    wordsCol.appendChild(b);
+  });
+  defs.forEach(d=>{
+    const b = document.createElement('button');
+    b.className='match-item'; b.textContent=d.text; b.dataset.id=d.id;
+    b.onclick=()=>{
+      if(b.classList.contains('paired') || !selectedWord) return;
+      if(d.id===selectedWord){
+        b.classList.add('paired');
+        document.querySelector('#matchWords [data-id="'+selectedWord+'"]').classList.add('paired');
+        document.querySelector('#matchWords [data-id="'+selectedWord+'"]').classList.remove('sel');
+        addXP(5);
+        pairedCount++;
+        if(pairedCount===words.length) burstConfetti();
+      } else {
+        b.style.borderColor = 'var(--bad)';
+        setTimeout(()=>{ b.style.borderColor=''; },500);
+      }
+      selectedWord = null;
+    };
+    defsCol.appendChild(b);
+  });
+})();
+
+const q19data = [
+  {text:'That the new music room should be named after Odessa Marsh because of her lasting impact on the community', correct:true},
+  {text:'That Odessa Marsh was the most famous musician in Arcadia\u2019s history', correct:false},
+  {text:'That all music teachers should work for free', correct:false},
+  {text:'That the school needs a bigger music room', correct:false}
+];
+const q19opts = document.getElementById('q19opts');
+q19data.forEach(o=>{
+  const b=document.createElement('button'); b.className='opt'; b.textContent=o.text;
+  b.onclick=()=>{
+    document.querySelectorAll('#q19opts .opt').forEach(x=>x.classList.remove('sel','correct','wrong'));
+    if(o.correct){ b.classList.add('correct'); q19Correct = true; document.getElementById('q20box').style.display='block'; }
+    else { b.classList.add('wrong'); q19Correct = false; document.getElementById('q20box').style.display='none'; }
+  };
+  q19opts.appendChild(b);
+});
+const q20data = [
+  {text:'At least eleven of her students went on to become professional musicians, and dozens more still play in this town\u2019s churches and community bands today', correct:true},
+  {text:'Ask anyone over sixty in this town what Miss Odessa\u2019s Saturday lessons meant to them', correct:false},
+  {text:'Her porch was the only music room they ever had', correct:false},
+  {text:'Rain or shine', correct:false}
+];
+const q20opts = document.getElementById('q20opts');
+q20data.forEach(o=>{
+  const b=document.createElement('button'); b.className='opt'; b.textContent=o.text;
+  b.onclick=()=>{
+    document.querySelectorAll('#q20opts .opt').forEach(x=>x.classList.remove('sel','correct','wrong'));
+    const fb = document.getElementById('q20fb');
+    if(o.correct && q19Correct){
+      b.classList.add('correct');
+      fb.textContent='Both parts correct — that concrete number is the strongest, most checkable proof of lasting impact.';
+      fb.className='feedback show ok';
+      addXP(20); elaCorrect++;
+      burstConfetti();
+      document.getElementById('q19box').classList.add('ok');
+      document.getElementById('q20box').classList.add('ok');
+    } else {
+      b.classList.add('wrong');
+      fb.textContent='This only counts if Part 1 is also correct — check both parts.';
+      fb.className='feedback show bad';
+    }
+  };
+  q20opts.appendChild(b);
+});
+
+function finalizeScore(){
+  const name = document.getElementById('studentName').value.trim() || 'Champion';
+  document.getElementById('finalName').textContent = name + ', Great Work!';
+  document.getElementById('finalXP').textContent = xp;
+  document.getElementById('finalMath').textContent = Math.min(mathCorrect,mathTotal) + '/' + mathTotal;
+  document.getElementById('finalELA').textContent = Math.min(elaCorrect,elaTotal) + '/' + elaTotal;
+  const pct = ((mathCorrect+elaCorrect)/(mathTotal+elaTotal))*100;
+  let msg = '';
+  if(pct>=85) msg = 'Level 4-5 pace today — that\u2019s exactly the target.';
+  else if(pct>=60) msg = 'Solid Level 3 work — the Test Tactics call-outs are where the next jump comes from.';
+  else msg = 'Good first rep on this material — review comes back around soon.';
+  document.getElementById('masteryMsg').textContent = msg;
+  burstConfetti();
+}
+
+function submitScore(){
+  // Live Formspree endpoint for FAST Prep Grade 6 Progress (shared across all 14 lessons).
+  const endpoint = 'https://formspree.io/f/xppzdzwb';
+  const name = document.getElementById('studentName').value.trim() || 'Unknown';
+  const payload = {
+    student: name,
+    lesson: 'FAST Prep G6 — Lesson 7: Voices & Rhythms (Black American Life)',
+    date: new Date().toISOString().slice(0,10),
+    xp: xp,
+    math_correct: Math.min(mathCorrect,mathTotal),
+    math_total: mathTotal,
+    ela_correct: Math.min(elaCorrect,elaTotal),
+    ela_total: elaTotal
+  };
+  const statusEl = document.getElementById('submitStatus');
+  const btn = document.getElementById('submitBtn');
+  btn.disabled = true;
+  statusEl.textContent = 'Submitting...';
+  fetch(endpoint, {
+    method:'POST',
+    headers:{'Content-Type':'application/json','Accept':'application/json'},
+    body: JSON.stringify(payload)
+  }).then(r=>{
+    if(r.ok){ statusEl.textContent = 'Results saved. Nice work today!'; }
+    else { statusEl.textContent = 'Progress endpoint not yet connected — ask your tutor to save this manually for now.'; btn.disabled=false; }
+  }).catch(()=>{
+    statusEl.textContent = 'Progress endpoint not yet connected — ask your tutor to save this manually for now.';
+    btn.disabled=false;
+  });
+}
+
+renderDots();
+</script>
+</body>
+</html>
