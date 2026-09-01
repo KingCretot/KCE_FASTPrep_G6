@@ -1,0 +1,1186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FAST Prep Grade 6 — Lesson 4: Hometown Ties | KingCretot Experience</title>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0A1F3D; --gold:#C9A84C; --blue:#0047BA; --red:#DB2F30; --cream:#FAF7EF;
+  --ink:#1c1c1c; --ok:#2E7D32; --bad:#C0392B; --field:#1e4d2b;
+  --shadow:0 8px 24px rgba(10,31,61,.18);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{font-family:'Nunito',sans-serif;background:linear-gradient(160deg,#F4F1EA 0%,#EAE3D3 100%);color:var(--ink);min-height:100vh;font-size:17px;line-height:1.6}
+h1,h2,h3,.hud-title,.btn{font-family:'Oswald',sans-serif}
+.hud{position:fixed;top:0;left:0;right:0;background:linear-gradient(135deg,var(--navy),#071630);color:#fff;padding:10px 20px;display:flex;justify-content:space-between;align-items:center;z-index:100;box-shadow:var(--shadow);flex-wrap:wrap;gap:8px}
+.hud-left{display:flex;align-items:center;gap:12px}
+.kc-box{background:var(--navy);border:2px solid var(--gold);color:var(--gold);font-weight:700;font-size:1.05rem;border-radius:7px;padding:5px 10px;line-height:1}
+.hud-title{font-size:1rem;font-weight:600;letter-spacing:.3px}
+.hud-title small{display:block;font-family:'Nunito',sans-serif;font-size:.7rem;color:var(--gold);letter-spacing:1.5px;text-transform:uppercase;font-weight:800}
+.hud-right{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.stat{background:rgba(255,255,255,.12);padding:6px 14px;border-radius:20px;font-weight:800;font-size:.9rem;display:flex;align-items:center;gap:6px}
+.stat .big{color:var(--gold)}
+.xpbar{width:110px;height:9px;background:rgba(255,255,255,.2);border-radius:5px;overflow:hidden}
+.xpfill{height:100%;background:linear-gradient(90deg,var(--gold),#e8c874);transition:width .4s;width:0%}
+.wrap{max-width:900px;margin:0 auto;padding:100px 18px 44px}
+.slide{background:#fff;border-radius:20px;padding:32px;box-shadow:var(--shadow);min-height:480px;display:none;animation:pop .3s ease;border-top:5px solid var(--gold)}
+.slide.on{display:block}
+@keyframes pop{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+@keyframes confettiFall{0%{transform:translate(0,0) rotate(0deg);opacity:1}100%{transform:translate(var(--drift),105vh) rotate(var(--rot));opacity:.15}}
+.eyebrow{letter-spacing:2.5px;font-size:.72rem;color:var(--blue);text-transform:uppercase;font-weight:800;margin-bottom:6px}
+h1{font-size:2rem;color:var(--navy);letter-spacing:.3px;margin-bottom:8px;font-weight:700}
+h2{font-size:1.4rem;color:var(--navy);margin-bottom:10px;font-weight:600}
+h3{font-size:1.05rem;color:var(--blue);margin:16px 0 6px;font-weight:600}
+p{margin:9px 0}
+.badge{display:inline-block;padding:5px 14px;border-radius:14px;font-weight:800;font-size:.72rem;letter-spacing:1px;text-transform:uppercase;background:linear-gradient(135deg,var(--gold),#e8c874);color:var(--navy);margin-bottom:10px;margin-right:6px}
+.badge.subj-math{background:linear-gradient(135deg,var(--blue),#3068cf);color:#fff}
+.badge.subj-ela{background:linear-gradient(135deg,var(--red),#e8574f);color:#fff}
+.badge.step{background:#e8e4d8;color:var(--navy)}
+.btn{padding:13px 26px;border-radius:12px;font-weight:700;border:none;cursor:pointer;font-size:.95rem;letter-spacing:.4px;transition:all .15s;display:inline-flex;align-items:center;gap:8px}
+.btn:active{transform:translateY(2px)}
+.btn:disabled{opacity:.5;cursor:default}
+.btn-go{background:var(--navy);color:#fff;box-shadow:0 4px 0 #051329}
+.btn-back{background:#e8e4d8;color:#374151}
+.nav{display:flex;justify-content:space-between;margin-top:26px;gap:10px;flex-wrap:wrap}
+.dots{display:flex;gap:5px;justify-content:center;margin-top:16px;flex-wrap:wrap}
+.dot{width:9px;height:9px;border-radius:50%;background:#d8d2c2;transition:all .2s}
+.dot.on{background:var(--gold);transform:scale(1.4)}
+.dot.done{background:var(--ok)}
+.card{background:var(--cream);border:2px solid #E8DFC4;border-radius:14px;padding:16px 18px;margin:14px 0}
+.card-field{background:#eef7f0;border-color:#c7e3cc}
+.card-idea{background:#fff;border:2px dashed #C9C1A6;border-radius:14px;padding:14px 18px;margin:12px 0}
+.card-tactic{background:#eef2fb;border-color:#c9d7f5;position:relative;padding-left:50px}
+.card-tactic::before{content:"🎯";position:absolute;left:14px;top:16px;font-size:1.3rem}
+.card-tactic .lbl{font-weight:800;color:var(--blue);font-size:.78rem;letter-spacing:1px;text-transform:uppercase;margin-bottom:3px}
+.card-narrative{background:#fdf3e7;border-color:#e8cfa0;border-left:5px solid var(--gold);font-style:italic}
+.step-lbl{font-weight:800;font-size:.72rem;letter-spacing:1.5px;text-transform:uppercase;color:#888;margin:18px 0 6px;display:flex;align-items:center;gap:8px}
+.step-lbl::after{content:"";flex:1;height:1px;background:#e0dbc8}
+.qbox{background:#fff;border:2.5px solid #E2E8F0;border-radius:14px;padding:18px;margin:14px 0;transition:border-color .2s}
+.qbox.ok{border-color:var(--ok)}
+.qtext{font-weight:700;margin-bottom:10px;font-size:1.02rem}
+.opt{display:block;width:100%;text-align:left;padding:11px 14px;margin:7px 0;border:2px solid #d8d2c2;border-radius:10px;background:#fff;cursor:pointer;font-family:inherit;font-size:.95rem;transition:all .15s}
+.opt:hover{border-color:var(--blue)}
+.opt.sel{border-color:var(--blue);background:#eef2fb}
+.opt.correct{border-color:var(--ok);background:#e9f6ea;font-weight:700}
+.opt.wrong{border-color:var(--bad);background:#fdecea}
+.feedback{margin-top:10px;padding:10px 14px;border-radius:10px;font-size:.9rem;font-weight:600;display:none}
+.feedback.show{display:block}
+.feedback.ok{background:#e9f6ea;color:var(--ok)}
+.feedback.bad{background:#fdecea;color:var(--bad)}
+.article{background:#fff;border:1px solid #ddd;border-radius:10px;padding:0;overflow:hidden;margin:12px 0;box-shadow:0 2px 10px rgba(0,0,0,.06)}
+.article-head{background:var(--navy);color:#fff;padding:16px 20px}
+.article-head .kicker{font-size:.7rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-weight:800}
+.article-head h3{color:#fff;margin:4px 0 0;font-size:1.3rem}
+.article-head .byline{font-size:.78rem;color:#c9d3e6;margin-top:4px}
+.article-body{padding:18px 20px}
+.statbox{background:var(--cream);border:2px solid var(--gold);border-radius:10px;padding:12px 16px;margin:12px 0;font-size:.88rem}
+.statbox .stlbl{font-weight:800;color:var(--navy);letter-spacing:1px;font-size:.72rem;text-transform:uppercase;margin-bottom:4px}
+.vocab{background:var(--gold);color:var(--navy);padding:0 4px;border-radius:3px;font-weight:800;cursor:help}
+.multiselect-note{font-size:.82rem;color:var(--blue);font-weight:700;margin-bottom:8px}
+.grid-model{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;max-width:280px;margin:14px 0}
+.grid-sq{aspect-ratio:1;border-radius:5px;border:2px solid #d8d2c2}
+.grid-sq.filled{background:var(--blue);border-color:var(--blue)}
+.coord-svg{width:100%;max-width:420px;height:auto;display:block;margin:14px auto}
+.coord-pt{cursor:pointer}
+.final-badge{text-align:center;padding:20px}
+.final-badge .medal{font-size:4rem}
+.scorebox{display:flex;gap:14px;justify-content:center;margin:18px 0;flex-wrap:wrap}
+.scorebox .cell{background:var(--cream);border:2px solid #E8DFC4;border-radius:12px;padding:14px 22px;text-align:center}
+.scorebox .cell .num{font-size:1.7rem;font-weight:800;color:var(--navy)}
+.scorebox .cell .lbl{font-size:.72rem;text-transform:uppercase;letter-spacing:1px;color:#888;margin-top:2px}
+.footer-note{text-align:center;font-size:.78rem;color:#999;margin-top:20px}
+.inline-input{padding:10px 12px;border:2px solid #d8d2c2;border-radius:8px;font-family:inherit;font-size:1rem}
+.match-wrap{display:flex;gap:24px;flex-wrap:wrap;margin:14px 0}
+.match-col{flex:1;min-width:200px}
+.match-item{display:block;width:100%;text-align:left;padding:10px 14px;margin:6px 0;border:2px solid #d8d2c2;border-radius:9px;background:#fff;cursor:pointer;font-family:inherit;font-size:.92rem}
+.match-item.sel{border-color:var(--blue);background:#eef2fb}
+.match-item.paired{border-color:var(--ok);background:#e9f6ea;cursor:default}
+.editing-passage{background:#fffdf7;border:1px solid #e8dfc4;border-radius:10px;padding:16px 18px;font-size:.96rem;line-height:1.7;margin:10px 0}
+.editing-target{background:#fff3cd;padding:1px 3px;border-radius:3px;font-weight:700}
+.selfcheck{background:#eef2fb;border:2px dashed #c9d7f5;border-radius:10px;padding:12px 16px;margin-top:10px;font-size:.88rem}
+.selfcheck label{display:block;margin:4px 0;cursor:pointer}
+</style>
+</head>
+<body>
+
+<div class="hud">
+  <div class="hud-left">
+    <div class="kc-box">KC</div>
+    <div class="hud-title">FAST Prep — Grade 6<br><small>Lesson 4 · Hometown Ties</small></div>
+  </div>
+  <div class="hud-right">
+    <div class="stat">⚙ <span class="big" id="streakStat">0</span> Streak</div>
+    <div class="stat">⭐ <span class="big" id="xpStat">0</span> XP</div>
+    <div class="xpbar"><div class="xpfill" id="xpFill"></div></div>
+  </div>
+</div>
+
+<div class="wrap">
+
+<!-- SLIDE 0: WELCOME -->
+<div class="slide on" id="s0">
+  <div class="eyebrow">KingCretot Experience · FAST Readiness Track</div>
+  <h1>Hometown Ties</h1>
+  <p style="font-size:1.05rem">Three blocks of Main Street, one weekend a year, the whole town shows up. Diego Reyes has spent two years on the festival planning committee — balancing the budget, mapping where every booth goes, and this year, making the case for why the festival deserves the city's support.</p>
+  <div class="card card-field">
+    <h3 style="color:var(--field);margin-top:0">Today's committee agenda</h3>
+    <p><strong>First Half — Math, four budget items:</strong> multiplying and dividing decimals for real festival costs, then mapping booths on a coordinate grid.</p>
+    <p><strong>Switch:</strong> the spreadsheet closes, the article draft opens.</p>
+    <p><strong>Second Half — ELA:</strong> the argument in Diego's newsletter column, why he built it the way he did, vocabulary, and fixing a fragment before it goes to print.</p>
+  </div>
+  <p>What's your name?</p>
+  <input type="text" id="studentName" placeholder="Type your name here" style="width:100%;padding:12px 14px;border:2px solid #d8d2c2;border-radius:10px;font-family:inherit;font-size:1rem;margin-bottom:16px">
+  <div class="nav">
+    <span></span>
+    <button class="btn btn-go" onclick="goTo(1)">Open the Ledger  →</button>
+  </div>
+</div>
+
+<!-- SLIDE 1: MATH TEACH - DECIMAL MULTIPLICATION -->
+<div class="slide" id="s1">
+  <span class="badge subj-math">Math · MA.6.NSO.2.1</span>
+  <span class="badge step">I Do</span>
+  <h2>Budget Item 1: Pricing the Tablecloths</h2>
+  <p>The committee needs <strong>45 tablecloths</strong> for the vendor tables, and each one costs <strong>$3.25</strong>. To find the total cost, multiply the quantity by the price.</p>
+  <div class="card-idea">
+    <p>45 &times; 3.25 — multiply as if there were no decimal point first: 45 &times; 325 = 14,625. Then count the decimal places in the original numbers (two, from 3.25) and place the decimal point two spots from the right: <strong>$146.25</strong>.</p>
+  </div>
+  <div class="card-tactic">
+    <div class="lbl">Test Tactic</div>
+    <p>"Total cost for [quantity] at [price] each" is always multiplication. Multiply first without worrying about the decimal, then place the decimal point last by counting total decimal digits in the original problem.</p>
+  </div>
+  <div class="nav">
+    <button class="btn btn-back" onclick="goTo(0)">← Back</button>
+    <button class="btn btn-go" onclick="goTo(2)">Guided Practice  →</button>
+  </div>
+</div>
+
+<!-- SLIDE 2: DECIMAL MULT PRACTICE + ASSESS -->
+<div class="slide" id="s2">
+  <span class="badge subj-math">Math</span>
+  <span class="badge step">We Do</span>
+  <h2>Price the Folding Chairs</h2>
+  <div class="qbox" id="wq1box">
+    <div class="qtext">The committee rents 30 folding chairs at $4.50 each. What is the total cost?</div>
+    <div id="wq1opts"></div>
+    <div class="feedback" id="wq1fb"></div>
+  </div>
+  <div class="step-lbl">You Do — Scored</div>
+  <span class="badge subj-math">FAST-Format Item</span>
+  <div class="qbox" id="q1box">
+    <div class="qtext">The festival needs 60 balloon bundles at $2.75 each. What is the total cost? Type your answer.</div>
+    <input type="text" id="q1answer" class="inline-input" placeholder="Total cost" style="width:140px">
+    <button class="btn btn-back" style="padding:10px 16px;margin-left:8px" onclick="checkQ1()">Check</button>
+    <div class="feedback" id="q1fb"></div>
+  </div>
+  <div class="qbox" id="q2box">
+    <div class="qtext">The committee orders 24 tables at $18.50 per table rental. What is the total rental cost? Type your answer.</div>
+    <input type="text" id="q2answer" class="inline-input" placeholder="Total cost" style="width:140px">
+    <button class="btn btn-back" style="padding:10px 16px;margin-left:8px" onclick="checkQ2()">Check</button>
+    <div class="feedback" id="q2fb"></div>
+  </div>
+  <div class="nav">
+    <button class="btn btn-back" onclick="goTo(1)">← Back</button>
+    <button class="btn btn-go" onclick="goTo(3)">Budget Item 2  →</button>
+  </div>
+</div>
+
+<!-- SLIDE 3: MATH TEACH - DECIMAL DIVISION -->
+<div class="slide" id="s3">
+  <span class="badge subj-math">Math · MA.6.NSO.2.1</span>
+  <span class="badge step">I Do</span>
+  <h2>Budget Item 2: Splitting the Banner Cost</h2>
+  <p>The committee has <strong>$180</strong> to spend on <strong>8</strong> identical banner signs. To find the cost of just one, divide the total by the quantity.</p>
+  <div class="card-idea">
+    <p>$180 &divide; 8 — divide as usual: 180 &divide; 8 = 22.5. That's <strong>$22.50 per banner</strong>.</p>
+  </div>
+  <div class="card-tactic">
+    <div class="lbl">Test Tactic</div>
+    <p>"Cost per item," "split evenly," or "each" all signal division — the total always goes on top, the number of items on the bottom.</p>
+  </div>
+  <div class="nav">
+    <button class="btn btn-back" onclick="goTo(2)">← Back</button>
+    <button class="btn btn-go" onclick="goTo(4)">Guided Practice  →</button>
+  </div>
+</div>
+
+<!-- SLIDE 4: DECIMAL DIV PRACTICE + ASSESS -->
+<div class="slide" id="s4">
+  <span class="badge subj-math">Math</span>
+  <span class="badge step">We Do</span>
+  <h2>Split the Supply Cost</h2>
+  <div class="qbox" id="wq2box">
+    <div class="qtext">A $96 supply order is split evenly among 6 committee members. How much does each member pay?</div>
+    <div id="wq2opts"></div>
+    <div class="feedback" id="wq2fb"></div>
+  </div>
+  <div class="step-lbl">You Do — Scored</div>
+  <span class="badge subj-math">FAST-Format Item</span>
+  <div class="qbox" id="q3box">
+    <div class="qtext">The committee has $250 to split evenly among 5 food-truck vendor spaces for supplies. How much does each vendor space get? Type your answer.</div>
+    <input type="text" id="q3answer" class="inline-input" placeholder="Amount" style="width:140px">
+    <button class="btn btn-back" style="padding:10px 16px;margin-left:8px" onclick="checkQ3()">Check</button>
+    <div class="feedback" id="q3fb"></div>
+  </div>
+  <div class="qbox" id="q4box">
+    <div class="qtext">A $342 sound system rental is split evenly among 8 booths sharing the cost. How much does each booth pay? Type your answer.</div>
+    <input type="text" id="q4answer" class="inline-input" placeholder="Amount" style="width:140px">
+    <button class="btn btn-back" style="padding:10px 16px;margin-left:8px" onclick="checkQ4()">Check</button>
+    <div class="feedback" id="q4fb"></div>
+  </div>
+  <div class="nav">
+    <button class="btn btn-back" onclick="goTo(3)">← Back</button>
+    <button class="btn btn-go" onclick="goTo(5)">Budget Item 3  →</button>
+  </div>
+</div>
+
+<!-- SLIDE 5: MATH TEACH - COORDINATE PLANE -->
+<div class="slide" id="s5">
+  <span class="badge subj-math">Math · MA.6.GR.1.1</span>
+  <span class="badge step">I Do</span>
+  <h2>Budget Item 3: Mapping the Booths</h2>
+  <p>Diego draws the festival layout on a grid so every vendor knows exactly where to set up. The origin (0,0) sits at the corner of Main Street: <strong>x</strong> is distance down the block, <strong>y</strong> is distance across toward the park.</p>
+  <svg class="coord-svg" viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg">
+    <g id="coordGridLines"></g>
+    <line x1="20" y1="300" x2="300" y2="300" stroke="#0A1F3D" stroke-width="2"/>
+    <line x1="20" y1="20" x2="20" y2="300" stroke="#0A1F3D" stroke-width="2"/>
+    <text x="300" y="315" font-size="10" fill="#555" text-anchor="end">x (feet down the block)</text>
+    <text x="10" y="20" font-size="10" fill="#555" transform="rotate(-90 10 20)">y (feet across)</text>
+    <circle cx="80" cy="220" r="5" fill="var(--blue)"/>
+    <text x="90" y="224" font-size="11" fill="var(--blue)" font-weight="700">Booth A (3, 4)</text>
+    <circle cx="80" cy="120" r="5" fill="var(--red)"/>
+    <text x="90" y="124" font-size="11" fill="var(--red)" font-weight="700">Booth B (3, 9)</text>
+  </svg>
+  <script>
+  (function(){
+    const g = document.getElementById('coordGridLines');
+    let s='';
+    for(let i=0;i<=14;i++){
+      const x = 20 + i*20;
+      s += `<line x1="${x}" y1="20" x2="${x}" y2="300" stroke="#eee" stroke-width="1"/>`;
+      const y = 300 - i*20;
+      s += `<line x1="20" y1="${y}" x2="300" y2="${y}" stroke="#eee" stroke-width="1"/>`;
+    }
+    g.innerHTML = s;
+  })();
+  </script>
+  <div class="card-idea">
+    <p>Booth A sits at <strong>(3, 4)</strong>, Booth B at <strong>(3, 9)</strong> — same x-coordinate, different y. Since the x-values match, the distance between them is just the difference in the y-values: 9 &minus; 4 = <strong>5 feet</strong>.</p>
+  </div>
+  <p>Diego also marks off a rectangular info-tent zone from x=0 to x=6 and y=0 to y=8 — a rectangle <strong>6 feet by 8 feet</strong>. Area = 6 &times; 8 = <strong>48 square feet</strong>. Perimeter = 2(6+8) = <strong>28 feet</strong> of rope to mark the boundary.</p>
+  <div class="card-tactic">
+    <div class="lbl">Test Tactic</div>
+    <p>When two points share the same x-coordinate, subtract the y-values for the distance between them. When they share the same y-coordinate, subtract the x-values instead.</p>
+  </div>
+  <div class="nav">
+    <button class="btn btn-back" onclick="goTo(4)">← Back</button>
+    <button class="btn btn-go" onclick="goTo(6)">Guided Practice  →</button>
+  </div>
+</div>
+
+<!-- SLIDE 6: COORDINATE PRACTICE + ASSESS -->
+<div class="slide" id="s6">
+  <span class="badge subj-math">Math</span>
+  <span class="badge step">We Do</span>
+  <h2>Check Two More Booths</h2>
+  <div class="qbox" id="wq3box">
+    <div class="qtext">Booth C sits at (2, 7) and Booth D sits at (9, 7) — same y-coordinate. What is the distance between them?</div>
+    <div id="wq3opts"></div>
+    <div class="feedback" id="wq3fb"></div>
+  </div>
+  <div class="step-lbl">You Do — Scored</div>
+  <span class="badge subj-math">FAST-Format Item · Plot a Point</span>
+  <div class="qbox" id="q5box">
+    <div class="qtext">Click the grid to plot Booth E at (7, 5).</div>
+    <svg class="coord-svg" viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg" id="plotGrid">
+      <g id="plotGridLines"></g>
+      <line x1="20" y1="300" x2="300" y2="300" stroke="#0A1F3D" stroke-width="2"/>
+      <line x1="20" y1="20" x2="20" y2="300" stroke="#0A1F3D" stroke-width="2"/>
+    </svg>
+    <div class="feedback" id="q5fb"></div>
+  </div>
+  <div class="qbox" id="q6box">
+    <div class="qtext">The info tent zone runs from x=0 to x=9 and y=0 to y=6. What is its area, in square feet? Type your answer.</div>
+    <input type="text" id="q6answer" class="inline-input" placeholder="Area" style="width:140px">
+    <button class="btn btn-back" style="padding:10px 16px;margin-left:8px" onclick="checkQ6()">Check</button>
+    <div class="feedback" id="q6fb"></div>
+  </div>
+  <div class="nav">
+    <button class="btn btn-back" onclick="goTo(5)">← Back</button>
+    <button class="btn btn-go" onclick="goTo(7)">Budget Item 4  →</button>
+  </div>
+</div>
+
+<!-- SLIDE 7: MATH TEACH - MIXED REVIEW -->
+<div class="slide" id="s7">
+  <span class="badge subj-math">Math</span>
+  <span class="badge step">I Do</span>
+  <h2>Budget Item 4: Reading the Whole Ledger</h2>
+  <p>A real budget spreadsheet mixes multiplication, division, and mapping side by side. The skill FAST tests is spotting which operation a line item wants before touching any numbers.</p>
+  <div class="card-idea">
+    <p><strong>"Total cost for [quantity] at [price] each"</strong> &rarr; multiply.</p>
+    <p><strong>"Cost per item" or "split evenly"</strong> &rarr; divide.</p>
+    <p><strong>Same x-coordinate</strong> &rarr; subtract y-values. <strong>Same y-coordinate</strong> &rarr; subtract x-values.</p>
+  </div>
+  <div class="card-tactic">
+    <div class="lbl">Test Tactic</div>
+    <p>Underline the exact phrase that signals the operation before calculating anything — guessing the operation first is where most points get lost on mixed-review items.</p>
+  </div>
+  <div class="nav">
+    <button class="btn btn-back" onclick="goTo(6)">← Back</button>
+    <button class="btn btn-go" onclick="goTo(8)">Guided Practice  →</button>
+  </div>
+</div>
+
+<!-- SLIDE 8: MIXED REVIEW PRACTICE + ASSESS -->
+<div class="slide" id="s8">
+  <span class="badge subj-math">Math</span>
+  <span class="badge step">We Do</span>
+  <h2>Call the Operation</h2>
+  <div class="qbox" id="wq4box">
+    <div class="qtext">Which phrase signals that you should DIVIDE, not multiply?</div>
+    <div id="wq4opts"></div>
+    <div class="feedback" id="wq4fb"></div>
+  </div>
+  <div class="step-lbl">You Do — Scored</div>
+  <span class="badge subj-math">FAST-Format Item</span>
+  <div class="qbox" id="q7box">
+    <div class="qtext">Two booths share the same y-coordinate. Which operation finds the distance between them?</div>
+    <div id="q7opts"></div>
+    <div class="feedback" id="q7fb"></div>
+  </div>
+  <div class="qbox" id="q8box">
+    <div class="qtext">Select ALL statements below that are true about the festival budget.</div>
+    <div class="multiselect-note">Select all that apply</div>
+    <div id="q8opts"></div>
+    <div class="feedback" id="q8fb"></div>
+  </div>
+  <div class="qbox" id="q8bbox">
+    <div class="qtext">Which phrase signals that you should MULTIPLY, not divide?</div>
+    <div id="q8bopts"></div>
+    <div class="feedback" id="q8bfb"></div>
+  </div>
+  <div class="nav">
+    <button class="btn btn-back" onclick="goTo(7)">← Back</button>
+    <button class="btn btn-go" onclick="goTo(9)">Switch  →</button>
+  </div>
+</div>
+
+<!-- SLIDE 9: SWITCH / TRANSITION -->
+<div class="slide" id="s9">
+  <div class="eyebrow">Switch</div>
+  <h2>Spreadsheet Closed, Draft Open</h2>
+  <div class="card-narrative">
+    <p>The budget balances, the map is set — now comes the part of the job Diego actually volunteered for: writing the newsletter column making the case for why Hometown Ties deserves the city's continued support.</p>
+    <p>Stand up. Stretch your hands like you're about to type. Same committee, second job.</p>
+  </div>
+  <div class="nav">
+    <span></span>
+    <button class="btn btn-go" onclick="goTo(10)">Start the Draft  →</button>
+  </div>
+</div>
+
+<!-- SLIDE 10: ELA TEACH - TEXT FEATURES -->
+<div class="slide" id="s10">
+  <span class="badge subj-ela">ELA · ELA.6.R.2.1</span>
+  <span class="badge step">I Do</span>
+  <h2>What Text Features Actually Do</h2>
+  <p><strong>Text features</strong> — headers, boxed stats, bullet lists, subheadings — aren't decoration. Each one exists to help a reader find or absorb specific information faster than plain paragraph text would.</p>
+  <div class="card-idea">
+    <p>A recipe blog could bury the ingredient list inside a paragraph. Instead, it's almost always a separate bulleted list — because a cook needs to scan it quickly while cooking, not read it like a story.</p>
+  </div>
+  <p>As you read Diego's column, notice the boxed stat section. Ask yourself: what job is that box doing that a paragraph couldn't do as well?</p>
+  <div class="nav">
+    <button class="btn btn-back" onclick="goTo(9)">← Back</button>
+    <button class="btn btn-go" onclick="goTo(11)">Read the Column  →</button>
+  </div>
+</div>
+
+<!-- SLIDE 11: PASSAGE -->
+<div class="slide" id="s11">
+  <span class="badge subj-ela">Read · Informational Text</span>
+  <h2>Arcadia Community Bulletin</h2>
+  <div class="article">
+    <div class="article-head">
+      <div class="kicker">Arcadia Community Bulletin · Guest Column</div>
+      <h3>Why Hometown Ties Matters</h3>
+      <div class="byline">By Diego Reyes, Festival Planning Committee</div>
+    </div>
+    <div class="article-body">
+      <p>Every fall, Hometown Ties turns three blocks of Main Street into Arcadia's biggest gathering of the year — and after two years helping plan it, I've seen exactly why the festival deserves the city's continued support.</p>
+      <div class="statbox">
+        <div class="stlbl">By the Numbers</div>
+        Vendors hosted: 34 · Funds raised for school programs: $8,200 · Estimated attendance: 1,600
+      </div>
+      <p>The festival is one of the only times all year that neighbors from every part of town end up standing in the same line for kettle corn, comparing notes on gardens, and actually meeting the people who live three streets over.</p>
+      <p>Last year's festival raised over eight thousand dollars for after-school programs at Arcadia Elementary — money the school district's regular budget doesn't cover, and money that pays for real supplies kids use every week.</p>
+      <p>For small vendors who can't afford a storefront rent, a single festival weekend can bring in more new customers than an entire month of regular business — exposure they'd have no other way to reach.</p>
+      <p>None of that happens by accident. It happens because the city keeps funding it, block captains keep organizing it, and residents keep showing up — which is exactly why Hometown Ties is worth protecting, not cutting.</p>
+    </div>
+  </div>
+  <div class="nav">
+    <button class="btn btn-back" onclick="goTo(10)">← Back</button>
+    <button class="btn btn-go" onclick="goTo(12)">Break It Down  →</button>
+  </div>
+</div>
+
+<!-- SLIDE 12: GUIDED CLOSE READ -->
+<div class="slide" id="s12">
+  <span class="badge subj-ela">ELA</span>
+  <span class="badge step">We Do</span>
+  <h2>Find the Claim and the Reasons</h2>
+  <p>Before answering anything, let's separate what Diego is arguing from why he's arguing it — together.</p>
+  <div class="card-idea">
+    <p><strong>The claim:</strong> the festival deserves the city's continued support (stated up front, and echoed again at the end).</p>
+    <p><strong>Reason 1:</strong> it brings neighbors together who wouldn't otherwise meet.</p>
+    <p><strong>Reason 2:</strong> it raises real money for school programs.</p>
+    <p><strong>Reason 3:</strong> it gives small vendors exposure they couldn't otherwise afford.</p>
+  </div>
+  <div class="qbox" id="wq5box">
+    <div class="qtext">Which reason does Diego give FIRST after stating his claim?</div>
+    <div id="wq5opts"></div>
+    <div class="feedback" id="wq5fb"></div>
+  </div>
+  <div class="nav">
+    <button class="btn btn-back" onclick="goTo(11)">← Back</button>
+    <button class="btn btn-go" onclick="goTo(13)">Scored Questions  →</button>
+  </div>
+</div>
+
+<!-- SLIDE 13: ELA ASSESS - TEXT FEATURES + CLAIM -->
+<div class="slide" id="s13">
+  <span class="badge subj-ela">FAST-Format Item</span>
+  <span class="badge step">You Do — Scored</span>
+  <h2>Read the Structure</h2>
+  <div class="qbox" id="q9box">
+    <div class="qtext">Why did Diego put festival stats in a separate boxed section instead of writing them into a paragraph?</div>
+    <div id="q9opts"></div>
+    <div class="feedback" id="q9fb"></div>
+  </div>
+  <div class="qbox" id="q10box">
+    <div class="qtext">What is Diego's central claim in this passage?</div>
+    <div id="q10opts"></div>
+    <div class="feedback" id="q10fb"></div>
+  </div>
+  <div class="nav">
+    <button class="btn btn-back" onclick="goTo(12)">← Back</button>
+    <button class="btn btn-go" onclick="goTo(14)">The Evidence  →</button>
+  </div>
+</div>
+
+<!-- SLIDE 14: ELA TEACH - ARGUMENT/REASONING -->
+<div class="slide" id="s14">
+  <span class="badge subj-ela">ELA · ELA.6.R.2.4</span>
+  <span class="badge step">I Do</span>
+  <h2>Matching Evidence to the Right Reason</h2>
+  <p>A strong argument backs each reason with its own specific evidence — not one piece of evidence stretched to cover everything. Part of reading an argument well is matching each detail to the exact reason it supports.</p>
+  <div class="card-idea">
+    <p>Diego's column has three separate reasons. The "eight thousand dollars for after-school programs" detail supports the <em>economic</em> reason specifically — it doesn't say anything about neighbors meeting each other or vendors getting exposure. Matching evidence to the right reason, not just any reason, is what FAST evidence-based items actually test.</p>
+  </div>
+  <div class="nav">
+    <button class="btn btn-back" onclick="goTo(13)">← Back</button>
+    <button class="btn btn-go" onclick="goTo(15)">Scored Round  →</button>
+  </div>
+</div>
+
+<!-- SLIDE 15: EVIDENCE SCORED -->
+<div class="slide" id="s15">
+  <span class="badge subj-ela">FAST-Format Item</span>
+  <span class="badge step">You Do — Scored</span>
+  <h2>Prove the Reasons</h2>
+  <div class="qbox" id="q11box">
+    <div class="qtext"><strong>Evidence-Based Response, Part 1:</strong> Which reason does Diego give FIRST to support his claim?</div>
+    <div id="q11opts"></div>
+  </div>
+  <div class="qbox" id="q12box" style="display:none">
+    <div class="qtext"><strong>Evidence-Based Response, Part 2:</strong> Which detail from the passage best supports that first reason?</div>
+    <div id="q12opts"></div>
+    <div class="feedback" id="q12fb"></div>
+  </div>
+  <div class="qbox" id="q13box">
+    <div class="qtext">Which detail provides evidence that Hometown Ties benefits Arcadia economically?</div>
+    <div id="q13opts"></div>
+    <div class="feedback" id="q13fb"></div>
+  </div>
+  <div class="qbox" id="q13bbox">
+    <div class="qtext">Which detail provides evidence that Hometown Ties benefits small vendors specifically?</div>
+    <div id="q13bopts"></div>
+    <div class="feedback" id="q13bfb"></div>
+  </div>
+  <div class="card-tactic">
+    <div class="lbl">Test Tactic</div>
+    <p>Evidence-based items are graded as a pair — Part 2 only counts if Part 1 is right too. Pin down which reason before you go hunting for its specific proof.</p>
+  </div>
+  <div class="nav">
+    <button class="btn btn-back" onclick="goTo(14)">← Back</button>
+    <button class="btn btn-go" onclick="goTo(16)">Vocabulary  →</button>
+  </div>
+</div>
+
+<!-- SLIDE 16: VOCABULARY -->
+<div class="slide" id="s16">
+  <span class="badge subj-ela">ELA · ELA.6.V.1.1 / 1.2 / 1.3</span>
+  <span class="badge step">I Do</span>
+  <h2>Four Words From Diego's Column</h2>
+  <p><strong>Strategy — Context clues.</strong></p>
+  <div class="card-idea">
+    <p><em>"a single festival weekend can bring in more new customers than an entire month of regular business — exposure they'd have no other way to reach"</em> — the surrounding sentence describes new customers finding out about a business, pointing to what "exposure" means here.</p>
+    <p><em>"money the school district's regular budget doesn't cover"</em> — "regular budget" signals an organized system overseeing schools, which is what "district" means in this context.</p>
+  </div>
+  <div class="step-lbl">We Do</div>
+  <div class="qbox" id="wq6box">
+    <div class="qtext">The passage says "block captains keep organizing it." Based on that sentence, what does "captains" most likely mean here?</div>
+    <div id="wq6opts"></div>
+    <div class="feedback" id="wq6fb"></div>
+  </div>
+  <div class="nav">
+    <button class="btn btn-back" onclick="goTo(15)">← Back</button>
+    <button class="btn btn-go" onclick="goTo(17)">Scored Round  →</button>
+  </div>
+</div>
+
+<!-- SLIDE 17: VOCAB SCORED + MATCHING -->
+<div class="slide" id="s17">
+  <span class="badge subj-ela">FAST-Format Item</span>
+  <span class="badge step">You Do — Scored</span>
+  <h2>Word Check</h2>
+  <div class="qbox" id="q14box">
+    <div class="qtext">What does "exposure" mean as used in the passage?</div>
+    <div id="q14opts"></div>
+    <div class="feedback" id="q14fb"></div>
+  </div>
+  <div class="qbox" id="q15box">
+    <div class="qtext">What does "district" mean in "the school district's regular budget"?</div>
+    <div id="q15opts"></div>
+    <div class="feedback" id="q15fb"></div>
+  </div>
+  <div class="qbox" id="q16box">
+    <div class="qtext">What does "captains" mean in "block captains keep organizing it"?</div>
+    <div id="q16opts"></div>
+    <div class="feedback" id="q16fb"></div>
+  </div>
+  <div class="qbox" id="q17box">
+    <div class="qtext">In the stat box, "Estimated attendance: 1,600" — what does "estimated" mean here?</div>
+    <div id="q17opts"></div>
+    <div class="feedback" id="q17fb"></div>
+  </div>
+  <h3>Bonus Mode: Match the Words</h3>
+  <p style="font-size:.9rem">Click a word, then click its matching meaning. Not scored toward your total — just extra XP.</p>
+  <div class="match-wrap">
+    <div class="match-col" id="matchWords"></div>
+    <div class="match-col" id="matchDefs"></div>
+  </div>
+  <div class="nav">
+    <button class="btn btn-back" onclick="goTo(16)">← Back</button>
+    <button class="btn btn-go" onclick="goTo(18)">Sentence Skills  →</button>
+  </div>
+</div>
+
+<!-- SLIDE 18: SENTENCE FRAGMENT TEACH -->
+<div class="slide" id="s18">
+  <span class="badge subj-ela">ELA · ELA.6.C.3.1</span>
+  <span class="badge step">I Do</span>
+  <h2>Fixing a Fragment</h2>
+  <p>A <strong>sentence fragment</strong> is missing a subject, a verb, or is a dependent clause left standing alone, disconnected from a complete sentence. A dependent clause starting with a word like <em>because, although, since,</em> or <em>even though</em> can't stand by itself — it has to attach to an independent clause.</p>
+  <div class="card-idea">
+    <p><strong>Fragment:</strong> "Because the festival raised so much money for schools." (This starts an idea but never finishes it.)</p>
+    <p><strong>Fixed:</strong> "Because the festival raised so much money for schools, the district bought new classroom supplies." (Now it's attached to a complete idea.)</p>
+  </div>
+  <div class="step-lbl">We Do</div>
+  <div class="qbox" id="wq7box">
+    <div class="qtext">Which of these is a complete sentence, not a fragment?</div>
+    <div id="wq7opts"></div>
+    <div class="feedback" id="wq7fb"></div>
+  </div>
+  <div class="nav">
+    <button class="btn btn-back" onclick="goTo(17)">← Back</button>
+    <button class="btn btn-go" onclick="goTo(19)">Scored Edit  →</button>
+  </div>
+</div>
+
+<!-- SLIDE 19: EDITING TASK CHOICE + CREATIVE SENTENCE -->
+<div class="slide" id="s19">
+  <span class="badge subj-ela">FAST-Format Item · Editing Task Choice</span>
+  <span class="badge step">You Do — Scored</span>
+  <h2>Fix Diego's Draft</h2>
+  <div class="qbox" id="q18box">
+    <div class="qtext">Choose the best correction for the underlined text:</div>
+    <div class="editing-passage">Diego's editor left a note on his draft. <span class="editing-target">Even though the stat box already showed the numbers.</span> He decided to explain them in the paragraph too.</div>
+    <div id="q18opts"></div>
+    <div class="feedback" id="q18fb"></div>
+  </div>
+  <h3>Now You Try: Write One</h3>
+  <p>Write your own sentence about the festival that starts with a dependent clause (<em>because, although, since, even though</em>) attached to a complete idea — not left as a fragment.</p>
+  <textarea id="creativeSentence" rows="3" style="width:100%;padding:12px;border:2px solid #d8d2c2;border-radius:10px;font-family:inherit;font-size:.98rem" placeholder="Type your sentence here..."></textarea>
+  <button class="btn btn-back" style="margin-top:10px" onclick="selfCheckSentence()">Self-Check My Sentence</button>
+  <div class="selfcheck" id="selfCheckBox" style="display:none"></div>
+  <div class="nav">
+    <button class="btn btn-back" onclick="goTo(18)">← Back</button>
+    <button class="btn btn-go" onclick="goTo(20)">Committee Adjourned  →</button>
+  </div>
+</div>
+
+<!-- SLIDE 20: LOOKING AHEAD -->
+<div class="slide" id="s20">
+  <div class="eyebrow">Looking Ahead</div>
+  <h2>Scouting Report: Week 5</h2>
+  <p>Next week the theme shifts to <strong>Indigenous Peoples — "First Peoples, Living Traditions"</strong>: exponents and prime factorization in Math, multiple narrators and compare/contrast in ELA.</p>
+  <p>Diego's newsletter column runs in next month's issue — the committee's already planning next year's festival.</p>
+  <div class="nav">
+    <button class="btn btn-back" onclick="goTo(19)">← Back</button>
+    <button class="btn btn-go" onclick="goTo(21)">See Your Score  →</button>
+  </div>
+</div>
+
+<!-- SLIDE 21: FINAL SCORE -->
+<div class="slide" id="s21">
+  <div class="final-badge">
+    <div class="medal">🏆</div>
+    <h1 id="finalName">Great Work!</h1>
+    <p>Hometown Ties complete.</p>
+    <div class="scorebox">
+      <div class="cell"><div class="num" id="finalXP">0</div><div class="lbl">Total XP</div></div>
+      <div class="cell"><div class="num" id="finalMath">0/9</div><div class="lbl">Math Correct</div></div>
+      <div class="cell"><div class="num" id="finalELA">0/10</div><div class="lbl">ELA Correct</div></div>
+    </div>
+    <p id="masteryMsg" style="font-weight:700;color:var(--navy)"></p>
+    <button class="btn btn-go" onclick="submitScore()" id="submitBtn">Submit My Results</button>
+    <p class="footer-note" id="submitStatus"></p>
+  </div>
+</div>
+
+<div class="dots" id="dots"></div>
+</div>
+
+<script>
+const TOTAL_SLIDES = 22;
+let current = 0;
+let xp = 0;
+let streak = 0;
+let mathCorrect = 0, mathTotal = 9;
+let elaCorrect = 0, elaTotal = 10;
+let q11Correct = false;
+
+function goTo(n){
+  document.getElementById('s'+current).classList.remove('on');
+  current = n;
+  document.getElementById('s'+current).classList.add('on');
+  renderDots();
+  window.scrollTo({top:0,behavior:'smooth'});
+  if(n===21){ finalizeScore(); }
+}
+
+function renderDots(){
+  const d = document.getElementById('dots');
+  d.innerHTML='';
+  for(let i=0;i<TOTAL_SLIDES;i++){
+    const dot = document.createElement('div');
+    dot.className = 'dot' + (i===current?' on':'') + (i<current?' done':'');
+    d.appendChild(dot);
+  }
+}
+
+function addXP(n){
+  xp += n;
+  document.getElementById('xpStat').textContent = xp;
+  document.getElementById('xpFill').style.width = Math.min(100,(xp/380)*100) + '%';
+  streak++;
+  document.getElementById('streakStat').textContent = streak;
+}
+
+function burstConfetti(){
+  const container = document.createElement('div');
+  container.style.cssText = 'position:fixed;inset:0;pointer-events:none;z-index:9999;overflow:hidden;';
+  document.body.appendChild(container);
+  const count = 28;
+  const colors = ['#C9A84C','#0047BA','#DB2F30','#0A1F3D','#ffffff'];
+  for(let i=0;i<count;i++){
+    const piece = document.createElement('div');
+    const startX = Math.random()*100;
+    const duration = 1.6 + Math.random()*1.3;
+    const delay = Math.random()*0.25;
+    const rotate = Math.random()*720-360;
+    const drift = (Math.random()*180-90);
+    piece.style.position='absolute';
+    piece.style.left=startX+'vw';
+    piece.style.top='-30px';
+    piece.style.setProperty('--drift', drift+'px');
+    piece.style.setProperty('--rot', rotate+'deg');
+    piece.style.animation = `confettiFall ${duration}s ease-in ${delay}s forwards`;
+    const c = colors[Math.floor(Math.random()*colors.length)];
+    const w = 8+Math.random()*6, h=12+Math.random()*8;
+    piece.style.width=w+'px'; piece.style.height=h+'px';
+    piece.style.background=c;
+    piece.style.borderRadius = Math.random()>0.5?'50%':'2px';
+    container.appendChild(piece);
+  }
+  setTimeout(()=>container.remove(), 3200);
+}
+
+function buildSingleSelect(optsId, fbId, data, onCorrect){
+  const container = document.getElementById(optsId);
+  data.forEach(o=>{
+    const b=document.createElement('button');
+    b.className='opt';
+    b.textContent=o.text;
+    b.onclick=()=>{
+      document.querySelectorAll('#'+optsId+' .opt').forEach(x=>x.classList.remove('sel','correct','wrong'));
+      const fb = document.getElementById(fbId);
+      if(o.correct){
+        b.classList.add('correct');
+        fb.textContent = o.explain || 'Correct.';
+        fb.className='feedback show ok';
+        b.closest('.qbox').classList.add('ok');
+        if(onCorrect) onCorrect();
+      } else {
+        b.classList.add('wrong');
+        fb.textContent = o.explain || 'Not quite — reread the clue and try again.';
+        fb.className='feedback show bad';
+      }
+    };
+    container.appendChild(b);
+  });
+}
+
+// ================= MATH: BUDGET ITEM 1 (DECIMAL MULT) =================
+
+buildSingleSelect('wq1opts','wq1fb',[
+  {text:'$135.00', correct:true, explain:'Right — 30 times 4.50 = 135.00.'},
+  {text:'$34.50', correct:false, explain:'That looks like the numbers were added, not multiplied.'},
+  {text:'$1,350.00', correct:false, explain:'That is ten times too large — recheck the decimal placement.'}
+], ()=>{addXP(5); burstConfetti();});
+
+function checkQ1(){
+  const val = document.getElementById('q1answer').value.trim().replace('$','');
+  const fb = document.getElementById('q1fb');
+  if(val === '165' || val === '165.00'){
+    fb.textContent='Correct — 60 times 2.75 = 165.';
+    fb.className='feedback show ok';
+    addXP(15); mathCorrect++;
+    burstConfetti();
+    document.getElementById('q1box').classList.add('ok');
+  } else {
+    fb.textContent='Not yet — multiply 60 by 2.75, then place the decimal point using the total decimal digits.';
+    fb.className='feedback show bad';
+  }
+}
+
+function checkQ2(){
+  const val = document.getElementById('q2answer').value.trim().replace('$','');
+  const fb = document.getElementById('q2fb');
+  if(val === '444' || val === '444.00'){
+    fb.textContent='Correct — 24 times 18.50 = 444.';
+    fb.className='feedback show ok';
+    addXP(15); mathCorrect++;
+    burstConfetti();
+    document.getElementById('q2box').classList.add('ok');
+  } else {
+    fb.textContent='Not yet — multiply 24 by 18.50, then place the decimal point last.';
+    fb.className='feedback show bad';
+  }
+}
+
+// ================= MATH: BUDGET ITEM 2 (DECIMAL DIV) =================
+
+buildSingleSelect('wq2opts','wq2fb',[
+  {text:'$16.00', correct:true, explain:'Right — 96 divided by 6 = 16.'},
+  {text:'$90.00', correct:false, explain:'That looks like subtraction, not division.'},
+  {text:'$576.00', correct:false, explain:'That looks like multiplication instead of division.'}
+], ()=>{addXP(5); burstConfetti();});
+
+function checkQ3(){
+  const val = document.getElementById('q3answer').value.trim().replace('$','');
+  const fb = document.getElementById('q3fb');
+  if(val === '50' || val === '50.00'){
+    fb.textContent='Correct — 250 divided by 5 = 50.';
+    fb.className='feedback show ok';
+    addXP(15); mathCorrect++;
+    burstConfetti();
+    document.getElementById('q3box').classList.add('ok');
+  } else {
+    fb.textContent='Not yet — divide the total dollar amount by the number of vendor spaces.';
+    fb.className='feedback show bad';
+  }
+}
+
+function checkQ4(){
+  const val = document.getElementById('q4answer').value.trim().replace('$','');
+  const fb = document.getElementById('q4fb');
+  if(val === '42.75'){
+    fb.textContent='Correct — 342 divided by 8 = 42.75.';
+    fb.className='feedback show ok';
+    addXP(15); mathCorrect++;
+    burstConfetti();
+    document.getElementById('q4box').classList.add('ok');
+  } else {
+    fb.textContent='Not yet — divide the total dollar amount by the number of booths.';
+    fb.className='feedback show bad';
+  }
+}
+
+// ================= MATH: BUDGET ITEM 3 (COORDINATE PLANE) =================
+
+buildSingleSelect('wq3opts','wq3fb',[
+  {text:'7 feet', correct:true, explain:'Right — 9-2=7. Same y-coordinate, so subtract the x-values.'},
+  {text:'16 feet', correct:false, explain:'That adds the x-values instead of subtracting them.'},
+  {text:'2 feet', correct:false, explain:'That is just one booth\u2019s x-coordinate, not the distance between them.'}
+], ()=>{addXP(5); burstConfetti();});
+
+(function(){
+  const g = document.getElementById('plotGridLines');
+  let s='';
+  for(let i=0;i<=14;i++){
+    const x = 20+i*20;
+    s += `<line x1="${x}" y1="20" x2="${x}" y2="300" stroke="#eee" stroke-width="1"/>`;
+    const y = 300-i*20;
+    s += `<line x1="20" y1="${y}" x2="300" y2="${y}" stroke="#eee" stroke-width="1"/>`;
+  }
+  g.innerHTML = s;
+  const svg = document.getElementById('plotGrid');
+  svg.addEventListener('click', function(e){
+    const pt = svg.createSVGPoint();
+    pt.x = e.clientX; pt.y = e.clientY;
+    const loc = pt.matrixTransform(svg.getScreenCTM().inverse());
+    const gridX = Math.round((loc.x-20)/20);
+    const gridY = Math.round((300-loc.y)/20);
+    document.querySelectorAll('#plotGrid circle').forEach(c=>c.remove());
+    const c = document.createElementNS('http://www.w3.org/2000/svg','circle');
+    c.setAttribute('cx', 20+gridX*20);
+    c.setAttribute('cy', 300-gridY*20);
+    c.setAttribute('r', 6);
+    const fb = document.getElementById('q5fb');
+    if(gridX===7 && gridY===5){
+      c.setAttribute('fill','var(--ok)');
+      fb.textContent='Correct — (7, 5) is 7 units right, 5 units up.';
+      fb.className='feedback show ok';
+      addXP(15); mathCorrect++;
+      burstConfetti();
+      document.getElementById('q5box').classList.add('ok');
+    } else {
+      c.setAttribute('fill','var(--red)');
+      fb.textContent='Not quite — you clicked ('+gridX+', '+gridY+'). Count 7 right from zero, then 5 up.';
+      fb.className='feedback show bad';
+    }
+    svg.appendChild(c);
+  });
+})();
+
+function checkQ6(){
+  const val = document.getElementById('q6answer').value.trim();
+  const fb = document.getElementById('q6fb');
+  if(val === '54'){
+    fb.textContent='Correct — length 9 times width 6 = 54 square feet.';
+    fb.className='feedback show ok';
+    addXP(15); mathCorrect++;
+    burstConfetti();
+    document.getElementById('q6box').classList.add('ok');
+  } else {
+    fb.textContent='Not yet — length is x=0 to x=9 (9 feet), width is y=0 to y=6 (6 feet). Multiply them.';
+    fb.className='feedback show bad';
+  }
+}
+
+// ================= MATH: BUDGET ITEM 4 (MIXED REVIEW) =================
+
+buildSingleSelect('wq4opts','wq4fb',[
+  {text:'"total cost for 60 bundles"', correct:false, explain:'"Total cost for [quantity]" signals multiplication, not division.'},
+  {text:'"split evenly among 5 vendors"', correct:true, explain:'Correct — "split evenly" is a division signal.'},
+  {text:'"at $2.75 each"', correct:false, explain:'"At [price] each" pairs with multiplication to find a total.'}
+], ()=>{addXP(5); burstConfetti();});
+
+buildSingleSelect('q7opts','q7fb',[
+  {text:'Add the two x-values', correct:false, explain:'Adding does not find the distance between two points.'},
+  {text:'Subtract the x-values', correct:true, explain:'Correct — same y-coordinate means the distance is the difference between the x-values.'},
+  {text:'Subtract the y-values', correct:false, explain:'The y-values are the same here — subtracting them gives zero, not the distance.'},
+  {text:'Multiply the x-values', correct:false, explain:'Multiplying does not find a distance between two points.'}
+], ()=>{addXP(10); mathCorrect++; burstConfetti();});
+
+const q8data = [
+  {text:'60 balloon bundles at $2.75 each costs $165 total', correct:true},
+  {text:'24 tables at $18.50 each costs $444 total', correct:true},
+  {text:'Splitting $250 among 5 vendor spaces gives each vendor $60', correct:false},
+  {text:'Splitting $342 among 8 booths gives each booth $42.75', correct:true},
+  {text:'A zone from x=0 to x=9, y=0 to y=6 has an area of 45 square feet', correct:false}
+];
+const q8opts = document.getElementById('q8opts');
+let q8selected = new Set();
+q8data.forEach((o,idx)=>{
+  const b = document.createElement('button');
+  b.className='opt'; b.textContent=o.text;
+  b.onclick=()=>{
+    if(q8selected.has(idx)){ q8selected.delete(idx); b.classList.remove('sel'); }
+    else { q8selected.add(idx); b.classList.add('sel'); }
+  };
+  q8opts.appendChild(b);
+});
+const q8btn = document.createElement('button');
+q8btn.className='btn btn-back'; q8btn.style.marginTop='10px';
+q8btn.textContent='Check My Selections';
+q8btn.onclick=()=>{
+  const fb = document.getElementById('q8fb');
+  const correctSet = new Set(q8data.map((o,i)=>o.correct?i:null).filter(x=>x!==null));
+  const isRight = q8selected.size===correctSet.size && [...q8selected].every(i=>correctSet.has(i));
+  document.querySelectorAll('#q8opts .opt').forEach(b=>b.classList.remove('correct','wrong'));
+  if(isRight){
+    document.querySelectorAll('#q8opts .opt').forEach((b,i)=>{
+      if(q8data[i].correct) b.classList.add('correct');
+    });
+    fb.textContent='All three correct — the vendor split is actually $50 each, not $60, and the info zone is 54 square feet, not 45.';
+    fb.className='feedback show ok';
+    addXP(15); mathCorrect++;
+    burstConfetti();
+    document.getElementById('q8box').classList.add('ok');
+  } else {
+    document.querySelectorAll('#q8opts .opt').forEach((b,i)=>{
+      if(q8selected.has(i)) b.classList.add('wrong');
+    });
+    fb.textContent='Close — exactly three of the five statements are true. Try again.';
+    fb.className='feedback show bad';
+  }
+};
+q8opts.appendChild(q8btn);
+
+buildSingleSelect('q8bopts','q8bfb',[
+  {text:'"total cost for 60 bundles at $2.75 each"', correct:true, explain:'Correct — "total cost for [quantity] at [price] each" is a multiplication signal.'},
+  {text:'"split evenly among 5 vendors"', correct:false, explain:'"Split evenly" signals division, not multiplication.'},
+  {text:'"cost per program"', correct:false, explain:'"Cost per" signals division, not multiplication.'},
+  {text:'"$250 divided among vendor spaces"', correct:false, explain:'This phrase literally says "divided" — that is a division signal.'}
+], ()=>{addXP(10); mathCorrect++; burstConfetti();});
+
+// ================= ELA SECTION =================
+
+buildSingleSelect('wq5opts','wq5fb',[
+  {text:'That neighbors from every part of town meet each other', correct:true, explain:'Right — this is the very next sentence after Diego\u2019s claim.'},
+  {text:'That the festival raises money for schools', correct:false, explain:'That is Diego\u2019s SECOND reason, not the first.'},
+  {text:'That small vendors get exposure', correct:false, explain:'That is Diego\u2019s THIRD reason, not the first.'},
+  {text:'That the festival hosted 34 vendors this year', correct:false, explain:'That is a fact from the stat box, not one of the stated reasons.'}
+], ()=>{addXP(5); burstConfetti();});
+
+buildSingleSelect('q9opts','q9fb',[
+  {text:'It makes the key numbers easy to find and skim, separate from the argument text', correct:true, explain:'Correct — that is exactly what a stat box text feature is for.'},
+  {text:'It is just decoration with no real purpose', correct:false, explain:'Text features are functional, not decorative.'},
+  {text:'Community bulletins are required to include a boxed section', correct:false, explain:'There is no such rule — it is a writing choice.'}
+], ()=>{addXP(10); elaCorrect++; burstConfetti();});
+
+buildSingleSelect('q10opts','q10fb',[
+  {text:'Hometown Ties Festival should keep getting the city\u2019s support because of its real benefits', correct:true, explain:'Correct — this is stated at the start and echoed again at the end.'},
+  {text:'The festival should be canceled because it costs too much', correct:false, explain:'That is close to the opposite of Diego\u2019s claim.'},
+  {text:'Arcadia Elementary needs a completely new budget', correct:false, explain:'That is too narrow — the school funding is only one of three reasons given.'},
+  {text:'Small businesses should open more downtown storefronts', correct:false, explain:'That misreads the point — the column is about the festival, not storefronts.'}
+], ()=>{addXP(10); elaCorrect++; burstConfetti();});
+
+const q11data = [
+  {text:'That neighbors from every part of town meet each other at the festival', correct:true},
+  {text:'That the festival raises money for school programs', correct:false},
+  {text:'That small vendors get new exposure', correct:false},
+  {text:'That the festival hosted 34 vendors this year', correct:false}
+];
+const q11opts = document.getElementById('q11opts');
+q11data.forEach(o=>{
+  const b=document.createElement('button'); b.className='opt'; b.textContent=o.text;
+  b.onclick=()=>{
+    document.querySelectorAll('#q11opts .opt').forEach(x=>x.classList.remove('sel','correct','wrong'));
+    if(o.correct){ b.classList.add('correct'); q11Correct = true; document.getElementById('q12box').style.display='block'; }
+    else { b.classList.add('wrong'); q11Correct = false; document.getElementById('q12box').style.display='none'; }
+  };
+  q11opts.appendChild(b);
+});
+const q12data = [
+  {text:'the festival is one of the only times all year that neighbors from every part of town end up standing in the same line for kettle corn... and actually meeting the people who live three streets over', correct:true},
+  {text:'Last year\u2019s festival raised over eight thousand dollars for after-school programs', correct:false},
+  {text:'a single festival weekend can bring in more new customers than an entire month of regular business', correct:false},
+  {text:'the city keeps funding it, block captains keep organizing it', correct:false}
+];
+const q12opts = document.getElementById('q12opts');
+q12data.forEach(o=>{
+  const b=document.createElement('button'); b.className='opt'; b.textContent=o.text;
+  b.onclick=()=>{
+    document.querySelectorAll('#q12opts .opt').forEach(x=>x.classList.remove('sel','correct','wrong'));
+    const fb = document.getElementById('q12fb');
+    if(o.correct && q11Correct){
+      b.classList.add('correct');
+      fb.textContent='Both parts correct — that detail directly supports the first reason Diego gives.';
+      fb.className='feedback show ok';
+      addXP(20); elaCorrect++;
+      burstConfetti();
+      document.getElementById('q11box').classList.add('ok');
+      document.getElementById('q12box').classList.add('ok');
+    } else {
+      b.classList.add('wrong');
+      fb.textContent='This only counts if Part 1 is also correct — check both parts.';
+      fb.className='feedback show bad';
+    }
+  };
+  q12opts.appendChild(b);
+});
+
+buildSingleSelect('q13opts','q13fb',[
+  {text:'Last year\u2019s festival raised over eight thousand dollars for after-school programs at Arcadia Elementary', correct:true, explain:'Correct — that is direct financial evidence of an economic benefit.'},
+  {text:'Neighbors end up standing in the same line for kettle corn', correct:false, explain:'That supports the community-building reason, not the economic one.'},
+  {text:'The festival turns three blocks of Main Street into a gathering', correct:false, explain:'That is descriptive scene-setting, not economic evidence.'},
+  {text:'Residents keep showing up', correct:false, explain:'That is part of the closing call to action, not specific economic evidence.'}
+], ()=>{addXP(10); elaCorrect++; burstConfetti();});
+
+buildSingleSelect('q13bopts','q13bfb',[
+  {text:'a single festival weekend can bring in more new customers than an entire month of regular business', correct:true, explain:'Correct — that detail is specifically about vendor customer exposure.'},
+  {text:'neighbors end up standing in the same line for kettle corn', correct:false, explain:'That supports the community-building reason, not the vendor-specific one.'},
+  {text:'Last year\u2019s festival raised over eight thousand dollars for after-school programs', correct:false, explain:'That supports the school-funding reason, not the vendor-specific one.'},
+  {text:'the city keeps funding it', correct:false, explain:'That is part of the closing call to action, not vendor-specific evidence.'}
+], ()=>{addXP(10); elaCorrect++; burstConfetti();});
+
+buildSingleSelect('wq6opts','wq6fb',[
+  {text:'People in charge of leading a ship', correct:false, explain:'That is the nautical meaning — not how it is used here.'},
+  {text:'Community volunteers who take charge of organizing something in their neighborhood', correct:true, explain:'Right — in this context, "captains" refers to neighborhood volunteer organizers.'},
+  {text:'Professional athletes', correct:false, explain:'Nothing in the sentence points to sports.'}
+], ()=>{addXP(5); burstConfetti();});
+
+buildSingleSelect('q14opts','q14fb',[
+  {text:'Public attention and visibility that helps a business become known', correct:true, explain:'Correct — "exposure" here means new customers finding out about a business.'},
+  {text:'Being outdoors without shelter', correct:false, explain:'That is a different, unrelated meaning of the word.'},
+  {text:'A camera setting', correct:false, explain:'That is a photography meaning, not the one used here.'}
+], ()=>{addXP(10); elaCorrect++; burstConfetti();});
+
+buildSingleSelect('q15opts','q15fb',[
+  {text:'An organized area or system overseeing local schools', correct:true, explain:'Correct — "school district" refers to the governing body over local schools.'},
+  {text:'A neighborhood shopping area', correct:false, explain:'That is a different, unrelated meaning of "district."'},
+  {text:'A type of school building', correct:false, explain:'A district oversees schools — it is not a building itself.'}
+], ()=>{addXP(10); elaCorrect++; burstConfetti();});
+
+buildSingleSelect('q16opts','q16fb',[
+  {text:'Community volunteers who organize their block for the festival', correct:true, explain:'Correct — this matches the neighborhood-organizing context.'},
+  {text:'Ship commanders', correct:false, explain:'That is the nautical meaning, not the community-volunteer meaning used here.'},
+  {text:'Team captains in a sport', correct:false, explain:'Nothing in the sentence connects to sports.'}
+], ()=>{addXP(10); elaCorrect++; burstConfetti();});
+
+buildSingleSelect('q17opts','q17fb',[
+  {text:'A calculated approximate amount, not an exact count', correct:true, explain:'Correct — "estimated" signals a close approximation rather than a precise headcount.'},
+  {text:'A guaranteed, exact number', correct:false, explain:'That is close to the opposite of what "estimated" means.'},
+  {text:'The highest possible number', correct:false, explain:'"Estimated" does not mean a maximum — it means an approximation.'}
+], ()=>{addXP(10); elaCorrect++; burstConfetti();});
+
+(function(){
+  const words = [
+    {id:'exposure', text:'exposure'}, {id:'district', text:'district'},
+    {id:'captains', text:'captains'}, {id:'estimated', text:'estimated'}
+  ];
+  const defs = [
+    {id:'exposure', text:'public attention that helps a business become known'}, {id:'district', text:'an organized area overseeing local schools'},
+    {id:'captains', text:'volunteers who organize their neighborhood'}, {id:'estimated', text:'a calculated approximate amount'}
+  ];
+  defs.sort(()=>Math.random()-0.5);
+  const wordsCol = document.getElementById('matchWords');
+  const defsCol = document.getElementById('matchDefs');
+  let selectedWord = null;
+  let pairedCount = 0;
+  words.forEach(w=>{
+    const b = document.createElement('button');
+    b.className='match-item'; b.textContent=w.text; b.dataset.id=w.id;
+    b.onclick=()=>{
+      if(b.classList.contains('paired')) return;
+      document.querySelectorAll('#matchWords .match-item').forEach(x=>x.classList.remove('sel'));
+      b.classList.add('sel');
+      selectedWord = w.id;
+    };
+    wordsCol.appendChild(b);
+  });
+  defs.forEach(d=>{
+    const b = document.createElement('button');
+    b.className='match-item'; b.textContent=d.text; b.dataset.id=d.id;
+    b.onclick=()=>{
+      if(b.classList.contains('paired') || !selectedWord) return;
+      if(d.id===selectedWord){
+        b.classList.add('paired');
+        document.querySelector('#matchWords [data-id="'+selectedWord+'"]').classList.add('paired');
+        document.querySelector('#matchWords [data-id="'+selectedWord+'"]').classList.remove('sel');
+        addXP(5);
+        pairedCount++;
+        if(pairedCount===words.length) burstConfetti();
+      } else {
+        b.style.borderColor = 'var(--bad)';
+        setTimeout(()=>{ b.style.borderColor=''; },500);
+      }
+      selectedWord = null;
+    };
+    defsCol.appendChild(b);
+  });
+})();
+
+buildSingleSelect('wq7opts','wq7fb',[
+  {text:'Because the committee reviewed the budget.', correct:false, explain:'This is a fragment — the dependent clause never attaches to a complete idea.'},
+  {text:'Because the committee reviewed the budget, they approved the new banners.', correct:true, explain:'Correct — the dependent clause is attached to a complete independent clause.'},
+  {text:'Although the festival was a success.', correct:false, explain:'This is also a fragment — same problem, different starting word.'}
+], ()=>{addXP(5); burstConfetti();});
+
+buildSingleSelect('q18opts','q18fb',[
+  {text:'Even though the stat box already showed the numbers.', correct:false, explain:'This is the uncorrected fragment.'},
+  {text:'Even though the stat box already showed the numbers, Diego decided to explain them in the paragraph too.', correct:true, explain:'Correct — the dependent clause is now attached to a complete independent clause.'},
+  {text:'The stat box already showed the numbers.', correct:false, explain:'This is grammatically complete but drops the contrast the sentence was originally making.'},
+  {text:'Even though, the stat box already showed the numbers.', correct:false, explain:'Adding a comma there does not fix the fragment — "even though" still needs an attached independent clause.'}
+], ()=>{addXP(15); elaCorrect++; burstConfetti();});
+
+function selfCheckSentence(){
+  const val = document.getElementById('creativeSentence').value.trim();
+  const box = document.getElementById('selfCheckBox');
+  const connectors = ['because','although','since','even though'];
+  const usedConnector = connectors.find(c => val.toLowerCase().includes(c));
+  box.style.display = 'block';
+  box.innerHTML = `
+    <label>${usedConnector ? '✅' : '⬜'} Used a dependent-clause starter (${usedConnector ? '"'+usedConnector+'"' : 'not found yet'})</label>
+    <label>${val.includes(',') ? '✅' : '⬜'} Includes a comma before the independent clause</label>
+    <label>${/[.!?]$/.test(val) ? '✅' : '⬜'} Ends with punctuation</label>
+  `;
+  if(usedConnector && val.includes(',')){ addXP(10); burstConfetti(); }
+}
+
+function finalizeScore(){
+  const name = document.getElementById('studentName').value.trim() || 'Champion';
+  document.getElementById('finalName').textContent = name + ', Great Work!';
+  document.getElementById('finalXP').textContent = xp;
+  document.getElementById('finalMath').textContent = Math.min(mathCorrect,mathTotal) + '/' + mathTotal;
+  document.getElementById('finalELA').textContent = Math.min(elaCorrect,elaTotal) + '/' + elaTotal;
+  const pct = ((mathCorrect+elaCorrect)/(mathTotal+elaTotal))*100;
+  let msg = '';
+  if(pct>=85) msg = 'Level 4-5 pace today — that\u2019s exactly the target.';
+  else if(pct>=60) msg = 'Solid Level 3 work — the Test Tactics call-outs are where the next jump comes from.';
+  else msg = 'Good first rep on this material — the committee meets again in Week 8.';
+  document.getElementById('masteryMsg').textContent = msg;
+  burstConfetti();
+}
+
+function submitScore(){
+  // Live Formspree endpoint for FAST Prep Grade 6 Progress (shared across all 14 lessons).
+  const endpoint = 'https://formspree.io/f/xppzdzwb';
+  const name = document.getElementById('studentName').value.trim() || 'Unknown';
+  const payload = {
+    student: name,
+    lesson: 'FAST Prep G6 — Lesson 4: Hometown Ties (Community)',
+    date: new Date().toISOString().slice(0,10),
+    xp: xp,
+    math_correct: Math.min(mathCorrect,mathTotal),
+    math_total: mathTotal,
+    ela_correct: Math.min(elaCorrect,elaTotal),
+    ela_total: elaTotal
+  };
+  const statusEl = document.getElementById('submitStatus');
+  const btn = document.getElementById('submitBtn');
+  btn.disabled = true;
+  statusEl.textContent = 'Submitting...';
+  fetch(endpoint, {
+    method:'POST',
+    headers:{'Content-Type':'application/json','Accept':'application/json'},
+    body: JSON.stringify(payload)
+  }).then(r=>{
+    if(r.ok){ statusEl.textContent = 'Results saved. Nice work today!'; }
+    else { statusEl.textContent = 'Progress endpoint not yet connected — ask your tutor to save this manually for now.'; btn.disabled=false; }
+  }).catch(()=>{
+    statusEl.textContent = 'Progress endpoint not yet connected — ask your tutor to save this manually for now.';
+    btn.disabled=false;
+  });
+}
+
+renderDots();
+</script>
+</body>
+</html>
