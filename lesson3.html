@@ -1,0 +1,1175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FAST Prep Grade 6 — Lesson 3: Full-Court Press | KingCretot Experience</title>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0A1F3D; --gold:#C9A84C; --blue:#0047BA; --red:#DB2F30; --cream:#FAF7EF;
+  --ink:#1c1c1c; --ok:#2E7D32; --bad:#C0392B; --field:#1e4d2b;
+  --shadow:0 8px 24px rgba(10,31,61,.18);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{font-family:'Nunito',sans-serif;background:linear-gradient(160deg,#F4F1EA 0%,#EAE3D3 100%);color:var(--ink);min-height:100vh;font-size:17px;line-height:1.6}
+h1,h2,h3,.hud-title,.btn{font-family:'Oswald',sans-serif}
+.hud{position:fixed;top:0;left:0;right:0;background:linear-gradient(135deg,var(--navy),#071630);color:#fff;padding:10px 20px;display:flex;justify-content:space-between;align-items:center;z-index:100;box-shadow:var(--shadow);flex-wrap:wrap;gap:8px}
+.hud-left{display:flex;align-items:center;gap:12px}
+.kc-box{background:var(--navy);border:2px solid var(--gold);color:var(--gold);font-weight:700;font-size:1.05rem;border-radius:7px;padding:5px 10px;line-height:1}
+.hud-title{font-size:1rem;font-weight:600;letter-spacing:.3px}
+.hud-title small{display:block;font-family:'Nunito',sans-serif;font-size:.7rem;color:var(--gold);letter-spacing:1.5px;text-transform:uppercase;font-weight:800}
+.hud-right{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.stat{background:rgba(255,255,255,.12);padding:6px 14px;border-radius:20px;font-weight:800;font-size:.9rem;display:flex;align-items:center;gap:6px}
+.stat .big{color:var(--gold)}
+.xpbar{width:110px;height:9px;background:rgba(255,255,255,.2);border-radius:5px;overflow:hidden}
+.xpfill{height:100%;background:linear-gradient(90deg,var(--gold),#e8c874);transition:width .4s;width:0%}
+.wrap{max-width:900px;margin:0 auto;padding:100px 18px 44px}
+.slide{background:#fff;border-radius:20px;padding:32px;box-shadow:var(--shadow);min-height:480px;display:none;animation:pop .3s ease;border-top:5px solid var(--gold)}
+.slide.on{display:block}
+@keyframes pop{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+@keyframes confettiFall{0%{transform:translate(0,0) rotate(0deg);opacity:1}100%{transform:translate(var(--drift),105vh) rotate(var(--rot));opacity:.15}}
+.eyebrow{letter-spacing:2.5px;font-size:.72rem;color:var(--blue);text-transform:uppercase;font-weight:800;margin-bottom:6px}
+h1{font-size:2rem;color:var(--navy);letter-spacing:.3px;margin-bottom:8px;font-weight:700}
+h2{font-size:1.4rem;color:var(--navy);margin-bottom:10px;font-weight:600}
+h3{font-size:1.05rem;color:var(--blue);margin:16px 0 6px;font-weight:600}
+p{margin:9px 0}
+.badge{display:inline-block;padding:5px 14px;border-radius:14px;font-weight:800;font-size:.72rem;letter-spacing:1px;text-transform:uppercase;background:linear-gradient(135deg,var(--gold),#e8c874);color:var(--navy);margin-bottom:10px;margin-right:6px}
+.badge.subj-math{background:linear-gradient(135deg,var(--blue),#3068cf);color:#fff}
+.badge.subj-ela{background:linear-gradient(135deg,var(--red),#e8574f);color:#fff}
+.badge.step{background:#e8e4d8;color:var(--navy)}
+.btn{padding:13px 26px;border-radius:12px;font-weight:700;border:none;cursor:pointer;font-size:.95rem;letter-spacing:.4px;transition:all .15s;display:inline-flex;align-items:center;gap:8px}
+.btn:active{transform:translateY(2px)}
+.btn:disabled{opacity:.5;cursor:default}
+.btn-go{background:var(--navy);color:#fff;box-shadow:0 4px 0 #051329}
+.btn-back{background:#e8e4d8;color:#374151}
+.nav{display:flex;justify-content:space-between;margin-top:26px;gap:10px;flex-wrap:wrap}
+.dots{display:flex;gap:5px;justify-content:center;margin-top:16px;flex-wrap:wrap}
+.dot{width:9px;height:9px;border-radius:50%;background:#d8d2c2;transition:all .2s}
+.dot.on{background:var(--gold);transform:scale(1.4)}
+.dot.done{background:var(--ok)}
+.card{background:var(--cream);border:2px solid #E8DFC4;border-radius:14px;padding:16px 18px;margin:14px 0}
+.card-field{background:#eef7f0;border-color:#c7e3cc}
+.card-idea{background:#fff;border:2px dashed #C9C1A6;border-radius:14px;padding:14px 18px;margin:12px 0}
+.card-tactic{background:#eef2fb;border-color:#c9d7f5;position:relative;padding-left:50px}
+.card-tactic::before{content:"🎯";position:absolute;left:14px;top:16px;font-size:1.3rem}
+.card-tactic .lbl{font-weight:800;color:var(--blue);font-size:.78rem;letter-spacing:1px;text-transform:uppercase;margin-bottom:3px}
+.card-narrative{background:#fdf3e7;border-color:#e8cfa0;border-left:5px solid var(--gold);font-style:italic}
+.step-lbl{font-weight:800;font-size:.72rem;letter-spacing:1.5px;text-transform:uppercase;color:#888;margin:18px 0 6px;display:flex;align-items:center;gap:8px}
+.step-lbl::after{content:"";flex:1;height:1px;background:#e0dbc8}
+.qbox{background:#fff;border:2.5px solid #E2E8F0;border-radius:14px;padding:18px;margin:14px 0;transition:border-color .2s}
+.qbox.ok{border-color:var(--ok)}
+.qtext{font-weight:700;margin-bottom:10px;font-size:1.02rem}
+.opt{display:block;width:100%;text-align:left;padding:11px 14px;margin:7px 0;border:2px solid #d8d2c2;border-radius:10px;background:#fff;cursor:pointer;font-family:inherit;font-size:.95rem;transition:all .15s}
+.opt:hover{border-color:var(--blue)}
+.opt.sel{border-color:var(--blue);background:#eef2fb}
+.opt.correct{border-color:var(--ok);background:#e9f6ea;font-weight:700}
+.opt.wrong{border-color:var(--bad);background:#fdecea}
+.feedback{margin-top:10px;padding:10px 14px;border-radius:10px;font-size:.9rem;font-weight:600;display:none}
+.feedback.show{display:block}
+.feedback.ok{background:#e9f6ea;color:var(--ok)}
+.feedback.bad{background:#fdecea;color:var(--bad)}
+.passage{background:#fffdf7;border:1px solid #e8dfc4;border-radius:12px;padding:20px 22px;font-size:.98rem;line-height:1.75;margin:12px 0;max-height:420px;overflow-y:auto}
+.passage h3{margin-top:0}
+.vocab{background:var(--gold);color:var(--navy);padding:0 4px;border-radius:3px;font-weight:800;cursor:help}
+.multiselect-note{font-size:.82rem;color:var(--blue);font-weight:700;margin-bottom:8px}
+.final-badge{text-align:center;padding:20px}
+.final-badge .medal{font-size:4rem}
+.scorebox{display:flex;gap:14px;justify-content:center;margin:18px 0;flex-wrap:wrap}
+.scorebox .cell{background:var(--cream);border:2px solid #E8DFC4;border-radius:12px;padding:14px 22px;text-align:center}
+.scorebox .cell .num{font-size:1.7rem;font-weight:800;color:var(--navy)}
+.scorebox .cell .lbl{font-size:.72rem;text-transform:uppercase;letter-spacing:1px;color:#888;margin-top:2px}
+.footer-note{text-align:center;font-size:.78rem;color:#999;margin-top:20px}
+.inline-input{padding:10px 12px;border:2px solid #d8d2c2;border-radius:8px;font-family:inherit;font-size:1rem}
+.hot-sentence{cursor:pointer;padding:1px 2px;border-radius:3px;transition:all .15s}
+.hot-sentence:hover{background:#eef2fb}
+.hot-sentence.sel{background:var(--blue);color:#fff}
+.hot-sentence.correct{background:var(--ok);color:#fff}
+.hot-sentence.wrong{background:#fdecea;text-decoration:line-through}
+.match-wrap{display:flex;gap:24px;flex-wrap:wrap;margin:14px 0}
+.match-col{flex:1;min-width:200px}
+.match-item{display:block;width:100%;text-align:left;padding:10px 14px;margin:6px 0;border:2px solid #d8d2c2;border-radius:9px;background:#fff;cursor:pointer;font-family:inherit;font-size:.92rem}
+.match-item.sel{border-color:var(--blue);background:#eef2fb}
+.match-item.paired{border-color:var(--ok);background:#e9f6ea;cursor:default}
+.editing-passage{background:#fffdf7;border:1px solid #e8dfc4;border-radius:10px;padding:16px 18px;font-size:.96rem;line-height:1.7;margin:10px 0}
+.editing-target{background:#fff3cd;padding:1px 3px;border-radius:3px;font-weight:700}
+.selfcheck{background:#eef2fb;border:2px dashed #c9d7f5;border-radius:10px;padding:12px 16px;margin-top:10px;font-size:.88rem}
+.selfcheck label{display:block;margin:4px 0;cursor:pointer}
+</style>
+</head>
+<body>
+
+<div class="hud">
+  <div class="hud-left">
+    <div class="kc-box">KC</div>
+    <div class="hud-title">FAST Prep — Grade 6<br><small>Lesson 3 · Full-Court Press</small></div>
+  </div>
+  <div class="hud-right">
+    <div class="stat">⚙ <span class="big" id="streakStat">0</span> Streak</div>
+    <div class="stat">⭐ <span class="big" id="xpStat">0</span> XP</div>
+    <div class="xpbar"><div class="xpfill" id="xpFill"></div></div>
+  </div>
+</div>
+
+<div class="wrap">
+
+<!-- SLIDE 0: WELCOME -->
+<div class="slide on" id="s0">
+  <div class="eyebrow">KingCretot Experience · FAST Readiness Track</div>
+  <h1>Full-Court Press</h1>
+  <p style="font-size:1.05rem">Tied game, twenty-two seconds left, the Panthers throwing a full-court press at the Arcadia Comets. Point guard Jasmine Cole has carried the offense all night. Everything in this lesson runs through this one possession — the math behind the stats, and the story of the pass Jasmine almost didn't make.</p>
+  <div class="card card-field">
+    <h3 style="color:var(--field);margin-top:0">Tonight's game plan</h3>
+    <p><strong>First Half — Math, four possessions:</strong> unit rates from ticket sales, free-throw percentages, points-per-game averages, and a mixed review round.</p>
+    <p><strong>Switch:</strong> stats close, the story opens.</p>
+    <p><strong>Second Half — ELA:</strong> the theme of Jasmine's last possession, the figurative language that makes the scene feel real, vocabulary, and joining sentences the way a sports writer would.</p>
+  </div>
+  <p>What's your name?</p>
+  <input type="text" id="studentName" placeholder="Type your name here" style="width:100%;padding:12px 14px;border:2px solid #d8d2c2;border-radius:10px;font-family:inherit;font-size:1rem;margin-bottom:16px">
+  <div class="nav">
+    <span></span>
+    <button class="btn btn-go" onclick="goTo(1)">Tip-Off  →</button>
+  </div>
+</div>
+
+<!-- SLIDE 1: MATH TEACH - UNIT RATE -->
+<div class="slide" id="s1">
+  <span class="badge subj-math">Math · MA.6.AR.3.2</span>
+  <span class="badge step">I Do</span>
+  <h2>Possession 1: Pricing the Booster Table (Unit Rate)</h2>
+  <p>The Booster Club is selling team T-shirts at tonight's game: <strong>25 shirts for $375</strong>. To post a single price tag, they need the <strong>unit rate</strong> — the price for just one shirt.</p>
+  <div class="card-idea">
+    <p>Divide the total by the number of items: $375 &divide; 25 = <strong>$15 per shirt</strong>. That's the unit rate — one quantity for one unit of the other.</p>
+  </div>
+  <p>Unit rates also let you compare two different deals fairly. The concession stand sells popcorn two ways: <strong>Vendor A: 8 bags for $24</strong>, <strong>Vendor B: 10 bags for $25</strong>.</p>
+  <div class="card-idea">
+    <p>Vendor A: $24 &divide; 8 = $3.00 per bag. Vendor B: $25 &divide; 10 = $2.50 per bag. Even though Vendor B's total is higher, its <em>unit rate</em> is lower — the better deal per bag.</p>
+  </div>
+  <div class="card-tactic">
+    <div class="lbl">Test Tactic</div>
+    <p>"Which is the better deal" questions are unit-rate questions in disguise. Find the price per single unit for each option before comparing — never compare totals directly.</p>
+  </div>
+  <div class="nav">
+    <button class="btn btn-back" onclick="goTo(0)">← Back</button>
+    <button class="btn btn-go" onclick="goTo(2)">Guided Practice  →</button>
+  </div>
+</div>
+
+<!-- SLIDE 2: UNIT RATE PRACTICE + ASSESS -->
+<div class="slide" id="s2">
+  <span class="badge subj-math">Math</span>
+  <span class="badge step">We Do</span>
+  <h2>Price the Water Bottles</h2>
+  <div class="qbox" id="wq1box">
+    <div class="qtext">The team sells water bottles at the concession stand: 30 bottles for $60. What is the unit rate — the price per bottle?</div>
+    <div id="wq1opts"></div>
+    <div class="feedback" id="wq1fb"></div>
+  </div>
+  <div class="step-lbl">You Do — Scored</div>
+  <span class="badge subj-math">FAST-Format Item</span>
+  <div class="qbox" id="q1box">
+    <div class="qtext">The Booster Club sold 150 raffle tickets for $750 to fund new uniforms. What is the price per ticket (the unit rate)? Type your answer.</div>
+    <input type="text" id="q1answer" class="inline-input" placeholder="Price per ticket" style="width:140px">
+    <button class="btn btn-back" style="padding:10px 16px;margin-left:8px" onclick="checkQ1()">Check</button>
+    <div class="feedback" id="q1fb"></div>
+  </div>
+  <div class="qbox" id="q2box">
+    <div class="qtext">The program table sells two ways: 40 programs for $120, or a bundle of 15 programs for $60. Which option has the lower price per program?</div>
+    <div id="q2opts"></div>
+    <div class="feedback" id="q2fb"></div>
+  </div>
+  <div class="nav">
+    <button class="btn btn-back" onclick="goTo(1)">← Back</button>
+    <button class="btn btn-go" onclick="goTo(3)">Possession 2  →</button>
+  </div>
+</div>
+
+<!-- SLIDE 3: MATH TEACH - FREE THROW % -->
+<div class="slide" id="s3">
+  <span class="badge subj-math">Math · MA.6.AR.3.4</span>
+  <span class="badge step">I Do</span>
+  <h2>Possession 2: Reading the Free-Throw Line (Percentages)</h2>
+  <p>Jasmine has attempted <strong>20 free throws</strong> this season and made <strong>15</strong>. Her free-throw percentage tells you how often she scores from the line.</p>
+  <div class="card-idea">
+    <p>Divide makes by attempts, then multiply by 100: 15 &divide; 20 = 0.75, and 0.75 &times; 100 = <strong>75%</strong>.</p>
+  </div>
+  <div class="card-tactic">
+    <div class="lbl">Test Tactic</div>
+    <p>"Made X of Y attempts" always means divide the smaller number (makes) by the larger number (attempts), then convert to a percent. Attempts always go on the bottom.</p>
+  </div>
+  <div class="nav">
+    <button class="btn btn-back" onclick="goTo(2)">← Back</button>
+    <button class="btn btn-go" onclick="goTo(4)">Guided Practice  →</button>
+  </div>
+</div>
+
+<!-- SLIDE 4: FREE THROW % PRACTICE + ASSESS -->
+<div class="slide" id="s4">
+  <span class="badge subj-math">Math</span>
+  <span class="badge step">We Do</span>
+  <h2>Check Trey's Line</h2>
+  <div class="qbox" id="wq2box">
+    <div class="qtext">Guard Trey Alvarez attempted 10 free throws and made 8. What is his free-throw percentage?</div>
+    <div id="wq2opts"></div>
+    <div class="feedback" id="wq2fb"></div>
+  </div>
+  <div class="step-lbl">You Do — Scored</div>
+  <span class="badge subj-math">FAST-Format Item</span>
+  <div class="qbox" id="q3box">
+    <div class="qtext">Forward Maya Whitlock attempted 25 free throws this season and made 20. What is her free-throw percentage? Type your answer as a number (no % sign needed).</div>
+    <input type="text" id="q3answer" class="inline-input" placeholder="Percent" style="width:140px">
+    <button class="btn btn-back" style="padding:10px 16px;margin-left:8px" onclick="checkQ3()">Check</button>
+    <div class="feedback" id="q3fb"></div>
+  </div>
+  <div class="qbox" id="q4box">
+    <div class="qtext">Jasmine makes 75% of her free throws. Maya makes 80% of hers. Who has the higher free-throw percentage?</div>
+    <div id="q4opts"></div>
+    <div class="feedback" id="q4fb"></div>
+  </div>
+  <div class="nav">
+    <button class="btn btn-back" onclick="goTo(3)">← Back</button>
+    <button class="btn btn-go" onclick="goTo(5)">Possession 3  →</button>
+  </div>
+</div>
+
+<!-- SLIDE 5: MATH TEACH - PPG -->
+<div class="slide" id="s5">
+  <span class="badge subj-math">Math · MA.6.AR.3.4</span>
+  <span class="badge step">I Do</span>
+  <h2>Possession 3: Points Per Game (PPG)</h2>
+  <p>Over the last four games, the Comets scored <strong>84, 92, 78, and 86</strong> points. Sportscasters call the average score per game <strong>PPG</strong> — points per game.</p>
+  <div class="card-idea">
+    <p>Add every game's total, divide by the number of games: (84+92+78+86) &divide; 4 = 340 &divide; 4 = <strong>85 PPG</strong>.</p>
+  </div>
+  <div class="card-tactic">
+    <div class="lbl">Test Tactic</div>
+    <p>PPG is the same operation as finding a mean — just applied to game scores instead of a generic data set. If you can find a mean, you can find a PPG.</p>
+  </div>
+  <div class="nav">
+    <button class="btn btn-back" onclick="goTo(4)">← Back</button>
+    <button class="btn btn-go" onclick="goTo(6)">Guided Practice  →</button>
+  </div>
+</div>
+
+<!-- SLIDE 6: PPG PRACTICE + ASSESS -->
+<div class="slide" id="s6">
+  <span class="badge subj-math">Math</span>
+  <span class="badge step">We Do</span>
+  <h2>Check a Two-Game Stretch</h2>
+  <div class="qbox" id="wq3box">
+    <div class="qtext">Over 2 games, the team scored 40 and 50 points. What is the PPG for that stretch?</div>
+    <div id="wq3opts"></div>
+    <div class="feedback" id="wq3fb"></div>
+  </div>
+  <div class="step-lbl">You Do — Scored</div>
+  <span class="badge subj-math">FAST-Format Item</span>
+  <div class="qbox" id="q5box">
+    <div class="qtext">Jasmine's points scored over her last 5 games: 18, 22, 16, 24, 20. What is her PPG average? Type your answer.</div>
+    <input type="text" id="q5answer" class="inline-input" placeholder="PPG" style="width:140px">
+    <button class="btn btn-back" style="padding:10px 16px;margin-left:8px" onclick="checkQ5()">Check</button>
+    <div class="feedback" id="q5fb"></div>
+  </div>
+  <div class="qbox" id="q6box">
+    <div class="qtext">Which of these correctly describes how PPG is calculated?</div>
+    <div id="q6opts"></div>
+    <div class="feedback" id="q6fb"></div>
+  </div>
+  <div class="nav">
+    <button class="btn btn-back" onclick="goTo(5)">← Back</button>
+    <button class="btn btn-go" onclick="goTo(7)">Possession 4  →</button>
+  </div>
+</div>
+
+<!-- SLIDE 7: MATH TEACH - MIXED REVIEW -->
+<div class="slide" id="s7">
+  <span class="badge subj-math">Math</span>
+  <span class="badge step">I Do</span>
+  <h2>Possession 4: Reading the Whole Stat Line</h2>
+  <p>Real box scores mix all three ideas together: unit rates, percentages, and averages, side by side. The skill FAST actually tests is knowing which one a question wants <em>before</em> you calculate anything.</p>
+  <div class="card-idea">
+    <p><strong>"Price per..." or "which is the better rate"</strong> &rarr; unit rate.</p>
+    <p><strong>"Made X of Y"</strong> or <strong>"what fraction became a percent"</strong> &rarr; percentage.</p>
+    <p><strong>"Average," "typical," or "PPG"</strong> &rarr; mean.</p>
+  </div>
+  <div class="card-tactic">
+    <div class="lbl">Test Tactic</div>
+    <p>Underline the exact phrase that signals which operation a word problem wants before you touch a single number. Guessing the operation first is where most points get lost on mixed-review items.</p>
+  </div>
+  <div class="nav">
+    <button class="btn btn-back" onclick="goTo(6)">← Back</button>
+    <button class="btn btn-go" onclick="goTo(8)">Guided Practice  →</button>
+  </div>
+</div>
+
+<!-- SLIDE 8: MIXED REVIEW PRACTICE + ASSESS -->
+<div class="slide" id="s8">
+  <span class="badge subj-math">Math</span>
+  <span class="badge step">We Do</span>
+  <h2>Call the Operation</h2>
+  <div class="qbox" id="wq4box">
+    <div class="qtext">If a stat is written as a fraction of makes over attempts, which operation turns it into a percentage?</div>
+    <div id="wq4opts"></div>
+    <div class="feedback" id="wq4fb"></div>
+  </div>
+  <div class="step-lbl">You Do — Scored</div>
+  <span class="badge subj-math">FAST-Format Item</span>
+  <div class="qbox" id="q7box">
+    <div class="qtext">The team sells game programs: 40 programs for $120. What is the unit price per program? Type your answer.</div>
+    <input type="text" id="q7answer" class="inline-input" placeholder="Price" style="width:140px">
+    <button class="btn btn-back" style="padding:10px 16px;margin-left:8px" onclick="checkQ7()">Check</button>
+    <div class="feedback" id="q7fb"></div>
+  </div>
+  <div class="qbox" id="q8box">
+    <div class="qtext">Center Priya Nair made 18 of 24 shot attempts this month. Which operation correctly turns "18 of 24" into a shooting percentage?</div>
+    <div id="q8opts"></div>
+    <div class="feedback" id="q8fb"></div>
+  </div>
+  <div class="qbox" id="q9box">
+    <div class="qtext">Jasmine's stat line this season: 75% free-throw percentage, 20 PPG. Select ALL statements below that are true about her performance.</div>
+    <div class="multiselect-note">Select all that apply</div>
+    <div id="q9opts"></div>
+    <div class="feedback" id="q9fb"></div>
+  </div>
+  <div class="nav">
+    <button class="btn btn-back" onclick="goTo(7)">← Back</button>
+    <button class="btn btn-go" onclick="goTo(9)">Switch  →</button>
+  </div>
+</div>
+
+<!-- SLIDE 9: SWITCH / TRANSITION -->
+<div class="slide" id="s9">
+  <div class="eyebrow">Switch</div>
+  <h2>Stat Sheet Closed, Story Open</h2>
+  <div class="card-narrative">
+    <p>The math closes with the box score — four possessions of numbers. But a box score never tells you what actually happened in the final twenty-two seconds. That part is a story, and it's next.</p>
+    <p>Stand up. Shake out your arms like you're about to check into the game. Same night, second half.</p>
+  </div>
+  <div class="nav">
+    <span></span>
+    <button class="btn btn-go" onclick="goTo(10)">Read the Story  →</button>
+  </div>
+</div>
+
+<!-- SLIDE 10: ELA TEACH - THEME -->
+<div class="slide" id="s10">
+  <span class="badge subj-ela">ELA · ELA.6.R.1.2</span>
+  <span class="badge step">I Do</span>
+  <h2>What a Theme Actually Is</h2>
+  <p>A <strong>theme</strong> is the lesson or bigger idea a story teaches through what happens to its characters — not just what the story is <em>about</em>, but what it <em>means</em>.</p>
+  <div class="card-idea">
+    <p><em>"Maria spent all afternoon trying to fix the bike alone, getting more frustrated with every failed attempt. When she finally asked her neighbor for help, they had it running in ten minutes."</em></p>
+    <p>This story is <em>about</em> a broken bike. Its <strong>theme</strong> is bigger: asking for help isn't a failure — it's often the faster, smarter choice.</p>
+  </div>
+  <p>As you read "Full-Court Press," watch for what the main character learns by the end — not just what happens, but what it teaches her.</p>
+  <div class="nav">
+    <button class="btn btn-back" onclick="goTo(9)">← Back</button>
+    <button class="btn btn-go" onclick="goTo(11)">Read the Scene  →</button>
+  </div>
+</div>
+
+<!-- SLIDE 11: PASSAGE -->
+<div class="slide" id="s11">
+  <span class="badge subj-ela">Read · Literary Text</span>
+  <h2>"Full-Court Press"</h2>
+  <div class="passage" id="passageReadOnly"></div>
+  <div class="nav">
+    <button class="btn btn-back" onclick="goTo(10)">← Back</button>
+    <button class="btn btn-go" onclick="goTo(12)">Break It Down  →</button>
+  </div>
+</div>
+
+<!-- SLIDE 12: GUIDED CLOSE READ -->
+<div class="slide" id="s12">
+  <span class="badge subj-ela">ELA</span>
+  <span class="badge step">We Do</span>
+  <h2>Find What Changed</h2>
+  <p>Before answering anything, let's trace Jasmine's decision — together.</p>
+  <div class="card-idea">
+    <p><strong>Before:</strong> Jasmine had carried the offense all night, taking every big shot herself.</p>
+    <p><strong>The moment:</strong> trapped by the press, every instinct told her to force a shot anyway.</p>
+    <p><strong>What she actually did:</strong> passed to Maya instead, with no hesitation.</p>
+    <p><strong>What she realized:</strong> the pass, not any shot she'd made, was her best decision of the game.</p>
+  </div>
+  <div class="qbox" id="wq5box">
+    <div class="qtext">Which moment in the story shows Jasmine's realization taking shape?</div>
+    <div id="wq5opts"></div>
+    <div class="feedback" id="wq5fb"></div>
+  </div>
+  <div class="nav">
+    <button class="btn btn-back" onclick="goTo(11)">← Back</button>
+    <button class="btn btn-go" onclick="goTo(13)">Scored Questions  →</button>
+  </div>
+</div>
+
+<!-- SLIDE 13: ELA ASSESS - THEME + EVIDENCE -->
+<div class="slide" id="s13">
+  <span class="badge subj-ela">FAST-Format Item</span>
+  <span class="badge step">You Do — Scored</span>
+  <h2>Name the Lesson</h2>
+  <div class="qbox" id="q10box">
+    <div class="qtext">What is the central theme of this passage?</div>
+    <div id="q10opts"></div>
+    <div class="feedback" id="q10fb"></div>
+  </div>
+  <div class="qbox" id="q11box">
+    <div class="qtext"><strong>Evidence-Based Response, Part 1:</strong> What does Jasmine realize by the end of the story?</div>
+    <div id="q11opts"></div>
+  </div>
+  <div class="qbox" id="q12box" style="display:none">
+    <div class="qtext"><strong>Evidence-Based Response, Part 2:</strong> Which detail from the passage best supports that realization?</div>
+    <div id="q12opts"></div>
+    <div class="feedback" id="q12fb"></div>
+  </div>
+  <div class="card-tactic">
+    <div class="lbl">Test Tactic</div>
+    <p>Evidence-based items are graded as a pair — Part 2 only counts if Part 1 is right too. Pin down what changed for the character before you go hunting for proof.</p>
+  </div>
+  <div class="nav">
+    <button class="btn btn-back" onclick="goTo(12)">← Back</button>
+    <button class="btn btn-go" onclick="goTo(14)">The Writer's Toolbox  →</button>
+  </div>
+</div>
+
+<!-- SLIDE 14: ELA TEACH - FIGURATIVE LANGUAGE -->
+<div class="slide" id="s14">
+  <span class="badge subj-ela">ELA · ELA.6.R.3.1</span>
+  <span class="badge step">I Do</span>
+  <h2>Similes vs. Metaphors</h2>
+  <p>Writers use <strong>figurative language</strong> to make a moment feel more vivid than a plain description would.</p>
+  <div class="card-idea">
+    <p>A <strong>simile</strong> compares two things using "like" or "as": <em>"the crowd roared like thunder."</em></p>
+    <p>A <strong>metaphor</strong> compares two things directly, without "like" or "as": <em>"the crowd was thunder."</em> Same comparison, no signal word.</p>
+  </div>
+  <div class="step-lbl">We Do</div>
+  <div class="qbox" id="wq6box">
+    <div class="qtext">Which of these two phrases is a simile: "the crowd roared like thunder" or "the crowd was thunder"?</div>
+    <div id="wq6opts"></div>
+    <div class="feedback" id="wq6fb"></div>
+  </div>
+  <div class="nav">
+    <button class="btn btn-back" onclick="goTo(13)">← Back</button>
+    <button class="btn btn-go" onclick="goTo(15)">Scored Round  →</button>
+  </div>
+</div>
+
+<!-- SLIDE 15: FIGURATIVE LANGUAGE SCORED -->
+<div class="slide" id="s15">
+  <span class="badge subj-ela">FAST-Format Item · Hot Text</span>
+  <span class="badge step">You Do — Scored</span>
+  <h2>Find the Simile</h2>
+  <div class="qbox" id="q13box">
+    <div class="qtext">Click the sentence below that contains a simile.</div>
+    <div class="passage" id="passageScored" style="max-height:none"></div>
+    <div class="feedback" id="q13fb"></div>
+  </div>
+  <div class="qbox" id="q14box">
+    <div class="qtext">Select ALL phrases below that are similes.</div>
+    <div class="multiselect-note">Select all that apply</div>
+    <div id="q14opts"></div>
+    <div class="feedback" id="q14fb"></div>
+  </div>
+  <div class="qbox" id="q15box">
+    <div class="qtext">What does "the open court suddenly felt like a maze with the walls sliding in" suggest about how Jasmine feels in that moment?</div>
+    <div id="q15opts"></div>
+    <div class="feedback" id="q15fb"></div>
+  </div>
+  <div class="nav">
+    <button class="btn btn-back" onclick="goTo(14)">← Back</button>
+    <button class="btn btn-go" onclick="goTo(16)">Vocabulary  →</button>
+  </div>
+</div>
+
+<!-- SLIDE 16: VOCABULARY -->
+<div class="slide" id="s16">
+  <span class="badge subj-ela">ELA · ELA.6.V.1.1 / 1.2 / 1.3</span>
+  <span class="badge step">I Do</span>
+  <h2>Four Words From the Story</h2>
+  <p><strong>Strategy — Context clues.</strong></p>
+  <div class="card-idea">
+    <p><em>"no gap left to squeeze through"</em> paired with <em>"every instinct in Jasmine's body screamed to force a shot anyway"</em> — the surrounding sentence describes an automatic, gut-level urge, pointing to what "instinct" means.</p>
+    <p><em>"she flicked the ball to Maya in one motion, no hesitation"</em> — the phrase "in one motion" signals speed and certainty, the opposite of pausing to think it over.</p>
+  </div>
+  <div class="step-lbl">We Do</div>
+  <div class="qbox" id="wq7box">
+    <div class="qtext">The passage says Maya "buried the shot" as the buzzer sounded. Based on the scene, what does "buried" most likely mean here?</div>
+    <div id="wq7opts"></div>
+    <div class="feedback" id="wq7fb"></div>
+  </div>
+  <div class="nav">
+    <button class="btn btn-back" onclick="goTo(15)">← Back</button>
+    <button class="btn btn-go" onclick="goTo(17)">Scored Round  →</button>
+  </div>
+</div>
+
+<!-- SLIDE 17: VOCAB SCORED + MATCHING -->
+<div class="slide" id="s17">
+  <span class="badge subj-ela">FAST-Format Item</span>
+  <span class="badge step">You Do — Scored</span>
+  <h2>Word Check</h2>
+  <div class="qbox" id="q16box">
+    <div class="qtext">What does "hesitation" mean as used in the passage?</div>
+    <div id="q16opts"></div>
+    <div class="feedback" id="q16fb"></div>
+  </div>
+  <div class="qbox" id="q17box">
+    <div class="qtext">In this basketball scene, what does "buried the shot" mean?</div>
+    <div id="q17opts"></div>
+    <div class="feedback" id="q17fb"></div>
+  </div>
+  <div class="qbox" id="q18box">
+    <div class="qtext">What does "instinct" mean as used in the passage?</div>
+    <div id="q18opts"></div>
+    <div class="feedback" id="q18fb"></div>
+  </div>
+  <div class="qbox" id="q19box">
+    <div class="qtext">What does "mobbed" suggest about how Jasmine's teammates reacted to Maya's shot?</div>
+    <div id="q19opts"></div>
+    <div class="feedback" id="q19fb"></div>
+  </div>
+  <h3>Bonus Mode: Match the Words</h3>
+  <p style="font-size:.9rem">Click a word, then click its matching meaning. Not scored toward your total — just extra XP.</p>
+  <div class="match-wrap">
+    <div class="match-col" id="matchWords"></div>
+    <div class="match-col" id="matchDefs"></div>
+  </div>
+  <div class="nav">
+    <button class="btn btn-back" onclick="goTo(16)">← Back</button>
+    <button class="btn btn-go" onclick="goTo(18)">Sentence Skills  →</button>
+  </div>
+</div>
+
+<!-- SLIDE 18: SENTENCE SKILLS TEACH -->
+<div class="slide" id="s18">
+  <span class="badge subj-ela">ELA · ELA.6.C.3.1</span>
+  <span class="badge step">I Do</span>
+  <h2>Joining Sentences With a Semicolon</h2>
+  <p>Two closely related complete sentences can also be joined with a <strong>semicolon</strong> instead of a comma-plus-conjunction — no connecting word needed, just the semicolon between two complete ideas.</p>
+  <div class="card-idea">
+    <p><strong>Separate:</strong> "Jasmine had the ball. The defenders closed in fast."</p>
+    <p><strong>Combined:</strong> "Jasmine had the ball; the defenders closed in fast."</p>
+    <p>A semicolon can only join two sentences that could each stand alone — if either half isn't a complete sentence by itself, a semicolon is the wrong tool.</p>
+  </div>
+  <div class="step-lbl">We Do</div>
+  <div class="qbox" id="wq8box">
+    <div class="qtext">Which of these correctly uses a semicolon to join two complete sentences?</div>
+    <div id="wq8opts"></div>
+    <div class="feedback" id="wq8fb"></div>
+  </div>
+  <div class="nav">
+    <button class="btn btn-back" onclick="goTo(17)">← Back</button>
+    <button class="btn btn-go" onclick="goTo(19)">Scored Edit  →</button>
+  </div>
+</div>
+
+<!-- SLIDE 19: EDITING TASK CHOICE + CREATIVE SENTENCE -->
+<div class="slide" id="s19">
+  <span class="badge subj-ela">FAST-Format Item · Editing Task Choice</span>
+  <span class="badge step">You Do — Scored</span>
+  <h2>Fix the Recap</h2>
+  <div class="qbox" id="q20box">
+    <div class="qtext">Choose the best correction for the underlined sentence:</div>
+    <div class="editing-passage">The Comets trailed by two with a minute left. <span class="editing-target">Jasmine brought the ball up she looked for an open teammate.</span> The press never let up.</div>
+    <div id="q20opts"></div>
+    <div class="feedback" id="q20fb"></div>
+  </div>
+  <h3>Now You Try: Write One</h3>
+  <p>Write your own sentence describing the final possession, joining two complete ideas with a semicolon.</p>
+  <textarea id="creativeSentence" rows="3" style="width:100%;padding:12px;border:2px solid #d8d2c2;border-radius:10px;font-family:inherit;font-size:.98rem" placeholder="Type your sentence here..."></textarea>
+  <button class="btn btn-back" style="margin-top:10px" onclick="selfCheckSentence()">Self-Check My Sentence</button>
+  <div class="selfcheck" id="selfCheckBox" style="display:none"></div>
+  <div class="nav">
+    <button class="btn btn-back" onclick="goTo(18)">← Back</button>
+    <button class="btn btn-go" onclick="goTo(20)">Final Buzzer  →</button>
+  </div>
+</div>
+
+<!-- SLIDE 20: LOOKING AHEAD -->
+<div class="slide" id="s20">
+  <div class="eyebrow">Looking Ahead</div>
+  <h2>Scouting Report: Week 4</h2>
+  <p>Next week the theme shifts to <strong>Community — "Hometown Ties"</strong>: decimal operations and coordinate mapping in Math, text features and argument in ELA.</p>
+  <p>The Comets play again in Week 8 — the box score gets harder, the story continues.</p>
+  <div class="nav">
+    <button class="btn btn-back" onclick="goTo(19)">← Back</button>
+    <button class="btn btn-go" onclick="goTo(21)">See Your Score  →</button>
+  </div>
+</div>
+
+<!-- SLIDE 21: FINAL SCORE -->
+<div class="slide" id="s21">
+  <div class="final-badge">
+    <div class="medal">🏆</div>
+    <h1 id="finalName">Great Work!</h1>
+    <p>Full-Court Press complete.</p>
+    <div class="scorebox">
+      <div class="cell"><div class="num" id="finalXP">0</div><div class="lbl">Total XP</div></div>
+      <div class="cell"><div class="num" id="finalMath">0/9</div><div class="lbl">Math Correct</div></div>
+      <div class="cell"><div class="num" id="finalELA">0/10</div><div class="lbl">ELA Correct</div></div>
+    </div>
+    <p id="masteryMsg" style="font-weight:700;color:var(--navy)"></p>
+    <button class="btn btn-go" onclick="submitScore()" id="submitBtn">Submit My Results</button>
+    <p class="footer-note" id="submitStatus"></p>
+  </div>
+</div>
+
+<div class="dots" id="dots"></div>
+</div>
+
+<script>
+const TOTAL_SLIDES = 22;
+let current = 0;
+let xp = 0;
+let streak = 0;
+let mathCorrect = 0, mathTotal = 9;
+let elaCorrect = 0, elaTotal = 10;
+let q11Correct = false;
+
+function goTo(n){
+  document.getElementById('s'+current).classList.remove('on');
+  current = n;
+  document.getElementById('s'+current).classList.add('on');
+  renderDots();
+  window.scrollTo({top:0,behavior:'smooth'});
+  if(n===21){ finalizeScore(); }
+}
+
+function renderDots(){
+  const d = document.getElementById('dots');
+  d.innerHTML='';
+  for(let i=0;i<TOTAL_SLIDES;i++){
+    const dot = document.createElement('div');
+    dot.className = 'dot' + (i===current?' on':'') + (i<current?' done':'');
+    d.appendChild(dot);
+  }
+}
+
+function addXP(n){
+  xp += n;
+  document.getElementById('xpStat').textContent = xp;
+  document.getElementById('xpFill').style.width = Math.min(100,(xp/380)*100) + '%';
+  streak++;
+  document.getElementById('streakStat').textContent = streak;
+}
+
+function burstConfetti(){
+  const container = document.createElement('div');
+  container.style.cssText = 'position:fixed;inset:0;pointer-events:none;z-index:9999;overflow:hidden;';
+  document.body.appendChild(container);
+  const count = 28;
+  const colors = ['#C9A84C','#0047BA','#DB2F30','#0A1F3D','#ffffff'];
+  for(let i=0;i<count;i++){
+    const piece = document.createElement('div');
+    const startX = Math.random()*100;
+    const duration = 1.6 + Math.random()*1.3;
+    const delay = Math.random()*0.25;
+    const rotate = Math.random()*720-360;
+    const drift = (Math.random()*180-90);
+    piece.style.position='absolute';
+    piece.style.left=startX+'vw';
+    piece.style.top='-30px';
+    piece.style.setProperty('--drift', drift+'px');
+    piece.style.setProperty('--rot', rotate+'deg');
+    piece.style.animation = `confettiFall ${duration}s ease-in ${delay}s forwards`;
+    const c = colors[Math.floor(Math.random()*colors.length)];
+    const w = 8+Math.random()*6, h=12+Math.random()*8;
+    piece.style.width=w+'px'; piece.style.height=h+'px';
+    piece.style.background=c;
+    piece.style.borderRadius = Math.random()>0.5?'50%':'2px';
+    container.appendChild(piece);
+  }
+  setTimeout(()=>container.remove(), 3200);
+}
+
+function buildSingleSelect(optsId, fbId, data, onCorrect){
+  const container = document.getElementById(optsId);
+  data.forEach(o=>{
+    const b=document.createElement('button');
+    b.className='opt';
+    b.textContent=o.text;
+    b.onclick=()=>{
+      document.querySelectorAll('#'+optsId+' .opt').forEach(x=>x.classList.remove('sel','correct','wrong'));
+      const fb = document.getElementById(fbId);
+      if(o.correct){
+        b.classList.add('correct');
+        fb.textContent = o.explain || 'Correct.';
+        fb.className='feedback show ok';
+        b.closest('.qbox').classList.add('ok');
+        if(onCorrect) onCorrect();
+      } else {
+        b.classList.add('wrong');
+        fb.textContent = o.explain || 'Not quite — reread the clue and try again.';
+        fb.className='feedback show bad';
+      }
+    };
+    container.appendChild(b);
+  });
+}
+
+// ================= MATH: POSSESSION 1 (UNIT RATE) =================
+
+buildSingleSelect('wq1opts','wq1fb',[
+  {text:'$2 per bottle', correct:true, explain:'Right — $60 divided by 30 bottles = $2 per bottle.'},
+  {text:'$30 per bottle', correct:false, explain:'That divides bottles by dollars instead of dollars by bottles.'},
+  {text:'$60 per bottle', correct:false, explain:'That is the total, not the price for a single bottle.'}
+], ()=>{addXP(5); burstConfetti();});
+
+function checkQ1(){
+  const val = document.getElementById('q1answer').value.trim().replace('$','');
+  const fb = document.getElementById('q1fb');
+  if(val === '5'){
+    fb.textContent='Correct — $750 divided by 150 tickets = $5 per ticket.';
+    fb.className='feedback show ok';
+    addXP(15); mathCorrect++;
+    burstConfetti();
+    document.getElementById('q1box').classList.add('ok');
+  } else {
+    fb.textContent='Not yet — divide the total dollar amount by the number of tickets.';
+    fb.className='feedback show bad';
+  }
+}
+
+buildSingleSelect('q2opts','q2fb',[
+  {text:'40 programs for $120 ($3.00 per program)', correct:false, explain:'$120 divided by 40 is $3.00 per program — check the other option too.'},
+  {text:'15 programs for $60 ($4.00 per program)', correct:false, explain:'$60 divided by 15 is $4.00 per program — that is higher, not lower.'},
+  {text:'They cost the same per program', correct:false, explain:'$3.00 and $4.00 are not the same — calculate both unit rates and compare.'},
+  {text:'40 programs for $120 has the lower unit price', correct:true, explain:'Correct — $3.00 per program beats $4.00 per program.'}
+], ()=>{addXP(10); mathCorrect++; burstConfetti();});
+
+// ================= MATH: POSSESSION 2 (FREE THROW %) =================
+
+buildSingleSelect('wq2opts','wq2fb',[
+  {text:'80%', correct:true, explain:'Right — 8 divided by 10 is 0.8, or 80%.'},
+  {text:'8%', correct:false, explain:'That drops the decimal conversion — multiply by 100 after dividing.'},
+  {text:'800%', correct:false, explain:'That misplaces the decimal point in the wrong direction.'}
+], ()=>{addXP(5); burstConfetti();});
+
+function checkQ3(){
+  const val = document.getElementById('q3answer').value.trim().replace('%','');
+  const fb = document.getElementById('q3fb');
+  if(val === '80'){
+    fb.textContent='Correct — 20 divided by 25 is 0.8, or 80%.';
+    fb.className='feedback show ok';
+    addXP(15); mathCorrect++;
+    burstConfetti();
+    document.getElementById('q3box').classList.add('ok');
+  } else {
+    fb.textContent='Not yet — divide makes by attempts, then multiply by 100.';
+    fb.className='feedback show bad';
+  }
+}
+
+buildSingleSelect('q4opts','q4fb',[
+  {text:'Jasmine — she has attempted more free throws overall', correct:false, explain:'Total attempts and percentage measure different things.'},
+  {text:'Maya — 80% is higher than 75%', correct:true, explain:'Correct — 80% beats 75%.'},
+  {text:'They are equal', correct:false, explain:'75% and 80% are not equal.'}
+], ()=>{addXP(10); mathCorrect++; burstConfetti();});
+
+// ================= MATH: POSSESSION 3 (PPG) =================
+
+buildSingleSelect('wq3opts','wq3fb',[
+  {text:'45', correct:true, explain:'Right — (40+50) divided by 2 = 45.'},
+  {text:'90', correct:false, explain:'That is the total, not the average per game.'},
+  {text:'10', correct:false, explain:'That subtracts the two scores instead of averaging them.'}
+], ()=>{addXP(5); burstConfetti();});
+
+function checkQ5(){
+  const val = document.getElementById('q5answer').value.trim();
+  const fb = document.getElementById('q5fb');
+  if(val === '20'){
+    fb.textContent='Correct — (18+22+16+24+20) divided by 5 = 100 divided by 5 = 20.';
+    fb.className='feedback show ok';
+    addXP(15); mathCorrect++;
+    burstConfetti();
+    document.getElementById('q5box').classList.add('ok');
+  } else {
+    fb.textContent='Not yet — add all five games together, then divide by 5.';
+    fb.className='feedback show bad';
+  }
+}
+
+buildSingleSelect('q6opts','q6fb',[
+  {text:'Total points multiplied by number of games', correct:false, explain:'Multiplying would make the number bigger, not find a typical score.'},
+  {text:'Total points divided by number of games', correct:true, explain:'Correct — that is exactly how a mean, including PPG, is calculated.'},
+  {text:'The single highest game score', correct:false, explain:'That is a maximum, not an average.'},
+  {text:'The single lowest game score', correct:false, explain:'That is a minimum, not an average.'}
+], ()=>{addXP(10); mathCorrect++; burstConfetti();});
+
+// ================= MATH: POSSESSION 4 (MIXED REVIEW) =================
+
+buildSingleSelect('wq4opts','wq4fb',[
+  {text:'Multiply makes by attempts', correct:false, explain:'Multiplying the two together does not produce a percentage.'},
+  {text:'Divide makes by attempts, then multiply by 100', correct:true, explain:'Correct — that converts a fraction into a percentage.'},
+  {text:'Add 100 to the fraction', correct:false, explain:'Adding does not convert a fraction into a percentage.'}
+], ()=>{addXP(5); burstConfetti();});
+
+function checkQ7(){
+  const val = document.getElementById('q7answer').value.trim().replace('$','');
+  const fb = document.getElementById('q7fb');
+  if(val === '3'){
+    fb.textContent='Correct — $120 divided by 40 programs = $3 per program.';
+    fb.className='feedback show ok';
+    addXP(15); mathCorrect++;
+    burstConfetti();
+    document.getElementById('q7box').classList.add('ok');
+  } else {
+    fb.textContent='Not yet — divide the total dollar amount by the number of programs.';
+    fb.className='feedback show bad';
+  }
+}
+
+buildSingleSelect('q8opts','q8fb',[
+  {text:'Multiply 18 by 24', correct:false, explain:'Multiplying the two numbers together does not produce a percentage.'},
+  {text:'Divide 18 by 24, then multiply by 100', correct:true, explain:'Correct — that converts the fraction of makes over attempts into a percent.'},
+  {text:'Divide 24 by 18', correct:false, explain:'That flips makes and attempts — attempts always go on the bottom.'},
+  {text:'Subtract 18 from 24', correct:false, explain:'Subtracting gives you the number of misses, not a percentage.'}
+], ()=>{addXP(10); mathCorrect++; burstConfetti();});
+
+const q9data = [
+  {text:'She makes 3 out of every 4 free throws, on average', correct:true},
+  {text:'She scores 20 points per game, on average', correct:true},
+  {text:'Her free-throw percentage is higher than her PPG', correct:false},
+  {text:'She makes exactly 75 free throws every game', correct:false},
+  {text:'75% written as a fraction is 3:4', correct:true}
+];
+const q9opts = document.getElementById('q9opts');
+let q9selected = new Set();
+q9data.forEach((o,idx)=>{
+  const b = document.createElement('button');
+  b.className='opt'; b.textContent=o.text;
+  b.onclick=()=>{
+    if(q9selected.has(idx)){ q9selected.delete(idx); b.classList.remove('sel'); }
+    else { q9selected.add(idx); b.classList.add('sel'); }
+  };
+  q9opts.appendChild(b);
+});
+const q9btn = document.createElement('button');
+q9btn.className='btn btn-back'; q9btn.style.marginTop='10px';
+q9btn.textContent='Check My Selections';
+q9btn.onclick=()=>{
+  const fb = document.getElementById('q9fb');
+  const correctSet = new Set(q9data.map((o,i)=>o.correct?i:null).filter(x=>x!==null));
+  const isRight = q9selected.size===correctSet.size && [...q9selected].every(i=>correctSet.has(i));
+  document.querySelectorAll('#q9opts .opt').forEach(b=>b.classList.remove('correct','wrong'));
+  if(isRight){
+    document.querySelectorAll('#q9opts .opt').forEach((b,i)=>{
+      if(q9data[i].correct) b.classList.add('correct');
+    });
+    fb.textContent='All three correct — 75% is the same as making 3 of every 4, and it converts to a 3:4 fraction. Her PPG is a completely separate stat.';
+    fb.className='feedback show ok';
+    addXP(15); mathCorrect++;
+    burstConfetti();
+    document.getElementById('q9box').classList.add('ok');
+  } else {
+    document.querySelectorAll('#q9opts .opt').forEach((b,i)=>{
+      if(q9selected.has(i)) b.classList.add('wrong');
+    });
+    fb.textContent='Close — exactly three of the five statements are true. Try again.';
+    fb.className='feedback show bad';
+  }
+};
+q9opts.appendChild(q9btn);
+
+// ================= ELA SECTION =================
+
+const passageSentences = [
+  {id:'p1', text:"Jasmine dribbled up the court, her heart pounding hard in her chest — Comets 58, Panthers 58, twenty-two seconds left on the clock, and she'd carried the offense all night, every big shot and every fast break hers alone.", figurative:false},
+  {id:'p2', text:"The Panthers' press hit her the second she crossed half-court, two defenders closing in like a pair of scissors snapping shut, and when a third defender appeared, the open court suddenly felt like a maze with the walls sliding in.", figurative:true},
+  {id:'p3', text:"\"Jaz!\" Maya's voice cut through the noise. She stood wide open at the elbow, arms up, waiting — but every instinct in Jasmine's body screamed to force a shot anyway, since she'd made tougher ones tonight, and now the defenders were a wall, no gap left to squeeze through.", figurative:false},
+  {id:'p4', text:"She flicked the ball to Maya in one motion, no hesitation, and Maya caught it, squared up, and buried the shot just as the buzzer sounded — Comets 60, Panthers 58.", figurative:false},
+  {id:'p5', text:"Jasmine had scored twenty-two points that night, more than anyone else on the floor, but standing at half-court while her teammates mobbed Maya near the basket, she realized the pass — not a single one of her shots — was the best decision she'd made all game.", figurative:false}
+];
+
+function buildPassageBody(containerId, scored){
+  const c = document.getElementById(containerId);
+  passageSentences.forEach(s=>{
+    const p = document.createElement('p');
+    p.className='hot-sentence';
+    if(scored) p.setAttribute('tabindex','0');
+    p.textContent = s.text;
+    if(scored){
+      const activate = ()=>{
+        document.querySelectorAll('#'+containerId+' .hot-sentence').forEach(x=>x.classList.remove('sel','correct','wrong'));
+        const fb = document.getElementById('q13fb');
+        if(s.figurative){
+          p.classList.add('correct');
+          fb.textContent='Correct — this sentence uses "like" twice to build two similes.';
+          fb.className='feedback show ok';
+          addXP(15); elaCorrect++;
+          burstConfetti();
+          document.getElementById('q13box').classList.add('ok');
+        } else {
+          p.classList.add('wrong');
+          fb.textContent='No simile here — look for a sentence that compares two things using "like" or "as."';
+          fb.className='feedback show bad';
+        }
+      };
+      p.onclick = activate;
+      p.onkeydown = (e)=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); activate(); } };
+    }
+    c.appendChild(p);
+  });
+}
+buildPassageBody('passageReadOnly', false);
+
+buildSingleSelect('wq5opts','wq5fb',[
+  {text:'Comets 58, Panthers 58, twenty-two seconds left', correct:false, explain:'That is the situation before the decision, not the realization itself.'},
+  {text:'Standing at half-court while her teammates mobbed Maya, she realized the pass was the best decision she\u2019d made all game', correct:true, explain:'Right — that sentence states the realization directly.'}
+], ()=>{addXP(5); burstConfetti();});
+
+buildSingleSelect('q10opts','q10fb',[
+  {text:'Trusting your teammates matters more than scoring every point yourself', correct:true, explain:'Correct — the story builds toward Jasmine valuing the pass over her own point total.'},
+  {text:'Basketball players should always shoot when they get the ball', correct:false, explain:'That is close to the opposite of what the story teaches.'},
+  {text:'The team with the most individual talent always wins', correct:false, explain:'The story is not about talent — it is about a choice.'},
+  {text:'Full-court press defense cannot be beaten', correct:false, explain:'The Comets do beat the press — but that is not the story\u2019s lesson.'}
+], ()=>{addXP(10); elaCorrect++; burstConfetti();});
+
+const q11data = [
+  {text:'That passing to a teammate was a better decision than trying to score herself', correct:true},
+  {text:'That she needs new basketball shoes', correct:false},
+  {text:'That the Panthers are the better team', correct:false},
+  {text:'That she should practice free throws more', correct:false}
+];
+const q11opts = document.getElementById('q11opts');
+q11data.forEach(o=>{
+  const b=document.createElement('button'); b.className='opt'; b.textContent=o.text;
+  b.onclick=()=>{
+    document.querySelectorAll('#q11opts .opt').forEach(x=>x.classList.remove('sel','correct','wrong'));
+    if(o.correct){ b.classList.add('correct'); q11Correct = true; document.getElementById('q12box').style.display='block'; }
+    else { b.classList.add('wrong'); q11Correct = false; document.getElementById('q12box').style.display='none'; }
+  };
+  q11opts.appendChild(b);
+});
+const q12data = [
+  {text:'Comets 58, Panthers 58, twenty-two seconds left on the clock', correct:false},
+  {text:'Standing at half-court while her teammates mobbed Maya, she realized the pass was the best decision she\u2019d made all game', correct:true},
+  {text:'Two defenders closing in like a pair of scissors snapping shut', correct:false},
+  {text:'She\u2019d carried the offense all night, every big shot and every fast break hers alone', correct:false}
+];
+const q12opts = document.getElementById('q12opts');
+q12data.forEach(o=>{
+  const b=document.createElement('button'); b.className='opt'; b.textContent=o.text;
+  b.onclick=()=>{
+    document.querySelectorAll('#q12opts .opt').forEach(x=>x.classList.remove('sel','correct','wrong'));
+    const fb = document.getElementById('q12fb');
+    if(o.correct && q11Correct){
+      b.classList.add('correct');
+      fb.textContent='Both parts correct — that sentence states the realization directly, right where the story lands it.';
+      fb.className='feedback show ok';
+      addXP(20); elaCorrect++;
+      burstConfetti();
+      document.getElementById('q11box').classList.add('ok');
+      document.getElementById('q12box').classList.add('ok');
+    } else {
+      b.classList.add('wrong');
+      fb.textContent='This only counts if Part 1 is also correct — check both parts.';
+      fb.className='feedback show bad';
+    }
+  };
+  q12opts.appendChild(b);
+});
+
+buildSingleSelect('wq6opts','wq6fb',[
+  {text:'"the crowd roared like thunder"', correct:true, explain:'Right — "like" signals a simile.'},
+  {text:'"the crowd was thunder"', correct:false, explain:'That is a metaphor — a direct comparison with no "like" or "as."'}
+], ()=>{addXP(5); burstConfetti();});
+
+buildPassageBody('passageScored', true);
+
+const q14data = [
+  {text:'"two defenders closing in like a pair of scissors snapping shut"', correct:true},
+  {text:'"the open court suddenly felt like a maze with the walls sliding in"', correct:true},
+  {text:'"the defenders were a wall, no gap left to squeeze through"', correct:false},
+  {text:'"her heart pounding hard in her chest"', correct:false},
+  {text:'"Maya caught it, squared up, and buried the shot"', correct:false}
+];
+const q14opts = document.getElementById('q14opts');
+let q14selected = new Set();
+q14data.forEach((o,idx)=>{
+  const b = document.createElement('button');
+  b.className='opt'; b.textContent=o.text;
+  b.onclick=()=>{
+    if(q14selected.has(idx)){ q14selected.delete(idx); b.classList.remove('sel'); }
+    else { q14selected.add(idx); b.classList.add('sel'); }
+  };
+  q14opts.appendChild(b);
+});
+const q14btn = document.createElement('button');
+q14btn.className='btn btn-back'; q14btn.style.marginTop='10px';
+q14btn.textContent='Check My Selections';
+q14btn.onclick=()=>{
+  const fb = document.getElementById('q14fb');
+  const correctSet = new Set(q14data.map((o,i)=>o.correct?i:null).filter(x=>x!==null));
+  const isRight = q14selected.size===correctSet.size && [...q14selected].every(i=>correctSet.has(i));
+  document.querySelectorAll('#q14opts .opt').forEach(b=>b.classList.remove('correct','wrong'));
+  if(isRight){
+    document.querySelectorAll('#q14opts .opt').forEach((b,i)=>{
+      if(q14data[i].correct) b.classList.add('correct');
+    });
+    fb.textContent='Both correct — each one uses "like" to compare two things. "A wall" is a metaphor, not a simile — no "like" or "as."';
+    fb.className='feedback show ok';
+    addXP(15); elaCorrect++;
+    burstConfetti();
+    document.getElementById('q14box').classList.add('ok');
+  } else {
+    document.querySelectorAll('#q14opts .opt').forEach((b,i)=>{
+      if(q14selected.has(i)) b.classList.add('wrong');
+    });
+    fb.textContent='Close — exactly two of the five options are true similes. Try again.';
+    fb.className='feedback show bad';
+  }
+};
+q14opts.appendChild(q14btn);
+
+buildSingleSelect('q15opts','q15fb',[
+  {text:'Trapped and overwhelmed, with no clear way out', correct:true, explain:'Correct — a closing-in maze suggests feeling boxed in with no easy escape.'},
+  {text:'Confident and excited', correct:false, explain:'A maze with walls sliding in suggests the opposite of confidence.'},
+  {text:'Bored and uninterested', correct:false, explain:'The scene is tense, not boring — reread the phrase.'},
+  {text:'Calm and relieved', correct:false, explain:'"Walls sliding in" suggests pressure, not relief.'}
+], ()=>{addXP(10); elaCorrect++; burstConfetti();});
+
+buildSingleSelect('q16opts','q16fb',[
+  {text:'Pausing to think something over before acting', correct:true, explain:'Correct — "no hesitation" describes acting immediately, without pausing.'},
+  {text:'Acting with great skill', correct:false, explain:'Hesitation is about timing, not skill level.'},
+  {text:'Feeling proud of a decision', correct:false, explain:'Hesitation describes a pause, not a feeling of pride.'}
+], ()=>{addXP(10); elaCorrect++; burstConfetti();});
+
+buildSingleSelect('q17opts','q17fb',[
+  {text:'Made the shot cleanly', correct:true, explain:'Correct — in basketball slang, "buried" a shot means made it, usually with authority.'},
+  {text:'Missed the shot completely', correct:false, explain:'The passage says the buzzer sounded right after — the shot won the game, so it was made.'},
+  {text:'Threw the ball out of bounds', correct:false, explain:'Nothing in the scene suggests the ball went out of bounds.'}
+], ()=>{addXP(10); elaCorrect++; burstConfetti();});
+
+buildSingleSelect('q18opts','q18fb',[
+  {text:'An automatic, gut-level urge, without conscious thought', correct:true, explain:'Correct — "every instinct... screamed" describes an automatic impulse.'},
+  {text:'A planned, carefully thought-out strategy', correct:false, explain:'Instinct is the opposite of a slow, planned decision.'},
+  {text:'A rule the coach taught the team', correct:false, explain:'Nothing in the sentence points to a coached rule.'}
+], ()=>{addXP(10); elaCorrect++; burstConfetti();});
+
+buildSingleSelect('q19opts','q19fb',[
+  {text:'They rushed toward her all at once, excited and crowding around', correct:true, explain:'Correct — "mobbed" suggests an enthusiastic crowd closing in around someone.'},
+  {text:'They walked away calmly', correct:false, explain:'That is close to the opposite of what "mobbed" suggests.'},
+  {text:'They argued with her about the play', correct:false, explain:'Nothing in the scene suggests an argument.'}
+], ()=>{addXP(10); elaCorrect++; burstConfetti();});
+
+(function(){
+  const words = [
+    {id:'hesitation', text:'hesitation'}, {id:'buried', text:'buried'},
+    {id:'instinct', text:'instinct'}, {id:'mobbed', text:'mobbed'}
+  ];
+  const defs = [
+    {id:'hesitation', text:'pausing before acting'}, {id:'buried', text:'made a shot cleanly'},
+    {id:'instinct', text:'an automatic, gut-level urge'}, {id:'mobbed', text:'crowded around excitedly'}
+  ];
+  defs.sort(()=>Math.random()-0.5);
+  const wordsCol = document.getElementById('matchWords');
+  const defsCol = document.getElementById('matchDefs');
+  let selectedWord = null;
+  let pairedCount = 0;
+  words.forEach(w=>{
+    const b = document.createElement('button');
+    b.className='match-item'; b.textContent=w.text; b.dataset.id=w.id;
+    b.onclick=()=>{
+      if(b.classList.contains('paired')) return;
+      document.querySelectorAll('#matchWords .match-item').forEach(x=>x.classList.remove('sel'));
+      b.classList.add('sel');
+      selectedWord = w.id;
+    };
+    wordsCol.appendChild(b);
+  });
+  defs.forEach(d=>{
+    const b = document.createElement('button');
+    b.className='match-item'; b.textContent=d.text; b.dataset.id=d.id;
+    b.onclick=()=>{
+      if(b.classList.contains('paired') || !selectedWord) return;
+      if(d.id===selectedWord){
+        b.classList.add('paired');
+        document.querySelector('#matchWords [data-id="'+selectedWord+'"]').classList.add('paired');
+        document.querySelector('#matchWords [data-id="'+selectedWord+'"]').classList.remove('sel');
+        addXP(5);
+        pairedCount++;
+        if(pairedCount===words.length) burstConfetti();
+      } else {
+        b.style.borderColor = 'var(--bad)';
+        setTimeout(()=>{ b.style.borderColor=''; },500);
+      }
+      selectedWord = null;
+    };
+    defsCol.appendChild(b);
+  });
+})();
+
+buildSingleSelect('wq8opts','wq8fb',[
+  {text:'Jasmine had the ball; the defenders closed in fast.', correct:true, explain:'Correct — both halves are complete sentences, properly joined with a semicolon.'},
+  {text:'Jasmine had the ball; and the defenders closed in fast.', correct:false, explain:'A semicolon should not be followed by "and" — use one or the other, not both.'},
+  {text:'Jasmine had the ball, the defenders closed in fast.', correct:false, explain:'That is a comma splice — a comma alone cannot join two complete sentences.'}
+], ()=>{addXP(5); burstConfetti();});
+
+buildSingleSelect('q20opts','q20fb',[
+  {text:'Jasmine brought the ball up she looked for an open teammate.', correct:false, explain:'This is the uncorrected run-on.'},
+  {text:'Jasmine brought the ball up; she looked for an open teammate.', correct:true, explain:'Correct — a semicolon properly joins these two complete sentences.'},
+  {text:'Jasmine brought the ball up. she looked for an open teammate.', correct:false, explain:'This fixes the run-on but breaks capitalization.'},
+  {text:'Jasmine brought; the ball up she looked for an open teammate.', correct:false, explain:'That semicolon placement does not join two complete sentences correctly.'}
+], ()=>{addXP(15); elaCorrect++; burstConfetti();});
+
+function selfCheckSentence(){
+  const val = document.getElementById('creativeSentence').value.trim();
+  const box = document.getElementById('selfCheckBox');
+  box.style.display = 'block';
+  box.innerHTML = `
+    <label>${val.includes(';') ? '✅' : '⬜'} Includes a semicolon</label>
+    <label>${val.length > 15 ? '✅' : '⬜'} Long enough to describe two complete ideas</label>
+    <label>${/[.!?]$/.test(val) ? '✅' : '⬜'} Ends with punctuation</label>
+  `;
+  if(val.includes(';') && val.length>15){ addXP(10); burstConfetti(); }
+}
+
+function finalizeScore(){
+  const name = document.getElementById('studentName').value.trim() || 'Champion';
+  document.getElementById('finalName').textContent = name + ', Great Work!';
+  document.getElementById('finalXP').textContent = xp;
+  document.getElementById('finalMath').textContent = Math.min(mathCorrect,mathTotal) + '/' + mathTotal;
+  document.getElementById('finalELA').textContent = Math.min(elaCorrect,elaTotal) + '/' + elaTotal;
+  const pct = ((mathCorrect+elaCorrect)/(mathTotal+elaTotal))*100;
+  let msg = '';
+  if(pct>=85) msg = 'Level 4-5 pace today — that\u2019s exactly the target.';
+  else if(pct>=60) msg = 'Solid Level 3 work — the Test Tactics call-outs are where the next jump comes from.';
+  else msg = 'Good first rep on this material — the Comets are back on the court in Week 8.';
+  document.getElementById('masteryMsg').textContent = msg;
+  burstConfetti();
+}
+
+function submitScore(){
+  // Live Formspree endpoint for FAST Prep Grade 6 Progress (shared across all 14 lessons).
+  const endpoint = 'https://formspree.io/f/xppzdzwb';
+  const name = document.getElementById('studentName').value.trim() || 'Unknown';
+  const payload = {
+    student: name,
+    lesson: 'FAST Prep G6 — Lesson 3: Full-Court Press (Basketball)',
+    date: new Date().toISOString().slice(0,10),
+    xp: xp,
+    math_correct: Math.min(mathCorrect,mathTotal),
+    math_total: mathTotal,
+    ela_correct: Math.min(elaCorrect,elaTotal),
+    ela_total: elaTotal
+  };
+  const statusEl = document.getElementById('submitStatus');
+  const btn = document.getElementById('submitBtn');
+  btn.disabled = true;
+  statusEl.textContent = 'Submitting...';
+  fetch(endpoint, {
+    method:'POST',
+    headers:{'Content-Type':'application/json','Accept':'application/json'},
+    body: JSON.stringify(payload)
+  }).then(r=>{
+    if(r.ok){ statusEl.textContent = 'Results saved. Nice work today!'; }
+    else { statusEl.textContent = 'Progress endpoint not yet connected — ask your tutor to save this manually for now.'; btn.disabled=false; }
+  }).catch(()=>{
+    statusEl.textContent = 'Progress endpoint not yet connected — ask your tutor to save this manually for now.';
+    btn.disabled=false;
+  });
+}
+
+renderDots();
+</script>
+</body>
+</html>
