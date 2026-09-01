@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FAST Prep Grade 6 — Lesson 6: Halftime Adjustments | KingCretot Experience</title>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0A1F3D; --gold:#C9A84C; --blue:#0047BA; --red:#DB2F30; --cream:#FAF7EF;
+  --ink:#1c1c1c; --ok:#2E7D32; --bad:#C0392B; --field:#1e4d2b;
+  --shadow:0 8px 24px rgba(10,31,61,.18);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{font-family:'Nunito',sans-serif;background:linear-gradient(160deg,#F4F1EA 0%,#EAE3D3 100%);color:var(--ink);min-height:100vh;font-size:17px;line-height:1.6}
+h1,h2,h3,.hud-title,.btn{font-family:'Oswald',sans-serif}
+.hud{position:fixed;top:0;left:0;right:0;background:linear-gradient(135deg,var(--navy),#071630);color:#fff;padding:10px 20px;display:flex;justify-content:space-between;align-items:center;z-index:100;box-shadow:var(--shadow);flex-wrap:wrap;gap:8px}
+.hud-left{display:flex;align-items:center;gap:12px}
+.kc-box{background:var(--navy);border:2px solid var(--gold);color:var(--gold);font-weight:700;font-size:1.05rem;border-radius:7px;padding:5px 10px;line-height:1}
+.hud-title{font-size:1rem;font-weight:600;letter-spacing:.3px}
+.hud-title small{display:block;font-family:'Nunito',sans-serif;font-size:.7rem;color:var(--gold);letter-spacing:1.5px;text-transform:uppercase;font-weight:800}
+.hud-right{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.stat{background:rgba(255,255,255,.12);padding:6px 14px;border-radius:20px;font-weight:800;font-size:.9rem;display:flex;align-items:center;gap:6px}
+.stat .big{color:var(--gold)}
+.xpbar{width:110px;height:9px;background:rgba(255,255,255,.2);border-radius:5px;overflow:hidden}
+.xpfill{height:100%;background:linear-gradient(90deg,var(--gold),#e8c874);transition:width .4s;width:0%}
+.wrap{max-width:900px;margin:0 auto;padding:100px 18px 44px}
+.slide{background:#fff;border-radius:20px;padding:32px;box-shadow:var(--shadow);min-height:380px;display:none;animation:pop .3s ease;border-top:5px solid var(--gold)}
+.slide.on{display:block}
+@keyframes pop{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+@keyframes confettiFall{0%{transform:translate(0,0) rotate(0deg);opacity:1}100%{transform:translate(var(--drift),105vh) rotate(var(--rot));opacity:.15}}
+.eyebrow{letter-spacing:2.5px;font-size:.72rem;color:var(--blue);text-transform:uppercase;font-weight:800;margin-bottom:6px}
+h1{font-size:2rem;color:var(--navy);letter-spacing:.3px;margin-bottom:8px;font-weight:700}
+h2{font-size:1.4rem;color:var(--navy);margin-bottom:10px;font-weight:600}
+h3{font-size:1.05rem;color:var(--blue);margin:16px 0 6px;font-weight:600}
+p{margin:9px 0}
+.badge{display:inline-block;padding:5px 14px;border-radius:14px;font-weight:800;font-size:.72rem;letter-spacing:1px;text-transform:uppercase;background:linear-gradient(135deg,var(--gold),#e8c874);color:var(--navy);margin-bottom:10px;margin-right:6px}
+.badge.subj-math{background:linear-gradient(135deg,var(--blue),#3068cf);color:#fff}
+.badge.subj-ela{background:linear-gradient(135deg,var(--red),#e8574f);color:#fff}
+.badge.step{background:#e8e4d8;color:var(--navy)}
+.badge.blitz{background:linear-gradient(135deg,var(--red),#ff8a5c);color:#fff}
+.btn{padding:13px 26px;border-radius:12px;font-weight:700;border:none;cursor:pointer;font-size:.95rem;letter-spacing:.4px;transition:all .15s;display:inline-flex;align-items:center;gap:8px}
+.btn:active{transform:translateY(2px)}
+.btn:disabled{opacity:.5;cursor:default}
+.btn-go{background:var(--navy);color:#fff;box-shadow:0 4px 0 #051329}
+.btn-back{background:#e8e4d8;color:#374151}
+.nav{display:flex;justify-content:space-between;margin-top:26px;gap:10px;flex-wrap:wrap}
+.dots{display:flex;gap:5px;justify-content:center;margin-top:16px;flex-wrap:wrap}
+.dot{width:9px;height:9px;border-radius:50%;background:#d8d2c2;transition:all .2s}
+.dot.on{background:var(--gold);transform:scale(1.4)}
+.dot.done{background:var(--ok)}
+.card{background:var(--cream);border:2px solid #E8DFC4;border-radius:14px;padding:16px 18px;margin:14px 0}
+.card-field{background:#eef7f0;border-color:#c7e3cc}
+.card-idea{background:#fff;border:2px dashed #C9C1A6;border-radius:14px;padding:14px 18px;margin:12px 0}
+.card-narrative{background:#fdf3e7;border-color:#e8cfa0;border-left:5px solid var(--gold);font-style:italic}
+.qbox{background:#fff;border:2.5px solid #E2E8F0;border-radius:14px;padding:18px;margin:14px 0;transition:border-color .2s}
+.qbox.ok{border-color:var(--ok)}
+.qtext{font-weight:700;margin-bottom:10px;font-size:1.05rem}
+.opt{display:block;width:100%;text-align:left;padding:11px 14px;margin:7px 0;border:2px solid #d8d2c2;border-radius:10px;background:#fff;cursor:pointer;font-family:inherit;font-size:.95rem;transition:all .15s}
+.opt:hover{border-color:var(--blue)}
+.opt.sel{border-color:var(--blue);background:#eef2fb}
+.opt.correct{border-color:var(--ok);background:#e9f6ea;font-weight:700}
+.opt.wrong{border-color:var(--bad);background:#fdecea}
+.feedback{margin-top:10px;padding:10px 14px;border-radius:10px;font-size:.9rem;font-weight:600;display:none}
+.feedback.show{display:block}
+.feedback.ok{background:#e9f6ea;color:var(--ok)}
+.feedback.bad{background:#fdecea;color:var(--bad)}
+.final-badge{text-align:center;padding:20px}
+.final-badge .medal{font-size:4rem}
+.scorebox{display:flex;gap:14px;justify-content:center;margin:18px 0;flex-wrap:wrap}
+.scorebox .cell{background:var(--cream);border:2px solid #E8DFC4;border-radius:12px;padding:14px 22px;text-align:center}
+.scorebox .cell .num{font-size:1.7rem;font-weight:800;color:var(--navy)}
+.scorebox .cell .lbl{font-size:.72rem;text-transform:uppercase;letter-spacing:1px;color:#888;margin-top:2px}
+.footer-note{text-align:center;font-size:.78rem;color:#999;margin-top:20px}
+.inline-input{padding:10px 12px;border:2px solid #d8d2c2;border-radius:8px;font-family:inherit;font-size:1rem}
+.blitz-row{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.blitz-count{background:var(--navy);color:var(--gold);font-weight:800;font-size:.85rem;padding:4px 12px;border-radius:20px}
+</style>
+</head>
+<body>
+
+<div class="hud">
+  <div class="hud-left">
+    <div class="kc-box">KC</div>
+    <div class="hud-title">FAST Prep — Grade 6<br><small>Lesson 6 · Halftime Adjustments</small></div>
+  </div>
+  <div class="hud-right">
+    <div class="stat">⚙ <span class="big" id="streakStat">0</span> Streak</div>
+    <div class="stat">⭐ <span class="big" id="xpStat">0</span> XP</div>
+    <div class="xpbar"><div class="xpfill" id="xpFill"></div></div>
+  </div>
+</div>
+
+<div class="wrap">
+
+<!-- SLIDE 0: WELCOME -->
+<div class="slide on" id="s0">
+  <div class="eyebrow">KingCretot Experience · FAST Readiness Track · Flex / Zoom-Friendly</div>
+  <h1>Halftime Adjustments</h1>
+  <p style="font-size:1.05rem">Midseason rematch: the Arcadia Eagles against the Punta Gorda Panthers again — same two teams from Week 1, tighter game, higher stakes. Today isn't new material. It's a fast halftime review, built to move quickly whether we're in person or on Zoom.</p>
+  <div class="card card-field">
+    <h3 style="color:var(--field);margin-top:0">Today's format</h3>
+    <p>No long teaching blocks today — just quick recall rounds. <strong>Math Blitz:</strong> number lines, ratios, and percentages from Week 1. <strong>ELA Blitz:</strong> vocabulary and the plot skills from "The Last Rep."</p>
+  </div>
+  <p>What's your name?</p>
+  <input type="text" id="studentName" placeholder="Type your name here" style="width:100%;padding:12px 14px;border:2px solid #d8d2c2;font-family:inherit;font-size:1rem;margin-bottom:16px;border-radius:10px">
+  <div class="nav">
+    <span></span>
+    <button class="btn btn-go" onclick="goTo(1)">Start the Blitz  →</button>
+  </div>
+</div>
+
+<!-- SLIDE 1: MATH QUICK RECAP -->
+<div class="slide" id="s1">
+  <span class="badge subj-math">Math Recap</span>
+  <h2>Two Quick Reminders</h2>
+  <div class="card-idea">
+    <p><strong>Signed numbers:</strong> a gain is positive, a loss is negative. Absolute value is the distance from zero, direction doesn't matter.</p>
+    <p><strong>Ratios and percentages:</strong> simplify a ratio by dividing both sides by their GCF. To turn a ratio into a percent, divide the first number by the second, then multiply by 100.</p>
+  </div>
+  <p>That's it — straight into the blitz.</p>
+  <div class="nav">
+    <button class="btn btn-back" onclick="goTo(0)">← Back</button>
+    <button class="btn btn-go" onclick="goTo(2)">Math Blitz: Round 1  →</button>
+  </div>
+</div>
+
+<!-- SLIDE 2: MATH BLITZ ROUND 1 -->
+<div class="slide" id="s2">
+  <span class="badge blitz">Math Blitz</span>
+  <div class="blitz-row"><span class="blitz-count">Round 1 of 3</span></div>
+  <div class="qbox" id="q1box">
+    <div class="qtext">A run play gains 7 yards. Which number represents this?</div>
+    <div id="q1opts"></div>
+    <div class="feedback" id="q1fb"></div>
+  </div>
+  <div class="qbox" id="q2box">
+    <div class="qtext">A holding penalty costs 10 yards. Which number represents this?</div>
+    <div id="q2opts"></div>
+    <div class="feedback" id="q2fb"></div>
+  </div>
+  <div class="nav">
+    <button class="btn btn-back" onclick="goTo(1)">← Back</button>
+    <button class="btn btn-go" onclick="goTo(3)">Round 2  →</button>
+  </div>
+</div>
+
+<!-- SLIDE 3: MATH BLITZ ROUND 2 -->
+<div class="slide" id="s3">
+  <span class="badge blitz">Math Blitz</span>
+  <div class="blitz-row"><span class="blitz-count">Round 2 of 3</span></div>
+  <div class="qbox" id="q3box">
+    <div class="qtext">What is |&minus;6|? Type your answer.</div>
+    <input type="text" id="q3answer" class="inline-input" placeholder="Answer" style="width:140px">
+    <button class="btn btn-back" style="padding:10px 16px;margin-left:8px" onclick="checkQ3()">Check</button>
+    <div class="feedback" id="q3fb"></div>
+  </div>
+  <div class="qbox" id="q4box">
+    <div class="qtext">The kicker made 9 of 12 field goal attempts this season. What is that ratio, fully simplified?</div>
+    <div id="q4opts"></div>
+    <div class="feedback" id="q4fb"></div>
+  </div>
+  <div class="nav">
+    <button class="btn btn-back" onclick="goTo(2)">← Back</button>
+    <button class="btn btn-go" onclick="goTo(4)">Round 3  →</button>
+  </div>
+</div>
+
+<!-- SLIDE 4: MATH BLITZ ROUND 3 -->
+<div class="slide" id="s4">
+  <span class="badge blitz">Math Blitz</span>
+  <div class="blitz-row"><span class="blitz-count">Round 3 of 3</span></div>
+  <div class="qbox" id="q5box">
+    <div class="qtext">Convert the ratio 3:4 to a percentage. Type just the number.</div>
+    <input type="text" id="q5answer" class="inline-input" placeholder="Percent" style="width:140px">
+    <button class="btn btn-back" style="padding:10px 16px;margin-left:8px" onclick="checkQ5()">Check</button>
+    <div class="feedback" id="q5fb"></div>
+  </div>
+  <div class="qbox" id="q6box">
+    <div class="qtext">Three plays in a row: +8, &minus;5, +2. What is the net yardage? Type your answer.</div>
+    <input type="text" id="q6answer" class="inline-input" placeholder="Net yards" style="width:140px">
+    <button class="btn btn-back" style="padding:10px 16px;margin-left:8px" onclick="checkQ6()">Check</button>
+    <div class="feedback" id="q6fb"></div>
+  </div>
+  <div class="nav">
+    <button class="btn btn-back" onclick="goTo(3)">← Back</button>
+    <button class="btn btn-go" onclick="goTo(5)">Switch  →</button>
+  </div>
+</div>
+
+<!-- SLIDE 5: SWITCH -->
+<div class="slide" id="s5">
+  <div class="eyebrow">Switch</div>
+  <h2>Math Closed, Story Reopened</h2>
+  <div class="card-narrative">
+    <p>Same halftime, same two teams, different subject. Marcus is still out there — the drop, the tackle, and Coach Whitfield's talk on the bench are still exactly what they were back in Week 1.</p>
+  </div>
+  <div class="nav">
+    <span></span>
+    <button class="btn btn-go" onclick="goTo(6)">ELA Blitz  →</button>
+  </div>
+</div>
+
+<!-- SLIDE 6: ELA QUICK RECAP -->
+<div class="slide" id="s6">
+  <span class="badge subj-ela">ELA Recap</span>
+  <h2>The Scene, in Three Lines</h2>
+  <div class="card-idea">
+    <p>Marcus drops a pass, then gets tackled four yards behind the line on the very next play. Coach Whitfield sits with him — not to blame him, but to point out that Marcus sprinted back to make the tackle instead of sulking. Coach's plan: run the same route in practice until it's automatic. That's the remedy for a drop — more reps, not more worrying.</p>
+  </div>
+  <p>Straight into the blitz.</p>
+  <div class="nav">
+    <button class="btn btn-back" onclick="goTo(5)">← Back</button>
+    <button class="btn btn-go" onclick="goTo(7)">ELA Blitz: Round 1  →</button>
+  </div>
+</div>
+
+<!-- SLIDE 7: ELA BLITZ ROUND 1 -->
+<div class="slide" id="s7">
+  <span class="badge blitz">ELA Blitz</span>
+  <div class="blitz-row"><span class="blitz-count">Round 1 of 3</span></div>
+  <div class="qbox" id="q7box">
+    <div class="qtext">In "The Last Rep," what does "remedy" mean?</div>
+    <div id="q7opts"></div>
+    <div class="feedback" id="q7fb"></div>
+  </div>
+  <div class="qbox" id="q8box">
+    <div class="qtext">What does "automatic" mean, based on the passage?</div>
+    <div id="q8opts"></div>
+    <div class="feedback" id="q8fb"></div>
+  </div>
+  <div class="nav">
+    <button class="btn btn-back" onclick="goTo(6)">← Back</button>
+    <button class="btn btn-go" onclick="goTo(8)">Round 2  →</button>
+  </div>
+</div>
+
+<!-- SLIDE 8: ELA BLITZ ROUND 2 -->
+<div class="slide" id="s8">
+  <span class="badge blitz">ELA Blitz</span>
+  <div class="blitz-row"><span class="blitz-count">Round 2 of 3</span></div>
+  <div class="qbox" id="q9box">
+    <div class="qtext">What does "sulk" mean, based on its contrast with "reacted instantly"?</div>
+    <div id="q9opts"></div>
+    <div class="feedback" id="q9fb"></div>
+  </div>
+  <div class="qbox" id="q10box">
+    <div class="qtext">What does Coach Whitfield's response cause Marcus to feel?</div>
+    <div id="q10opts"></div>
+    <div class="feedback" id="q10fb"></div>
+  </div>
+  <div class="nav">
+    <button class="btn btn-back" onclick="goTo(7)">← Back</button>
+    <button class="btn btn-go" onclick="goTo(9)">Round 3  →</button>
+  </div>
+</div>
+
+<!-- SLIDE 9: ELA BLITZ ROUND 3 -->
+<div class="slide" id="s9">
+  <span class="badge blitz">ELA Blitz</span>
+  <div class="blitz-row"><span class="blitz-count">Round 3 of 3</span></div>
+  <div class="qbox" id="q11box">
+    <div class="qtext">What does Marcus do differently after his conversation with Coach?</div>
+    <div id="q11opts"></div>
+    <div class="feedback" id="q11fb"></div>
+  </div>
+  <div class="qbox" id="q12box">
+    <div class="qtext">What makes a moment in a story count as a character's "turning point"?</div>
+    <div id="q12opts"></div>
+    <div class="feedback" id="q12fb"></div>
+  </div>
+  <div class="nav">
+    <button class="btn btn-back" onclick="goTo(8)">← Back</button>
+    <button class="btn btn-go" onclick="goTo(10)">Second Half  →</button>
+  </div>
+</div>
+
+<!-- SLIDE 10: LOOKING AHEAD -->
+<div class="slide" id="s10">
+  <div class="eyebrow">Looking Ahead</div>
+  <h2>Scouting Report: Week 7</h2>
+  <p>Next week the theme shifts to <strong>Black American Life — "Voices &amp; Rhythms"</strong>: algebraic expressions and substitution in Math, rhetorical appeals and theme in ELA.</p>
+  <p>The Eagles still have a second half to play — but that's a story for another day.</p>
+  <div class="nav">
+    <button class="btn btn-back" onclick="goTo(9)">← Back</button>
+    <button class="btn btn-go" onclick="goTo(11)">See Your Score  →</button>
+  </div>
+</div>
+
+<!-- SLIDE 11: FINAL SCORE -->
+<div class="slide" id="s11">
+  <div class="final-badge">
+    <div class="medal">🏆</div>
+    <h1 id="finalName">Great Work!</h1>
+    <p>Halftime Adjustments complete.</p>
+    <div class="scorebox">
+      <div class="cell"><div class="num" id="finalXP">0</div><div class="lbl">Total XP</div></div>
+      <div class="cell"><div class="num" id="finalMath">0/6</div><div class="lbl">Math Correct</div></div>
+      <div class="cell"><div class="num" id="finalELA">0/6</div><div class="lbl">ELA Correct</div></div>
+    </div>
+    <p id="masteryMsg" style="font-weight:700;color:var(--navy)"></p>
+    <button class="btn btn-go" onclick="submitScore()" id="submitBtn">Submit My Results</button>
+    <p class="footer-note" id="submitStatus"></p>
+  </div>
+</div>
+
+<div class="dots" id="dots"></div>
+</div>
+
+<script>
+const TOTAL_SLIDES = 12;
+let current = 0;
+let xp = 0;
+let streak = 0;
+let mathCorrect = 0, mathTotal = 6;
+let elaCorrect = 0, elaTotal = 6;
+
+function goTo(n){
+  document.getElementById('s'+current).classList.remove('on');
+  current = n;
+  document.getElementById('s'+current).classList.add('on');
+  renderDots();
+  window.scrollTo({top:0,behavior:'smooth'});
+  if(n===11){ finalizeScore(); }
+}
+
+function renderDots(){
+  const d = document.getElementById('dots');
+  d.innerHTML='';
+  for(let i=0;i<TOTAL_SLIDES;i++){
+    const dot = document.createElement('div');
+    dot.className = 'dot' + (i===current?' on':'') + (i<current?' done':'');
+    d.appendChild(dot);
+  }
+}
+
+function addXP(n){
+  xp += n;
+  document.getElementById('xpStat').textContent = xp;
+  document.getElementById('xpFill').style.width = Math.min(100,(xp/220)*100) + '%';
+  streak++;
+  document.getElementById('streakStat').textContent = streak;
+}
+
+function burstConfetti(){
+  const container = document.createElement('div');
+  container.style.cssText = 'position:fixed;inset:0;pointer-events:none;z-index:9999;overflow:hidden;';
+  document.body.appendChild(container);
+  const count = 24;
+  const colors = ['#C9A84C','#0047BA','#DB2F30','#0A1F3D','#ffffff'];
+  for(let i=0;i<count;i++){
+    const piece = document.createElement('div');
+    const startX = Math.random()*100;
+    const duration = 1.5 + Math.random()*1.2;
+    const delay = Math.random()*0.2;
+    const rotate = Math.random()*720-360;
+    const drift = (Math.random()*180-90);
+    piece.style.position='absolute';
+    piece.style.left=startX+'vw';
+    piece.style.top='-30px';
+    piece.style.setProperty('--drift', drift+'px');
+    piece.style.setProperty('--rot', rotate+'deg');
+    piece.style.animation = `confettiFall ${duration}s ease-in ${delay}s forwards`;
+    const c = colors[Math.floor(Math.random()*colors.length)];
+    const w = 8+Math.random()*6, h=12+Math.random()*8;
+    piece.style.width=w+'px'; piece.style.height=h+'px';
+    piece.style.background=c;
+    piece.style.borderRadius = Math.random()>0.5?'50%':'2px';
+    container.appendChild(piece);
+  }
+  setTimeout(()=>container.remove(), 3000);
+}
+
+function buildSingleSelect(optsId, fbId, data, onCorrect){
+  const container = document.getElementById(optsId);
+  data.forEach(o=>{
+    const b=document.createElement('button');
+    b.className='opt';
+    b.textContent=o.text;
+    b.onclick=()=>{
+      document.querySelectorAll('#'+optsId+' .opt').forEach(x=>x.classList.remove('sel','correct','wrong'));
+      const fb = document.getElementById(fbId);
+      if(o.correct){
+        b.classList.add('correct');
+        fb.textContent = o.explain || 'Correct.';
+        fb.className='feedback show ok';
+        b.closest('.qbox').classList.add('ok');
+        if(onCorrect) onCorrect();
+      } else {
+        b.classList.add('wrong');
+        fb.textContent = o.explain || 'Not quite — try again.';
+        fb.className='feedback show bad';
+      }
+    };
+    container.appendChild(b);
+  });
+}
+
+// ================= MATH BLITZ =================
+
+buildSingleSelect('q1opts','q1fb',[
+  {text:'-7', correct:false, explain:'A gain moves the ball forward — that\u2019s positive.'},
+  {text:'+7', correct:true, explain:'Right — a 7-yard gain is +7.'},
+  {text:'7 with no sign needed', correct:false, explain:'Direction matters — write it as +7.'}
+], ()=>{addXP(10); mathCorrect++; burstConfetti();});
+
+buildSingleSelect('q2opts','q2fb',[
+  {text:'+10', correct:false, explain:'A penalty against the offense moves the ball backward — that\u2019s negative.'},
+  {text:'-10', correct:true, explain:'Right — a 10-yard penalty is -10.'},
+  {text:'0', correct:false, explain:'The ball moved 10 yards — it\u2019s -10, not zero.'}
+], ()=>{addXP(10); mathCorrect++; burstConfetti();});
+
+function checkQ3(){
+  const val = document.getElementById('q3answer').value.trim();
+  const fb = document.getElementById('q3fb');
+  if(val === '6'){
+    fb.textContent='Correct — absolute value is distance from zero, so |-6| = 6.';
+    fb.className='feedback show ok';
+    addXP(10); mathCorrect++;
+    burstConfetti();
+    document.getElementById('q3box').classList.add('ok');
+  } else {
+    fb.textContent='Not yet — absolute value ignores the sign and gives the distance from zero.';
+    fb.className='feedback show bad';
+  }
+}
+
+buildSingleSelect('q4opts','q4fb',[
+  {text:'9:12', correct:false, explain:'That\u2019s the ratio before simplifying.'},
+  {text:'3:4', correct:true, explain:'Right — 9:12 simplifies to 3:4 (divide both by their GCF, 3).'},
+  {text:'4:3', correct:false, explain:'That reverses the order — makes always come first here.'}
+], ()=>{addXP(10); mathCorrect++; burstConfetti();});
+
+function checkQ5(){
+  const val = document.getElementById('q5answer').value.trim().replace('%','');
+  const fb = document.getElementById('q5fb');
+  if(val === '75'){
+    fb.textContent='Correct — 3 divided by 4 is 0.75, or 75%.';
+    fb.className='feedback show ok';
+    addXP(10); mathCorrect++;
+    burstConfetti();
+    document.getElementById('q5box').classList.add('ok');
+  } else {
+    fb.textContent='Not yet — divide 3 by 4, then multiply by 100.';
+    fb.className='feedback show bad';
+  }
+}
+
+function checkQ6(){
+  const val = document.getElementById('q6answer').value.trim().replace('+','');
+  const fb = document.getElementById('q6fb');
+  if(val === '5'){
+    fb.textContent='Correct — +8, -5, +2 nets to +5 yards.';
+    fb.className='feedback show ok';
+    addXP(10); mathCorrect++;
+    burstConfetti();
+    document.getElementById('q6box').classList.add('ok');
+  } else {
+    fb.textContent='Not yet — add all three plays in order, keeping every sign.';
+    fb.className='feedback show bad';
+  }
+}
+
+// ================= ELA BLITZ =================
+
+buildSingleSelect('q7opts','q7fb',[
+  {text:'A punishment', correct:false, explain:'Reread what comes right before the word.'},
+  {text:'A fix or solution to a problem', correct:true, explain:'Correct — "more reps, not more worrying" is the fix.'},
+  {text:'A type of injury', correct:false, explain:'Nothing points toward an injury.'}
+], ()=>{addXP(10); elaCorrect++; burstConfetti();});
+
+buildSingleSelect('q8opts','q8fb',[
+  {text:'Happening by itself, without needing to consciously think about it', correct:true, explain:'Correct — that\u2019s what running a route until it\u2019s automatic means.'},
+  {text:'Happening only with a machine', correct:false, explain:'That\u2019s the everyday car meaning, not how it applies to a practiced skill.'},
+  {text:'Happening very slowly', correct:false, explain:'"Automatic" points to habit, not speed.'}
+], ()=>{addXP(10); elaCorrect++; burstConfetti();});
+
+buildSingleSelect('q9opts','q9fb',[
+  {text:'To celebrate loudly', correct:false, explain:'That\u2019s not a contrast with "reacted instantly."'},
+  {text:'To stay upset and withdrawn instead of responding right away', correct:true, explain:'Right — "sulk" is set against "reacted instantly," the opposite.'},
+  {text:'To immediately fix the problem', correct:false, explain:'That\u2019s closer to "reacted instantly" — sulk is the contrast.'}
+], ()=>{addXP(10); elaCorrect++; burstConfetti();});
+
+buildSingleSelect('q10opts','q10fb',[
+  {text:'Relief, and a concrete plan instead of the blame he expected', correct:true, explain:'Correct — the passage says the tightness in his chest eased once Coach offered a plan.'},
+  {text:'Anger at Coach for bringing up the drop', correct:false, explain:'The passage describes relief, not anger.'},
+  {text:'Confusion about what happened', correct:false, explain:'Marcus understands exactly what happened — confusion isn\u2019t described.'}
+], ()=>{addXP(10); elaCorrect++; burstConfetti();});
+
+buildSingleSelect('q11opts','q11fb',[
+  {text:'He stops replaying the drop and focuses on the next rep instead', correct:true, explain:'Correct — the passage ends with him running the route in his head, not dwelling on the mistake.'},
+  {text:'He asks to be taken out of the game', correct:false, explain:'The passage shows him jogging back onto the field, ready to play.'},
+  {text:'He argues with Coach Whitfield', correct:false, explain:'The conversation is calm, not an argument.'}
+], ()=>{addXP(10); elaCorrect++; burstConfetti();});
+
+buildSingleSelect('q12opts','q12fb',[
+  {text:'It\u2019s the moment an interaction with another character changes what the character does or feels next', correct:true, explain:'Correct — that\u2019s exactly what Coach\u2019s line does for Marcus.'},
+  {text:'It\u2019s always the loudest or most dramatic moment in the story', correct:false, explain:'A turning point is defined by its effect on the character, not its volume.'},
+  {text:'It\u2019s whatever happens in the very first paragraph', correct:false, explain:'A turning point can happen anywhere in a story — not just the opening.'}
+], ()=>{addXP(10); elaCorrect++; burstConfetti();});
+
+function finalizeScore(){
+  const name = document.getElementById('studentName').value.trim() || 'Champion';
+  document.getElementById('finalName').textContent = name + ', Great Work!';
+  document.getElementById('finalXP').textContent = xp;
+  document.getElementById('finalMath').textContent = Math.min(mathCorrect,mathTotal) + '/' + mathTotal;
+  document.getElementById('finalELA').textContent = Math.min(elaCorrect,elaTotal) + '/' + elaTotal;
+  const pct = ((mathCorrect+elaCorrect)/(mathTotal+elaTotal))*100;
+  let msg = '';
+  if(pct>=85) msg = 'Sharp recall today — that\u2019s exactly what a halftime review should look like.';
+  else if(pct>=60) msg = 'Solid review round — a couple of these are worth a second look before Week 7.';
+  else msg = 'Good refresher — these skills come back around again soon.';
+  document.getElementById('masteryMsg').textContent = msg;
+  burstConfetti();
+}
+
+function submitScore(){
+  // Live Formspree endpoint for FAST Prep Grade 6 Progress (shared across all 14 lessons).
+  const endpoint = 'https://formspree.io/f/xppzdzwb';
+  const name = document.getElementById('studentName').value.trim() || 'Unknown';
+  const payload = {
+    student: name,
+    lesson: 'FAST Prep G6 — Lesson 6: Halftime Adjustments (Football, Flex/Zoom Review)',
+    date: new Date().toISOString().slice(0,10),
+    xp: xp,
+    math_correct: Math.min(mathCorrect,mathTotal),
+    math_total: mathTotal,
+    ela_correct: Math.min(elaCorrect,elaTotal),
+    ela_total: elaTotal
+  };
+  const statusEl = document.getElementById('submitStatus');
+  const btn = document.getElementById('submitBtn');
+  btn.disabled = true;
+  statusEl.textContent = 'Submitting...';
+  fetch(endpoint, {
+    method:'POST',
+    headers:{'Content-Type':'application/json','Accept':'application/json'},
+    body: JSON.stringify(payload)
+  }).then(r=>{
+    if(r.ok){ statusEl.textContent = 'Results saved. Nice work today!'; }
+    else { statusEl.textContent = 'Progress endpoint not yet connected — ask your tutor to save this manually for now.'; btn.disabled=false; }
+  }).catch(()=>{
+    statusEl.textContent = 'Progress endpoint not yet connected — ask your tutor to save this manually for now.';
+    btn.disabled=false;
+  });
+}
+
+renderDots();
+</script>
+</body>
+</html>
