@@ -1,0 +1,1358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FAST Prep Grade 6 — Lesson 1: Kickoff Week | KingCretot Experience</title>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0A1F3D; --gold:#C9A84C; --blue:#0047BA; --red:#DB2F30; --cream:#FAF7EF;
+  --ink:#1c1c1c; --ok:#2E7D32; --bad:#C0392B; --field:#1e4d2b;
+  --shadow:0 8px 24px rgba(10,31,61,.18);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{font-family:'Nunito',sans-serif;background:linear-gradient(160deg,#F4F1EA 0%,#EAE3D3 100%);color:var(--ink);min-height:100vh;font-size:17px;line-height:1.6}
+h1,h2,h3,.hud-title,.btn{font-family:'Oswald',sans-serif}
+.hud{position:fixed;top:0;left:0;right:0;background:linear-gradient(135deg,var(--navy),#071630);color:#fff;padding:10px 20px;display:flex;justify-content:space-between;align-items:center;z-index:100;box-shadow:var(--shadow);flex-wrap:wrap;gap:8px}
+.hud-left{display:flex;align-items:center;gap:12px}
+.kc-box{background:var(--navy);border:2px solid var(--gold);color:var(--gold);font-weight:700;font-size:1.05rem;border-radius:7px;padding:5px 10px;line-height:1}
+.hud-title{font-size:1rem;font-weight:600;letter-spacing:.3px}
+.hud-title small{display:block;font-family:'Nunito',sans-serif;font-size:.7rem;color:var(--gold);letter-spacing:1.5px;text-transform:uppercase;font-weight:800}
+.hud-right{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.stat{background:rgba(255,255,255,.12);padding:6px 14px;border-radius:20px;font-weight:800;font-size:.9rem;display:flex;align-items:center;gap:6px}
+.stat .big{color:var(--gold)}
+.xpbar{width:110px;height:9px;background:rgba(255,255,255,.2);border-radius:5px;overflow:hidden}
+.xpfill{height:100%;background:linear-gradient(90deg,var(--gold),#e8c874);transition:width .4s;width:0%}
+.wrap{max-width:900px;margin:0 auto;padding:100px 18px 44px}
+.slide{background:#fff;border-radius:20px;padding:32px;box-shadow:var(--shadow);min-height:480px;display:none;animation:pop .3s ease;border-top:5px solid var(--gold)}
+.slide.on{display:block}
+@keyframes pop{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+@keyframes confettiFall{0%{transform:translate(0,0) rotate(0deg);opacity:1}100%{transform:translate(var(--drift),105vh) rotate(var(--rot));opacity:.15}}
+.eyebrow{letter-spacing:2.5px;font-size:.72rem;color:var(--blue);text-transform:uppercase;font-weight:800;margin-bottom:6px}
+h1{font-size:2rem;color:var(--navy);letter-spacing:.3px;margin-bottom:8px;font-weight:700}
+h2{font-size:1.4rem;color:var(--navy);margin-bottom:10px;font-weight:600}
+h3{font-size:1.05rem;color:var(--blue);margin:16px 0 6px;font-weight:600}
+p{margin:9px 0}
+.badge{display:inline-block;padding:5px 14px;border-radius:14px;font-weight:800;font-size:.72rem;letter-spacing:1px;text-transform:uppercase;background:linear-gradient(135deg,var(--gold),#e8c874);color:var(--navy);margin-bottom:10px;margin-right:6px}
+.badge.subj-math{background:linear-gradient(135deg,var(--blue),#3068cf);color:#fff}
+.badge.subj-ela{background:linear-gradient(135deg,var(--red),#e8574f);color:#fff}
+.badge.step{background:#e8e4d8;color:var(--navy)}
+.btn{padding:13px 26px;border-radius:12px;font-weight:700;border:none;cursor:pointer;font-size:.95rem;letter-spacing:.4px;transition:all .15s;display:inline-flex;align-items:center;gap:8px}
+.btn:active{transform:translateY(2px)}
+.btn:disabled{opacity:.5;cursor:default}
+.btn-go{background:var(--navy);color:#fff;box-shadow:0 4px 0 #051329}
+.btn-back{background:#e8e4d8;color:#374151}
+.nav{display:flex;justify-content:space-between;margin-top:26px;gap:10px;flex-wrap:wrap}
+.dots{display:flex;gap:5px;justify-content:center;margin-top:16px;flex-wrap:wrap}
+.dot{width:9px;height:9px;border-radius:50%;background:#d8d2c2;transition:all .2s}
+.dot.on{background:var(--gold);transform:scale(1.4)}
+.dot.done{background:var(--ok)}
+.card{background:var(--cream);border:2px solid #E8DFC4;border-radius:14px;padding:16px 18px;margin:14px 0}
+.card-field{background:#eef7f0;border-color:#c7e3cc}
+.card-idea{background:#fff;border:2px dashed #C9C1A6;border-radius:14px;padding:14px 18px;margin:12px 0}
+.card-tactic{background:#eef2fb;border-color:#c9d7f5;position:relative;padding-left:50px}
+.card-tactic::before{content:"🎯";position:absolute;left:14px;top:16px;font-size:1.3rem}
+.card-tactic .lbl{font-weight:800;color:var(--blue);font-size:.78rem;letter-spacing:1px;text-transform:uppercase;margin-bottom:3px}
+.card-narrative{background:#fdf3e7;border-color:#e8cfa0;border-left:5px solid var(--gold);font-style:italic}
+.step-lbl{font-weight:800;font-size:.72rem;letter-spacing:1.5px;text-transform:uppercase;color:#888;margin:18px 0 6px;display:flex;align-items:center;gap:8px}
+.step-lbl::after{content:"";flex:1;height:1px;background:#e0dbc8}
+.qbox{background:#fff;border:2.5px solid #E2E8F0;border-radius:14px;padding:18px;margin:14px 0;transition:border-color .2s}
+.qbox.ok{border-color:var(--ok)}
+.qtext{font-weight:700;margin-bottom:10px;font-size:1.02rem}
+.opt{display:block;width:100%;text-align:left;padding:11px 14px;margin:7px 0;border:2px solid #d8d2c2;border-radius:10px;background:#fff;cursor:pointer;font-family:inherit;font-size:.95rem;transition:all .15s}
+.opt:hover{border-color:var(--blue)}
+.opt.sel{border-color:var(--blue);background:#eef2fb}
+.opt.correct{border-color:var(--ok);background:#e9f6ea;font-weight:700}
+.opt.wrong{border-color:var(--bad);background:#fdecea}
+.feedback{margin-top:10px;padding:10px 14px;border-radius:10px;font-size:.9rem;font-weight:600;display:none}
+.feedback.show{display:block}
+.feedback.ok{background:#e9f6ea;color:var(--ok)}
+.feedback.bad{background:#fdecea;color:var(--bad)}
+.numline-svg{width:100%;height:auto;display:block;margin:14px 0}
+.numline{display:flex;align-items:center;gap:2px;overflow-x:auto;padding:20px 0 10px;margin:10px 0}
+.nl-tick{flex:0 0 auto;width:32px;text-align:center;font-size:.76rem;color:#888;cursor:pointer;padding:8px 0;border-radius:6px;transition:all .15s;font-weight:700}
+.nl-tick:hover{background:#eef2fb}
+.nl-tick.sel{background:var(--blue);color:#fff}
+.nl-tick.correct{background:var(--ok);color:#fff}
+.passage{background:#fffdf7;border:1px solid #e8dfc4;border-radius:12px;padding:20px 22px;font-size:.98rem;line-height:1.75;margin:12px 0;max-height:420px;overflow-y:auto}
+.passage h3{margin-top:0}
+.vocab{background:var(--gold);color:var(--navy);padding:0 4px;border-radius:3px;font-weight:800;cursor:help}
+.multiselect-note{font-size:.82rem;color:var(--blue);font-weight:700;margin-bottom:8px}
+.grid-model{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;max-width:280px;margin:14px 0}
+.grid-sq{aspect-ratio:1;border-radius:5px;border:2px solid #d8d2c2}
+.grid-sq.filled{background:var(--blue);border-color:var(--blue)}
+.final-badge{text-align:center;padding:20px}
+.final-badge .medal{font-size:4rem}
+.scorebox{display:flex;gap:14px;justify-content:center;margin:18px 0;flex-wrap:wrap}
+.scorebox .cell{background:var(--cream);border:2px solid #E8DFC4;border-radius:12px;padding:14px 22px;text-align:center}
+.scorebox .cell .num{font-size:1.7rem;font-weight:800;color:var(--navy)}
+.scorebox .cell .lbl{font-size:.72rem;text-transform:uppercase;letter-spacing:1px;color:#888;margin-top:2px}
+.footer-note{text-align:center;font-size:.78rem;color:#999;margin-top:20px}
+.inline-input{padding:10px 12px;border:2px solid #d8d2c2;border-radius:8px;font-family:inherit;font-size:1rem}
+.article{background:#fff;border:1px solid #ddd;border-radius:10px;padding:0;overflow:hidden;margin:12px 0;box-shadow:0 2px 10px rgba(0,0,0,.06)}
+.article-head{background:var(--navy);color:#fff;padding:16px 20px}
+.article-head .kicker{font-size:.7rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-weight:800}
+.article-head h3{color:#fff;margin:4px 0 0;font-size:1.3rem}
+.article-head .byline{font-size:.78rem;color:#c9d3e6;margin-top:4px}
+.article-body{padding:18px 20px}
+.statbox{background:var(--cream);border:2px solid var(--gold);border-radius:10px;padding:12px 16px;margin:12px 0;font-size:.88rem}
+.statbox .stlbl{font-weight:800;color:var(--navy);letter-spacing:1px;font-size:.72rem;text-transform:uppercase;margin-bottom:4px}
+.hot-sentence{cursor:pointer;padding:1px 2px;border-radius:3px;transition:all .15s}
+.hot-sentence:hover{background:#eef2fb}
+.hot-sentence.sel{background:var(--blue);color:#fff}
+.hot-sentence.correct{background:var(--ok);color:#fff}
+.hot-sentence.wrong{background:#fdecea;text-decoration:line-through}
+.match-wrap{display:flex;gap:24px;flex-wrap:wrap;margin:14px 0}
+.match-col{flex:1;min-width:200px}
+.match-item{display:block;width:100%;text-align:left;padding:10px 14px;margin:6px 0;border:2px solid #d8d2c2;border-radius:9px;background:#fff;cursor:pointer;font-family:inherit;font-size:.92rem}
+.match-item.sel{border-color:var(--blue);background:#eef2fb}
+.match-item.paired{border-color:var(--ok);background:#e9f6ea;cursor:default}
+.editing-passage{background:#fffdf7;border:1px solid #e8dfc4;border-radius:10px;padding:16px 18px;font-size:.96rem;line-height:1.7;margin:10px 0}
+.editing-target{background:#fff3cd;padding:1px 3px;border-radius:3px;font-weight:700}
+.selfcheck{background:#eef2fb;border:2px dashed #c9d7f5;border-radius:10px;padding:12px 16px;margin-top:10px;font-size:.88rem}
+.selfcheck label{display:block;margin:4px 0;cursor:pointer}
+.coord-svg{width:100%;max-width:420px;height:auto;display:block;margin:14px auto}
+.coord-pt{cursor:pointer}
+.bar-svg{width:100%;max-width:480px;height:auto;display:block;margin:14px auto}
+.bar-rect{cursor:pointer;transition:opacity .15s}
+.bar-rect:hover{opacity:.75}
+.bar-rect.correct{fill:var(--ok) !important}
+.bar-rect.wrong{fill:var(--bad) !important}
+</style>
+</head>
+<body>
+
+<div class="hud">
+  <div class="hud-left">
+    <div class="kc-box">KC</div>
+    <div class="hud-title">FAST Prep — Grade 6<br><small>Lesson 1 · Kickoff Week</small></div>
+  </div>
+  <div class="hud-right">
+    <div class="stat">🏈 Streak: <span class="big" id="streakStat">0</span></div>
+    <div class="stat">⭐ <span class="big" id="xpStat">0</span> XP</div>
+    <div class="xpbar"><div class="xpfill" id="xpFill"></div></div>
+  </div>
+</div>
+
+<div class="wrap">
+
+<!-- SLIDE 0: WELCOME -->
+<div class="slide on" id="s0">
+  <div class="eyebrow">KingCretot Experience &middot; FAST Readiness Track</div>
+  <h1>Kickoff Week</h1>
+  <p style="font-size:1.05rem">Friday night. Arcadia Eagles vs. the Punta Gorda Panthers, Week 1 of the season. Everything in this lesson happens inside this one game — same players, same drives, same score, all the way through.</p>
+  <div class="card card-field">
+    <h3 style="color:var(--field);margin-top:0">Tonight's game plan</h3>
+    <p><strong>First Half — Math, four drives:</strong> number lines and yardage, completion ratios, mapping the field on a coordinate grid, and the game's own stats broken down.</p>
+    <p><strong>Halftime:</strong> the score, and where the story picks up.</p>
+    <p><strong>Second Half — ELA:</strong> what happens to Marcus after a tough drop, the Gazette's writeup of the game, vocabulary, and sentence-building.</p>
+  </div>
+  <p>What's your name?</p>
+  <input type="text" id="studentName" placeholder="Type your name here" style="width:100%;padding:12px 14px;border:2px solid #d8d2c2;border-radius:10px;font-family:inherit;font-size:1rem;margin-bottom:16px">
+  <div class="nav">
+    <span></span>
+    <button class="btn btn-go" onclick="goTo(1)">Suit Up →</button>
+  </div>
+</div>
+
+<!-- SLIDE 1: MATH TEACH - NUMBER LINE -->
+<div class="slide" id="s1">
+  <span class="badge subj-math">Math &middot; MA.6.NSO.1.1 / 1.2 / 1.3</span>
+  <span class="badge step">I Do</span>
+  <h2>Drive 1: Reading the Field Like a Number Line</h2>
+  <p>Picture the line of scrimmage as <strong>zero</strong>. Every play either moves the ball toward the Eagles' end zone (<strong>positive</strong>) or gets pushed backward (<strong>negative</strong>). A number line is just a football field with a ruler drawn on it.</p>
+  <svg class="numline-svg" viewBox="0 0 640 150" xmlns="http://www.w3.org/2000/svg">
+    <line x1="20" y1="75" x2="620" y2="75" stroke="#0A1F3D" stroke-width="3"/>
+    <g id="svgTicks" font-family="Nunito, sans-serif" font-size="11" fill="#555"></g>
+    <circle cx="320" cy="75" r="5" fill="#0A1F3D"/>
+    <text x="320" y="95" text-anchor="middle" font-family="Oswald" font-size="12" fill="#0A1F3D" font-weight="700">0 (line of scrimmage)</text>
+  </svg>
+  <script>
+  (function(){
+    const g = document.getElementById('svgTicks');
+    for(let i=-14;i<=14;i+=2){
+      const x = 320 + i*20;
+      let s = '';
+      s += `<line x1="${x}" y1="68" x2="${x}" y2="82" stroke="#0A1F3D" stroke-width="2"/>`;
+      if(i!==0) s += `<text x="${x}" y="105" text-anchor="middle">${i}</text>`;
+      g.innerHTML += s;
+    }
+  })();
+  </script>
+  <p>Watch four real plays from the Eagles' opening drive get plotted, one at a time:</p>
+  <div class="card-idea">
+    <p><strong>Play 1 — Run up the middle:</strong> gain of 5 yards. <strong>+5</strong>: five ticks right of zero.</p>
+    <p><strong>Play 2 — Quarterback sacked:</strong> loss of 7 yards. <strong>&minus;7</strong>: seven ticks left of zero.</p>
+    <p><strong>Play 3 — Deep pass completion:</strong> gain of 12 yards. <strong>+12</strong>, the biggest move yet.</p>
+    <p><strong>Play 4 — Holding penalty:</strong> loss of 10 yards. <strong>&minus;10</strong>.</p>
+  </div>
+  <p><strong>Absolute value</strong> is the distance from zero, ignoring direction. |&minus;10| = 10, and |+10| would also = 10 — a 10-yard penalty and a 10-yard gain cover the same <em>distance</em>, even though one helps the Eagles and one hurts them.</p>
+  <div class="card-tactic">
+    <div class="lbl">Test Tactic</div>
+    <p>When FAST asks for "distance" or "absolute value," direction never matters. When it asks what actually happened, direction is the whole answer. Read the question twice.</p>
+  </div>
+  <div class="nav">
+    <button class="btn btn-back" onclick="goTo(0)">← Back</button>
+    <button class="btn btn-go" onclick="goTo(2)">Guided Practice →</button>
+  </div>
+</div>
+
+<!-- SLIDE 2: NSO PRACTICE + ASSESS -->
+<div class="slide" id="s2">
+  <span class="badge subj-math">Math</span>
+  <span class="badge step">We Do</span>
+  <h2>Call the Next Two Plays</h2>
+  <div class="qbox" id="wq1box">
+    <div class="qtext">Play 5 — a screen pass goes for a 9-yard gain. Which number represents this play?</div>
+    <div id="wq1opts"></div>
+    <div class="feedback" id="wq1fb"></div>
+  </div>
+  <div class="qbox" id="wq2box">
+    <div class="qtext">Play 6 — the running back is stopped for a 6-yard loss. Which number represents this play?</div>
+    <div id="wq2opts"></div>
+    <div class="feedback" id="wq2fb"></div>
+  </div>
+  <div class="step-lbl">You Do — Scored</div>
+  <span class="badge subj-math">FAST-Format Item</span>
+  <div class="qbox" id="q1box">
+    <div class="qtext">Play 7 — a wide receiver is tackled 4 yards behind the line of scrimmage. Click the point on the number line that represents this play.</div>
+    <div class="numline" id="numline1"></div>
+    <div class="feedback" id="q1fb"></div>
+  </div>
+  <div class="qbox" id="q2box">
+    <div class="qtext">Across the next three plays, the Eagles gain 6 yards, lose 9 yards, then gain 5 yards. What is their <strong>net</strong> yardage? Type your answer.</div>
+    <input type="text" id="q2answer" class="inline-input" placeholder="Net yards" style="width:140px">
+    <button class="btn btn-back" style="padding:10px 16px;margin-left:8px" onclick="checkQ2()">Check</button>
+    <div class="feedback" id="q2fb"></div>
+  </div>
+  <div class="nav">
+    <button class="btn btn-back" onclick="goTo(1)">← Back</button>
+    <button class="btn btn-go" onclick="goTo(3)">Drive 2 →</button>
+  </div>
+</div>
+
+<!-- SLIDE 3: AR TEACH -->
+<div class="slide" id="s3">
+  <span class="badge subj-math">Math &middot; MA.6.AR.3.1 / 3.2 / 3.4</span>
+  <span class="badge step">I Do</span>
+  <h2>Drive 2: Grading the Passing Game</h2>
+  <p>Quarterback Jalen Torres has thrown 20 passes tonight and completed 15. A <strong>ratio</strong> compares those numbers exactly as they happened: <strong>15 completions to 20 attempts</strong>, written 15:20.</p>
+  <div class="grid-model" id="gridJalen"></div>
+  <div class="card-idea">
+    <p>15 and 20 share a factor of 5, so 15:20 reduces to <strong>3:4</strong>. As a percent, that's <strong>75%</strong>. Three ways to say the same thing: <strong>15:20 = 3:4 = 75%</strong>.</p>
+  </div>
+  <p>Marcus, the receiver, has been targeted 10 times and caught 8.</p>
+  <div class="card-idea">
+    <p>8:10 simplifies to <strong>4:5</strong>, or <strong>80%</strong>. Even though Jalen has more total completions, Marcus is catching a <em>higher percentage</em> of what's thrown his way.</p>
+  </div>
+  <div class="card-tactic">
+    <div class="lbl">Test Tactic</div>
+    <p>Ratio questions often list numbers backward from how you'd naturally think about them. Whatever order the question states first, that's the order your ratio goes in.</p>
+  </div>
+  <div class="nav">
+    <button class="btn btn-back" onclick="goTo(2)">← Back</button>
+    <button class="btn btn-go" onclick="goTo(4)">Guided Practice →</button>
+  </div>
+</div>
+
+<!-- SLIDE 4: AR PRACTICE + ASSESS -->
+<div class="slide" id="s4">
+  <span class="badge subj-math">Math</span>
+  <span class="badge step">We Do</span>
+  <h2>Scout the Rest of the Roster</h2>
+  <div class="qbox" id="wq3box">
+    <div class="qtext">The fullback carried the ball 6 times and gained positive yardage on 4 of those carries. What is the ratio of successful carries to total carries, fully simplified?</div>
+    <div id="wq3opts"></div>
+    <div class="feedback" id="wq3fb"></div>
+  </div>
+  <div class="step-lbl">You Do — Scored</div>
+  <span class="badge subj-math">FAST-Format Item</span>
+  <div class="qbox" id="q3box">
+    <div class="qtext">This season, the Eagles' kicker attempted 12 field goals and made 9 of them. Select ALL the values below that correctly represent the ratio of MADE kicks to TOTAL attempts.</div>
+    <div class="multiselect-note">Select all that apply</div>
+    <div id="q3opts"></div>
+    <div class="feedback" id="q3fb"></div>
+  </div>
+  <div class="qbox" id="q8box">
+    <div class="qtext">Jalen completes 75% of his passes. Marcus catches 80% of passes thrown to him. Who has the higher completion rate?</div>
+    <div id="q8opts"></div>
+    <div class="feedback" id="q8fb"></div>
+  </div>
+  <div class="nav">
+    <button class="btn btn-back" onclick="goTo(3)">← Back</button>
+    <button class="btn btn-go" onclick="goTo(5)">Drive 3 →</button>
+  </div>
+</div>
+
+<!-- SLIDE 5: GR TEACH -->
+<div class="slide" id="s5">
+  <span class="badge subj-math">Math &middot; MA.6.GR.1.1 / 1.2 / 1.3</span>
+  <span class="badge step">I Do</span>
+  <h2>Drive 3: Mapping the Field</h2>
+  <p>Broadcast cameras track the field on a grid, same as a coordinate plane. We'll set the origin (0,0) at midfield on the near sideline: <strong>x</strong> is yards toward the Eagles' end zone, <strong>y</strong> is yards across the field from that sideline.</p>
+  <svg class="coord-svg" viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg">
+    <g id="coordGridLines"></g>
+    <line x1="20" y1="300" x2="300" y2="300" stroke="#0A1F3D" stroke-width="2"/>
+    <line x1="20" y1="20" x2="20" y2="300" stroke="#0A1F3D" stroke-width="2"/>
+    <text x="300" y="315" font-size="10" fill="#555" text-anchor="end">x (yards downfield)</text>
+    <text x="10" y="20" font-size="10" fill="#555" transform="rotate(-90 10 20)">y (yards across)</text>
+    <circle cx="80" cy="220" r="5" fill="var(--blue)"/>
+    <text x="90" y="224" font-size="11" fill="var(--blue)" font-weight="700">Marcus (3, 4)</text>
+    <circle cx="80" cy="80" r="5" fill="var(--red)"/>
+    <text x="90" y="84" font-size="11" fill="var(--red)" font-weight="700">Defender (3, 11)</text>
+  </svg>
+  <script>
+  (function(){
+    const g = document.getElementById('coordGridLines');
+    let s='';
+    for(let i=0;i<=14;i++){
+      const x = 20 + i*20;
+      s += `<line x1="${x}" y1="20" x2="${x}" y2="300" stroke="#eee" stroke-width="1"/>`;
+      const y = 300 - i*20;
+      s += `<line x1="20" y1="${y}" x2="300" y2="${y}" stroke="#eee" stroke-width="1"/>`;
+    }
+    g.innerHTML = s;
+  })();
+  </script>
+  <div class="card-idea">
+    <p>Marcus lines up at <strong>(3, 4)</strong> — 3 yards downfield, 4 yards from the sideline. A defender lines up at <strong>(3, 11)</strong> — same x-coordinate, different y. Since the x-values match, the separation between them is just the difference in the y-values: 11 &minus; 4 = <strong>7 yards</strong>.</p>
+  </div>
+  <p>Coordinates also give you shapes. The Eagles mark off a passing drill zone from x=0 to x=8 and y=0 to y=10 — a rectangle <strong>8 yards long by 10 yards wide</strong>. Area = 8 &times; 10 = <strong>80 square yards</strong>. Perimeter = 2(8+10) = <strong>36 yards</strong> of chalk.</p>
+  <div class="card-tactic">
+    <div class="lbl">Test Tactic</div>
+    <p>FAST coordinate items often give you a shape by its corner points instead of stating length and width directly. Subtract the x-values for length, subtract the y-values for width, then multiply.</p>
+  </div>
+  <div class="nav">
+    <button class="btn btn-back" onclick="goTo(4)">← Back</button>
+    <button class="btn btn-go" onclick="goTo(6)">Guided Practice →</button>
+  </div>
+</div>
+
+<!-- SLIDE 6: GR PRACTICE + ASSESS -->
+<div class="slide" id="s6">
+  <span class="badge subj-math">Math</span>
+  <span class="badge step">We Do</span>
+  <h2>Set the Formation</h2>
+  <div class="qbox" id="wq7box">
+    <div class="qtext">Two receivers line up at the same distance from the sideline (same y-coordinate), at x=3 and x=11. What is the distance between them?</div>
+    <div id="wq7opts"></div>
+    <div class="feedback" id="wq7fb"></div>
+  </div>
+  <div class="step-lbl">You Do — Scored</div>
+  <span class="badge subj-math">FAST-Format Item &middot; Plot a Point</span>
+  <div class="qbox" id="q14box">
+    <div class="qtext">Click the grid to plot the point (9, 4) — where the tight end lines up.</div>
+    <svg class="coord-svg" viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg" id="plotGrid">
+      <g id="plotGridLines"></g>
+      <line x1="20" y1="300" x2="300" y2="300" stroke="#0A1F3D" stroke-width="2"/>
+      <line x1="20" y1="20" x2="20" y2="300" stroke="#0A1F3D" stroke-width="2"/>
+    </svg>
+    <div class="feedback" id="q14fb"></div>
+  </div>
+  <div class="qbox" id="q15box">
+    <div class="qtext">A rectangular practice zone runs from x=0 to x=8 and y=0 to y=5. What is its area, in square yards? Type your answer.</div>
+    <input type="text" id="q15answer" class="inline-input" placeholder="Area" style="width:140px">
+    <button class="btn btn-back" style="padding:10px 16px;margin-left:8px" onclick="checkQ15()">Check</button>
+    <div class="feedback" id="q15fb"></div>
+  </div>
+  <div class="nav">
+    <button class="btn btn-back" onclick="goTo(5)">← Back</button>
+    <button class="btn btn-go" onclick="goTo(7)">Drive 4 →</button>
+  </div>
+</div>
+
+<!-- SLIDE 7: DP TEACH -->
+<div class="slide" id="s7">
+  <span class="badge subj-math">Math &middot; MA.6.DP.1.1 / 1.2 / 1.6</span>
+  <span class="badge step">I Do</span>
+  <h2>Drive 4: By the Numbers — the Whole Game</h2>
+  <p>The Eagles' offense gained a different number of yards each quarter tonight. That's a real data set — the same kind FAST asks you to analyze.</p>
+  <svg class="bar-svg" viewBox="0 0 320 220" xmlns="http://www.w3.org/2000/svg">
+    <line x1="30" y1="180" x2="300" y2="180" stroke="#0A1F3D" stroke-width="2"/>
+    <g id="dpTeachBars"></g>
+  </svg>
+  <script>
+  (function(){
+    const data = [45,38,22,55];
+    const labels = ['Q1','Q2','Q3','Q4'];
+    const g = document.getElementById('dpTeachBars');
+    const maxV = 60, chartH = 150, baseY = 180;
+    let s = '';
+    data.forEach((v,i)=>{
+      const h = (v/maxV)*chartH;
+      const x = 55 + i*62;
+      s += `<rect x="${x}" y="${baseY-h}" width="42" height="${h}" fill="#0047BA" rx="3"/>`;
+      s += `<text x="${x+21}" y="${baseY-h-6}" font-size="12" font-weight="700" fill="#0A1F3D" text-anchor="middle">${v}</text>`;
+      s += `<text x="${x+21}" y="${baseY+16}" font-size="11" fill="#555" text-anchor="middle">${labels[i]}</text>`;
+    });
+    g.innerHTML = s;
+  })();
+  </script>
+  <div class="card-idea">
+    <p><strong>Mean</strong> (the average): add all four values, divide by 4. (45+38+22+55) &divide; 4 = 160 &divide; 4 = <strong>40 yards per quarter</strong>.</p>
+    <p><strong>Median</strong> (the middle value): put the data in order — 22, 38, 45, 55 — then average the two middle numbers: (38+45)&divide;2 = <strong>41.5</strong>. Notice it's close to the mean here, but not identical — they answer slightly different questions.</p>
+    <p><strong>Range</strong> (the spread): highest minus lowest. 55 &minus; 22 = <strong>33 yards</strong>, a big swing between the Eagles' best and worst quarter.</p>
+  </div>
+  <div class="card-narrative">
+    <p>Look at that Q3 bar — the shortest one. That's the same quarter Marcus dropped the pass. The numbers and the story match up.</p>
+  </div>
+  <div class="card-tactic">
+    <div class="lbl">Test Tactic</div>
+    <p>Mean, median, and range measure different things. If a question asks what a "typical" value looks like, mean or median both work. If it asks how spread out the data is, that's range — don't reach for mean out of habit.</p>
+  </div>
+  <div class="nav">
+    <button class="btn btn-back" onclick="goTo(6)">← Back</button>
+    <button class="btn btn-go" onclick="goTo(8)">Guided Practice →</button>
+  </div>
+</div>
+
+<!-- SLIDE 8: DP PRACTICE + ASSESS -->
+<div class="slide" id="s8">
+  <span class="badge subj-math">Math</span>
+  <span class="badge step">We Do</span>
+  <h2>Check Jalen's Quarters</h2>
+  <div class="qbox" id="wq8box">
+    <div class="qtext">Jalen's completions by quarter: 5, 4, 3, 4. What is the mean?</div>
+    <div id="wq8opts"></div>
+    <div class="feedback" id="wq8fb"></div>
+  </div>
+  <div class="step-lbl">You Do — Scored</div>
+  <span class="badge subj-math">FAST-Format Item</span>
+  <div class="qbox" id="q16box">
+    <div class="qtext">Using the Eagles' quarter-by-quarter yardage (45, 38, 22, 55), what is the mean yards per quarter? Type your answer.</div>
+    <input type="text" id="q16answer" class="inline-input" placeholder="Mean" style="width:140px">
+    <button class="btn btn-back" style="padding:10px 16px;margin-left:8px" onclick="checkQ16()">Check</button>
+    <div class="feedback" id="q16fb"></div>
+  </div>
+  <div class="qbox" id="q17box">
+    <div class="qtext">What is the range of the Eagles' quarter-by-quarter yardage?</div>
+    <div id="q17opts"></div>
+    <div class="feedback" id="q17fb"></div>
+  </div>
+  <div class="qbox" id="q18box">
+    <div class="qtext">Click the bar below representing the Eagles' lowest-yardage quarter.</div>
+    <svg class="bar-svg" viewBox="0 0 320 220" xmlns="http://www.w3.org/2000/svg">
+      <line x1="30" y1="180" x2="300" y2="180" stroke="#0A1F3D" stroke-width="2"/>
+      <g id="dpScoredBars"></g>
+    </svg>
+    <div class="feedback" id="q18fb"></div>
+  </div>
+  <div class="nav">
+    <button class="btn btn-back" onclick="goTo(7)">← Back</button>
+    <button class="btn btn-go" onclick="goTo(9)">Halftime →</button>
+  </div>
+</div>
+
+<!-- SLIDE 9: HALFTIME -->
+<div class="slide" id="s9">
+  <div class="eyebrow">Halftime</div>
+  <h2>13 &ndash; 10, Eagles Trailing</h2>
+  <div class="card-narrative">
+    <p>Four drives down, and the scoreboard reads Panthers 13, Eagles 10. Jalen is completing three out of every four passes. Marcus has caught 80% of what's come his way — his best number, even though the moment sticking with him isn't a good one.</p>
+    <p>Third quarter, a drive that mattered, and he dropped a ball he should have caught — the same play that ended with him tackled 4 yards behind the line. That's where the story picks up.</p>
+  </div>
+  <p style="font-size:1.1rem">Stand up. Roll your shoulders. Three slow breaths. Same game, second half.</p>
+  <div class="nav">
+    <span></span>
+    <button class="btn btn-go" onclick="goTo(10)">Second Half →</button>
+  </div>
+</div>
+
+<!-- SLIDE 10: ELA TEACH - MODEL THE SKILL -->
+<div class="slide" id="s10">
+  <span class="badge subj-ela">ELA &middot; ELA.6.R.1.1</span>
+  <span class="badge step">I Do</span>
+  <h2>3rd Quarter: What Actually Moves a Story Forward</h2>
+  <p>A story moves forward because of how characters <strong>react to each other</strong> — that reaction changes what happens next.</p>
+  <div class="card-idea">
+    <p><em>"Sarah slammed the door, furious her brother had broken her trophy. But when he showed up an hour later with the pieces glued back together and offered to help her train for regionals instead, her anger turned into something closer to partnership."</em></p>
+    <p>The brother's <strong>action</strong> directly <strong>changed</strong> Sarah's feelings and what she does next. That shift is the plot moving. If he'd just apologized and left, the story stays stuck.</p>
+  </div>
+  <p>As you read "The Last Rep," watch for the exact moment one character's words change the direction of the scene. That moment is almost always the answer to a plot question on FAST.</p>
+  <div class="nav">
+    <button class="btn btn-back" onclick="goTo(9)">← Back</button>
+    <button class="btn btn-go" onclick="goTo(11)">Read the Scene →</button>
+  </div>
+</div>
+
+<!-- SLIDE 11: PASSAGE 1 -->
+<div class="slide" id="s11">
+  <span class="badge subj-ela">Read &middot; Literary Text</span>
+  <h2>"The Last Rep"</h2>
+  <div class="passage">
+    <p>Marcus sat alone on the bench, cleats still laced, staring at the scoreboard: Panthers 13, Eagles 10. Third quarter, and he'd dropped the pass that would have kept the drive alive — then got dragged four yards backward trying to make up for it on the very next play, like the field itself was punishing him twice for one mistake.</p>
+    <p>Coach Whitfield sat down beside him without a word at first. He just watched the empty part of the field for a moment before speaking.</p>
+    <p>"You know what I remember about that play?" Coach asked. "Not the drop. I remember you sprinting back downfield afterward to make the tackle on the return. Most guys sulk. You <span class="vocab" title="reacted immediately without hesitation">reacted</span> instantly."</p>
+    <p>Marcus looked up, surprised. "I thought you'd be mad."</p>
+    <p>"I'm not thrilled," Coach admitted, "but a dropped ball doesn't tell me who you are. What you did the next three seconds does." He stood, offering a hand to pull Marcus up. "Next practice, same route, same ball. We run it until it's <span class="vocab" title="happening automatically, without needing to think about it">automatic</span>. That's the only <span class="vocab" title="a fix or answer to a problem">remedy</span> for a drop — more reps, not more worrying."</p>
+    <p>Marcus took the hand, and for the first time since the fumble, the tightness in his chest eased. It wasn't the forgiveness he expected. It was something better — a plan. He glanced at the scoreboard one more time. Three points. Fifteen minutes left. Jalen had one more drive in him, and Marcus intended to be exactly where the ball needed him to be.</p>
+    <p>He jogged back onto the field already running the route in his head — not the drop, not the tackle. Just the next rep.</p>
+  </div>
+  <div class="nav">
+    <button class="btn btn-back" onclick="goTo(10)">← Back</button>
+    <button class="btn btn-go" onclick="goTo(12)">Break It Down →</button>
+  </div>
+</div>
+
+<!-- SLIDE 12: GUIDED CLOSE READ -->
+<div class="slide" id="s12">
+  <span class="badge subj-ela">ELA</span>
+  <span class="badge step">We Do</span>
+  <h2>Find the Turn</h2>
+  <p>Before answering anything, let's find the exact interaction that changes Marcus's direction — together.</p>
+  <div class="card-idea">
+    <p><strong>Moment 1:</strong> Marcus expects Coach to be angry ("I thought you'd be mad"). That's his assumption going in.</p>
+    <p><strong>Moment 2:</strong> Coach's reply — "a dropped ball doesn't tell me who you are" — directly contradicts that assumption. This is the turn. Everything after it happens <em>because</em> of this one line.</p>
+  </div>
+  <div class="qbox" id="wq4box">
+    <div class="qtext">Which detail shows the effect of that turn — something Marcus does or feels differently <em>after</em> Coach's response?</div>
+    <div id="wq4opts"></div>
+    <div class="feedback" id="wq4fb"></div>
+  </div>
+  <div class="nav">
+    <button class="btn btn-back" onclick="goTo(11)">← Back</button>
+    <button class="btn btn-go" onclick="goTo(13)">Scored Questions →</button>
+  </div>
+</div>
+
+<!-- SLIDE 13: ELA ASSESS - PLOT + EVIDENCE -->
+<div class="slide" id="s13">
+  <span class="badge subj-ela">FAST-Format Item</span>
+  <span class="badge step">You Do — Scored</span>
+  <h2>Prove It</h2>
+  <div class="qbox" id="q4box">
+    <div class="qtext">How does Coach Whitfield's response change the direction of the story?</div>
+    <div id="q4opts"></div>
+    <div class="feedback" id="q4fb"></div>
+  </div>
+  <div class="qbox" id="q5box">
+    <div class="qtext"><strong>Evidence-Based Response, Part 1:</strong> What does Marcus expect Coach Whitfield to do at the start of their conversation?</div>
+    <div id="q5opts"></div>
+  </div>
+  <div class="qbox" id="q6box" style="display:none">
+    <div class="qtext"><strong>Evidence-Based Response, Part 2:</strong> Which detail from the passage best supports your answer above?</div>
+    <div id="q6opts"></div>
+    <div class="feedback" id="q6fb"></div>
+  </div>
+  <div class="card-tactic">
+    <div class="lbl">Test Tactic</div>
+    <p>Evidence-based items are graded as a pair — Part 2 only counts if Part 1 is right too. Find the exact line that proves your Part 1 answer before touching Part 2.</p>
+  </div>
+  <div class="nav">
+    <button class="btn btn-back" onclick="goTo(12)">← Back</button>
+    <button class="btn btn-go" onclick="goTo(14)">4th Quarter →</button>
+  </div>
+</div>
+
+<!-- SLIDE 14: 2nd PASSAGE - INFORMATIONAL TEXT -->
+<div class="slide" id="s14">
+  <span class="badge subj-ela">ELA &middot; ELA.6.R.2.1 / 2.2 / 2.3</span>
+  <span class="badge step">I Do → Read</span>
+  <h2>4th Quarter: Same Game, Different Kind of Text</h2>
+  <p>"The Last Rep" is a <strong>literary</strong> text — built around a character's internal experience. What you're about to read is <strong>informational</strong> — a real sports article style, built to report facts fast.</p>
+  <div class="article">
+    <div class="article-head">
+      <div class="kicker">Arcadia Gazette &middot; Sports</div>
+      <h3 id="hotTitle">Eagles Rally Late, Fall Just Short to Panthers, 20&ndash;17</h3>
+      <div class="byline">By the Gazette Sports Desk</div>
+    </div>
+    <div class="article-body" id="hotBody">
+      <p class="hot-sentence" data-id="s1">The Arcadia Eagles pushed the Punta Gorda Panthers to the final minute Friday night before falling 20&ndash;17 in a season opener that came down to a single fourth-quarter drive.</p>
+      <div class="statbox">
+        <div class="stlbl">By the Numbers</div>
+        Jalen Torres: 15/20 passing (75%) &middot; Marcus Delgado: 8 catches on 10 targets (80%) &middot; Final: Panthers 20, Eagles 17
+      </div>
+      <p class="hot-sentence" data-id="s2">Quarterback Jalen Torres and receiver Marcus Delgado were the story of the night, connecting on 15 passes and controlling long stretches of the clock even while trailing.</p>
+      <p class="hot-sentence" data-id="s3">Delgado's night wasn't without a rough patch — a third-quarter drop briefly stalled an Eagles drive — but he answered by hauling in the team's final two targets of the game, including a fourth-quarter catch that pulled Arcadia within three.</p>
+      <p class="hot-sentence" data-id="s4">The Eagles open Week 2 at home next Friday, looking to turn Friday's near-miss into their first win of the season.</p>
+    </div>
+  </div>
+  <div class="nav">
+    <button class="btn btn-back" onclick="goTo(13)">← Back</button>
+    <button class="btn btn-go" onclick="goTo(15)">Answer Questions →</button>
+  </div>
+</div>
+
+<!-- SLIDE 15: INFORMATIONAL TEXT ITEMS -->
+<div class="slide" id="s15">
+  <span class="badge subj-ela">FAST-Format Item &middot; Hot Text</span>
+  <span class="badge step">You Do — Scored</span>
+  <h2>Reading the Report</h2>
+  <div class="qbox" id="q10box">
+    <div class="qtext">Click the ONE sentence below that best states the article's central idea.</div>
+    <div class="article" style="margin-top:8px">
+      <div class="article-body" id="hotBody2"></div>
+    </div>
+    <div class="feedback" id="q10fb"></div>
+  </div>
+  <div class="qbox" id="q11box">
+    <div class="qtext">Why did the writer put the season stats in a separate boxed-off section instead of writing them into a paragraph?</div>
+    <div id="q11opts"></div>
+    <div class="feedback" id="q11fb"></div>
+  </div>
+  <div class="qbox" id="q12box">
+    <div class="qtext">What is the author's main purpose in including Delgado's third-quarter drop in the article?</div>
+    <div id="q12opts"></div>
+    <div class="feedback" id="q12fb"></div>
+  </div>
+  <div class="nav">
+    <button class="btn btn-back" onclick="goTo(14)">← Back</button>
+    <button class="btn btn-go" onclick="goTo(16)">Vocabulary →</button>
+  </div>
+</div>
+
+<!-- SLIDE 16: VOCABULARY EXPANDED -->
+<div class="slide" id="s16">
+  <span class="badge subj-ela">ELA &middot; ELA.6.V.1.1 / 1.2 / 1.3</span>
+  <span class="badge step">I Do</span>
+  <h2>Two Ways to Crack a Word You Don't Know</h2>
+  <p><strong>Strategy 1 — Definition clues.</strong></p>
+  <div class="card-idea">
+    <p><em>"That's the only remedy for a drop — more reps, not more worrying."</em> Coach describes the fix right next to the word. <strong>Remedy = a fix.</strong></p>
+  </div>
+  <p><strong>Strategy 2 — Contrast clues.</strong></p>
+  <div class="card-idea">
+    <p><em>"Most guys sulk. You reacted instantly."</em> "Sulk" is contrasted with "reacted instantly" — meaning something like the opposite: staying upset and withdrawn instead of responding right away.</p>
+  </div>
+  <p><strong>Word parts count too.</strong> "Automatic" breaks down into the root <em>auto-</em>, meaning "self." Something automatic happens by itself, without conscious thought.</p>
+  <div class="step-lbl">We Do</div>
+  <div class="qbox" id="wq5box">
+    <div class="qtext">Using the contrast clue strategy, what does "sulk" most likely mean in the passage?</div>
+    <div id="wq5opts"></div>
+    <div class="feedback" id="wq5fb"></div>
+  </div>
+  <div class="nav">
+    <button class="btn btn-back" onclick="goTo(15)">← Back</button>
+    <button class="btn btn-go" onclick="goTo(17)">Scored Round →</button>
+  </div>
+</div>
+
+<!-- SLIDE 17: VOCAB SCORED + MATCHING -->
+<div class="slide" id="s17">
+  <span class="badge subj-ela">FAST-Format Item</span>
+  <span class="badge step">You Do — Scored</span>
+  <h2>Word Check</h2>
+  <div class="qbox" id="q7box">
+    <div class="qtext">What does "remedy" most nearly mean as used in the passage?</div>
+    <div id="q7opts"></div>
+    <div class="feedback" id="q7fb"></div>
+  </div>
+  <div class="qbox" id="q9box">
+    <div class="qtext">What does "reacted" suggest about how quickly Marcus responded?</div>
+    <div id="q9opts"></div>
+    <div class="feedback" id="q9fb"></div>
+  </div>
+  <div class="qbox" id="qAutoBox">
+    <div class="qtext">Based on the root "auto-" (self), what does "automatic" mean in this context?</div>
+    <div id="qAutoOpts"></div>
+    <div class="feedback" id="qAutoFb"></div>
+  </div>
+  <div class="qbox" id="qSulkBox">
+    <div class="qtext">Based on its contrast with "reacted instantly," what does "sulk" mean?</div>
+    <div id="qSulkOpts"></div>
+    <div class="feedback" id="qSulkFb"></div>
+  </div>
+  <h3>Bonus Mode: Match the Words</h3>
+  <p style="font-size:.9rem">Click a word, then click its matching meaning. Not scored toward your total — just extra XP.</p>
+  <div class="match-wrap">
+    <div class="match-col" id="matchWords"></div>
+    <div class="match-col" id="matchDefs"></div>
+  </div>
+  <div class="nav">
+    <button class="btn btn-back" onclick="goTo(16)">← Back</button>
+    <button class="btn btn-go" onclick="goTo(18)">Sentence Skills →</button>
+  </div>
+</div>
+
+<!-- SLIDE 18: SENTENCE STRUCTURE / EDITING TEACH -->
+<div class="slide" id="s18">
+  <span class="badge subj-ela">ELA &middot; ELA.6.C.3.1 / C.1.2</span>
+  <span class="badge step">I Do</span>
+  <h2>Combining Choppy Sentences</h2>
+  <p>Two short, separate sentences can sound weak next to each other. A <strong>subordinating conjunction</strong> — <em>although, because, when, if, since, while</em> — joins them into one stronger sentence.</p>
+  <div class="card-idea">
+    <p><strong>Choppy:</strong> "Marcus was nervous. He stepped onto the field."</p>
+    <p><strong>Combined:</strong> "Although Marcus was nervous, he stepped onto the field."</p>
+    <p>This is exactly the kind of fix FAST's Editing Task Choice items test.</p>
+  </div>
+  <div class="step-lbl">We Do</div>
+  <div class="qbox" id="wq6box">
+    <div class="qtext">Which combination correctly joins: "The Panthers led. The Eagles didn't give up."?</div>
+    <div id="wq6opts"></div>
+    <div class="feedback" id="wq6fb"></div>
+  </div>
+  <div class="nav">
+    <button class="btn btn-back" onclick="goTo(17)">← Back</button>
+    <button class="btn btn-go" onclick="goTo(19)">Scored Edit →</button>
+  </div>
+</div>
+
+<!-- SLIDE 19: EDITING TASK CHOICE + CREATIVE SENTENCE -->
+<div class="slide" id="s19">
+  <span class="badge subj-ela">FAST-Format Item &middot; Editing Task Choice</span>
+  <span class="badge step">You Do — Scored</span>
+  <h2>Fix the Play-by-Play</h2>
+  <div class="qbox" id="q13box">
+    <div class="qtext">Choose the best correction for the underlined sentence:</div>
+    <div class="editing-passage">Marcus ran his route and looked back for the ball. <span class="editing-target">Jalen threw it high he almost couldn't reach it.</span> Somehow, he came down with it anyway.</div>
+    <div id="q13opts"></div>
+    <div class="feedback" id="q13fb"></div>
+  </div>
+  <h3>Now You Try: Write One</h3>
+  <p>Write your own sentence describing the Eagles' final play, using one of these words: <em>although, because, when, if, since, while</em>.</p>
+  <textarea id="creativeSentence" rows="3" style="width:100%;padding:12px;border:2px solid #d8d2c2;border-radius:10px;font-family:inherit;font-size:.98rem" placeholder="Type your sentence here..."></textarea>
+  <button class="btn btn-back" style="margin-top:10px" onclick="selfCheckSentence()">Self-Check My Sentence</button>
+  <div class="selfcheck" id="selfCheckBox" style="display:none"></div>
+  <div class="nav">
+    <button class="btn btn-back" onclick="goTo(18)">← Back</button>
+    <button class="btn btn-go" onclick="goTo(20)">Final Whistle →</button>
+  </div>
+</div>
+
+<!-- SLIDE 20: SCOUTING REPORT -->
+<div class="slide" id="s20">
+  <div class="eyebrow">Looking Ahead</div>
+  <h2>Scouting Report: Week 2</h2>
+  <p>Next week the theme shifts to <strong>Black American Life — "Trailblazers"</strong>: GCF/LCM and data analysis in Math, central idea and author's purpose in ELA.</p>
+  <p>Week 6 comes back to this exact game — every drive, harder, mid-season. Nothing here is a one-time thing.</p>
+  <div class="nav">
+    <button class="btn btn-back" onclick="goTo(19)">← Back</button>
+    <button class="btn btn-go" onclick="goTo(21)">See Your Score →</button>
+  </div>
+</div>
+
+<!-- SLIDE 21: FINAL SCORE -->
+<div class="slide" id="s21">
+  <div class="final-badge">
+    <div class="medal">🏆</div>
+    <h1 id="finalName">Great Work!</h1>
+    <p>Kickoff Week complete.</p>
+    <div class="scorebox">
+      <div class="cell"><div class="num" id="finalXP">0</div><div class="lbl">Total XP</div></div>
+      <div class="cell"><div class="num" id="finalMath">0/9</div><div class="lbl">Math Correct</div></div>
+      <div class="cell"><div class="num" id="finalELA">0/10</div><div class="lbl">ELA Correct</div></div>
+    </div>
+    <p id="masteryMsg" style="font-weight:700;color:var(--navy)"></p>
+    <button class="btn btn-go" onclick="submitScore()" id="submitBtn">Submit My Results</button>
+    <p class="footer-note" id="submitStatus"></p>
+  </div>
+</div>
+
+<div class="dots" id="dots"></div>
+</div>
+
+<script>
+const TOTAL_SLIDES = 22;
+let current = 0;
+let xp = 0;
+let streak = 0;
+let mathCorrect = 0, mathTotal = 9;
+let elaCorrect = 0, elaTotal = 10;
+let q5Correct = false;
+
+function goTo(n){
+  document.getElementById('s'+current).classList.remove('on');
+  current = n;
+  document.getElementById('s'+current).classList.add('on');
+  renderDots();
+  window.scrollTo({top:0,behavior:'smooth'});
+  if(n===21){ finalizeScore(); }
+}
+
+function renderDots(){
+  const d = document.getElementById('dots');
+  d.innerHTML='';
+  for(let i=0;i<TOTAL_SLIDES;i++){
+    const dot = document.createElement('div');
+    dot.className = 'dot' + (i===current?' on':'') + (i<current?' done':'');
+    d.appendChild(dot);
+  }
+}
+
+function addXP(n){
+  xp += n;
+  document.getElementById('xpStat').textContent = xp;
+  document.getElementById('xpFill').style.width = Math.min(100,(xp/380)*100) + '%';
+  streak++;
+  document.getElementById('streakStat').textContent = streak;
+}
+
+function burstConfetti(type){
+  const container = document.createElement('div');
+  container.style.cssText = 'position:fixed;inset:0;pointer-events:none;z-index:9999;overflow:hidden;';
+  document.body.appendChild(container);
+  const count = 28;
+  for(let i=0;i<count;i++){
+    const piece = document.createElement('div');
+    const startX = Math.random()*100;
+    const duration = 1.6 + Math.random()*1.3;
+    const delay = Math.random()*0.25;
+    const rotate = Math.random()*720-360;
+    const drift = (Math.random()*180-90);
+    piece.style.position='absolute';
+    piece.style.left=startX+'vw';
+    piece.style.top='-30px';
+    piece.style.setProperty('--drift', drift+'px');
+    piece.style.setProperty('--rot', rotate+'deg');
+    piece.style.animation = `confettiFall ${duration}s ease-in ${delay}s forwards`;
+    if(type==='football'){
+      piece.style.fontSize = (18+Math.random()*10)+'px';
+      piece.textContent = '🏈';
+    } else {
+      const colors = ['#C9A84C','#0047BA','#DB2F30','#0A1F3D','#ffffff'];
+      const c = colors[Math.floor(Math.random()*colors.length)];
+      const w = 8+Math.random()*6, h=12+Math.random()*8;
+      piece.style.width=w+'px'; piece.style.height=h+'px';
+      piece.style.background=c;
+      piece.style.borderRadius = Math.random()>0.5?'50%':'2px';
+    }
+    container.appendChild(piece);
+  }
+  setTimeout(()=>container.remove(), 3200);
+}
+
+function buildSingleSelect(optsId, fbId, data, onCorrect){
+  const container = document.getElementById(optsId);
+  data.forEach(o=>{
+    const b=document.createElement('button');
+    b.className='opt';
+    b.textContent=o.text;
+    b.onclick=()=>{
+      document.querySelectorAll('#'+optsId+' .opt').forEach(x=>x.classList.remove('sel','correct','wrong'));
+      const fb = document.getElementById(fbId);
+      if(o.correct){
+        b.classList.add('correct');
+        fb.textContent = o.explain || 'Correct.';
+        fb.className='feedback show ok';
+        b.closest('.qbox').classList.add('ok');
+        if(onCorrect) onCorrect();
+      } else {
+        b.classList.add('wrong');
+        fb.textContent = o.explain || 'Not quite — reread the clue and try again.';
+        fb.className='feedback show bad';
+      }
+    };
+    container.appendChild(b);
+  });
+}
+
+// ================= MATH: DRIVE 1 (NSO) =================
+
+(function(){
+  const grid = document.getElementById('gridJalen');
+  for(let i=0;i<20;i++){
+    const sq = document.createElement('div');
+    sq.className = 'grid-sq' + (i<15?' filled':'');
+    grid.appendChild(sq);
+  }
+})();
+
+buildSingleSelect('wq1opts','wq1fb',[
+  {text:'-9', correct:false, explain:'A gain moves the ball forward — that\'s positive.'},
+  {text:'+9', correct:true, explain:'Right — a 9-yard gain is +9.'},
+  {text:'9 with no sign needed', correct:false, explain:'Direction matters — write it as +9.'}
+], ()=>{addXP(5); burstConfetti('football');});
+
+buildSingleSelect('wq2opts','wq2fb',[
+  {text:'+6', correct:false, explain:'A loss moves the ball backward — negative.'},
+  {text:'-6', correct:true, explain:'Right — a 6-yard loss is -6.'},
+  {text:'0', correct:false, explain:'The ball moved 6 yards — it\'s -6, not zero.'}
+], ()=>{addXP(5); burstConfetti('football');});
+
+const nl = document.getElementById('numline1');
+for(let i=-8;i<=8;i++){
+  const t = document.createElement('div');
+  t.className='nl-tick';
+  t.textContent=i;
+  t.onclick=()=>{
+    document.querySelectorAll('.nl-tick').forEach(x=>x.classList.remove('sel','correct'));
+    const fb = document.getElementById('q1fb');
+    if(i===-4){
+      t.classList.add('correct');
+      fb.textContent='Correct — a 4-yard loss behind the line lands at -4.';
+      fb.className='feedback show ok';
+      addXP(10); mathCorrect++;
+      burstConfetti('football');
+      document.getElementById('q1box').classList.add('ok');
+    } else {
+      t.classList.add('sel');
+      fb.textContent='Not quite — that\'s a loss. Which direction is that on the line?';
+      fb.className='feedback show bad';
+    }
+  };
+  nl.appendChild(t);
+}
+
+function checkQ2(){
+  const val = document.getElementById('q2answer').value.trim();
+  const fb = document.getElementById('q2fb');
+  if(val === '2' || val === '+2'){
+    fb.textContent='Correct — +6, -9, +5 nets to +2 yards.';
+    fb.className='feedback show ok';
+    addXP(15); mathCorrect++;
+    burstConfetti('football');
+    document.getElementById('q2box').classList.add('ok');
+  } else {
+    fb.textContent='Not yet — add all three plays in order, keeping every sign: +6, then -9, then +5.';
+    fb.className='feedback show bad';
+  }
+}
+
+// ================= MATH: DRIVE 2 (AR) =================
+
+buildSingleSelect('wq3opts','wq3fb',[
+  {text:'4:6', correct:false, explain:'That\'s before simplifying.'},
+  {text:'2:3', correct:true, explain:'Right — 4:6 simplifies to 2:3.'},
+  {text:'6:4', correct:false, explain:'That reverses the order the question asked for.'}
+], ()=>{addXP(5); burstConfetti('football');});
+
+const q3data = [
+  {text:'9:12', correct:true},{text:'3:4', correct:true},{text:'75%', correct:true},
+  {text:'12:9', correct:false},{text:'9%', correct:false}
+];
+const q3opts = document.getElementById('q3opts');
+let q3selected = new Set();
+q3data.forEach((o,idx)=>{
+  const b = document.createElement('button');
+  b.className='opt'; b.textContent=o.text;
+  b.onclick=()=>{
+    if(q3selected.has(idx)){ q3selected.delete(idx); b.classList.remove('sel'); }
+    else { q3selected.add(idx); b.classList.add('sel'); }
+  };
+  q3opts.appendChild(b);
+});
+const q3btn = document.createElement('button');
+q3btn.className='btn btn-back'; q3btn.style.marginTop='10px';
+q3btn.textContent='Check My Selections';
+q3btn.onclick=()=>{
+  const fb = document.getElementById('q3fb');
+  const correctSet = new Set(q3data.map((o,i)=>o.correct?i:null).filter(x=>x!==null));
+  const isRight = q3selected.size===correctSet.size && [...q3selected].every(i=>correctSet.has(i));
+  document.querySelectorAll('#q3opts .opt').forEach(b=>b.classList.remove('correct','wrong'));
+  if(isRight){
+    document.querySelectorAll('#q3opts .opt').forEach((b,i)=>{
+      if(q3data[i].correct) b.classList.add('correct');
+    });
+    fb.textContent='All three correct — 9:12, 3:4, and 75% are the same ratio. Notice the question listed attempts before makes — the Test Tactic in action.';
+    fb.className='feedback show ok';
+    addXP(15); mathCorrect++;
+    burstConfetti('football');
+    document.getElementById('q3box').classList.add('ok');
+  } else {
+    document.querySelectorAll('#q3opts .opt').forEach((b,i)=>{
+      if(q3selected.has(i)) b.classList.add('wrong');
+    });
+    fb.textContent='Close — exactly three of the five options are correct. Try again.';
+    fb.className='feedback show bad';
+  }
+};
+q3opts.appendChild(q3btn);
+
+buildSingleSelect('q8opts','q8fb',[
+  {text:'Jalen — he has more total completions', correct:false, explain:'Total completions and rate measure different things.'},
+  {text:'Marcus — 80% is higher than 75%', correct:true, explain:'Correct — 80% beats 75%.'},
+  {text:'They\'re equal', correct:false, explain:'75% and 80% are not equal.'}
+], ()=>{addXP(10); mathCorrect++; burstConfetti('football');});
+
+// ================= MATH: DRIVE 3 (GR) =================
+
+buildSingleSelect('wq7opts','wq7fb',[
+  {text:'8 yards', correct:true, explain:'Right — 11-3=8. Same y-coordinate, so subtract the x-values.'},
+  {text:'14 yards', correct:false, explain:'That adds the x-values instead of subtracting them.'},
+  {text:'3 yards', correct:false, explain:'That\'s just one receiver\'s x-coordinate, not the distance between them.'}
+], ()=>{addXP(5); burstConfetti('football');});
+
+(function(){
+  const g = document.getElementById('plotGridLines');
+  let s='';
+  for(let i=0;i<=14;i++){
+    const x = 20+i*20;
+    s += `<line x1="${x}" y1="20" x2="${x}" y2="300" stroke="#eee" stroke-width="1"/>`;
+    const y = 300-i*20;
+    s += `<line x1="20" y1="${y}" x2="300" y2="${y}" stroke="#eee" stroke-width="1"/>`;
+  }
+  g.innerHTML = s;
+  const svg = document.getElementById('plotGrid');
+  svg.addEventListener('click', function(e){
+    const pt = svg.createSVGPoint();
+    pt.x = e.clientX; pt.y = e.clientY;
+    const loc = pt.matrixTransform(svg.getScreenCTM().inverse());
+    const gridX = Math.round((loc.x-20)/20);
+    const gridY = Math.round((300-loc.y)/20);
+    document.querySelectorAll('#plotGrid circle').forEach(c=>c.remove());
+    const c = document.createElementNS('http://www.w3.org/2000/svg','circle');
+    c.setAttribute('cx', 20+gridX*20);
+    c.setAttribute('cy', 300-gridY*20);
+    c.setAttribute('r', 6);
+    const fb = document.getElementById('q14fb');
+    if(gridX===9 && gridY===4){
+      c.setAttribute('fill','var(--ok)');
+      fb.textContent='Correct — (9, 4) is 9 units right, 4 units up.';
+      fb.className='feedback show ok';
+      addXP(15); mathCorrect++;
+      burstConfetti('football');
+      document.getElementById('q14box').classList.add('ok');
+    } else {
+      c.setAttribute('fill','var(--red)');
+      fb.textContent='Not quite — you clicked ('+gridX+', '+gridY+'). Count 9 right from zero, then 4 up.';
+      fb.className='feedback show bad';
+    }
+    svg.appendChild(c);
+  });
+})();
+
+function checkQ15(){
+  const val = document.getElementById('q15answer').value.trim();
+  const fb = document.getElementById('q15fb');
+  if(val === '40'){
+    fb.textContent='Correct — length 8 × width 5 = 40 square yards.';
+    fb.className='feedback show ok';
+    addXP(15); mathCorrect++;
+    burstConfetti('football');
+    document.getElementById('q15box').classList.add('ok');
+  } else {
+    fb.textContent='Not yet — length is x=0 to x=8 (8 yards), width is y=0 to y=5 (5 yards). Multiply them.';
+    fb.className='feedback show bad';
+  }
+}
+
+// ================= MATH: DRIVE 4 (DP) =================
+
+buildSingleSelect('wq8opts','wq8fb',[
+  {text:'4', correct:true, explain:'Right — (5+4+3+4)÷4 = 16÷4 = 4.'},
+  {text:'16', correct:false, explain:'That\'s the total, not the average — divide by how many quarters.'},
+  {text:'3.5', correct:false, explain:'Recheck the sum: 5+4+3+4=16, then divide by 4.'}
+], ()=>{addXP(5); burstConfetti('football');});
+
+function checkQ16(){
+  const val = document.getElementById('q16answer').value.trim();
+  const fb = document.getElementById('q16fb');
+  if(val === '40'){
+    fb.textContent='Correct — (45+38+22+55)÷4 = 160÷4 = 40.';
+    fb.className='feedback show ok';
+    addXP(15); mathCorrect++;
+    burstConfetti('football');
+    document.getElementById('q16box').classList.add('ok');
+  } else {
+    fb.textContent='Not yet — add all four quarters, then divide by 4.';
+    fb.className='feedback show bad';
+  }
+}
+
+buildSingleSelect('q17opts','q17fb',[
+  {text:'33 yards', correct:true, explain:'Correct — 55 (highest) minus 22 (lowest) = 33.'},
+  {text:'40 yards', correct:false, explain:'That\'s the mean, not the range.'},
+  {text:'160 yards', correct:false, explain:'That\'s the total across all four quarters, not the range.'}
+], ()=>{addXP(10); mathCorrect++; burstConfetti('football');});
+
+(function(){
+  const data = [45,38,22,55];
+  const labels = ['Q1','Q2','Q3','Q4'];
+  const g = document.getElementById('dpScoredBars');
+  const maxV = 60, chartH = 150, baseY = 180;
+  data.forEach((v,i)=>{
+    const h = (v/maxV)*chartH;
+    const x = 55 + i*62;
+    const rect = document.createElementNS('http://www.w3.org/2000/svg','rect');
+    rect.setAttribute('x', x); rect.setAttribute('y', baseY-h);
+    rect.setAttribute('width', 42); rect.setAttribute('height', h);
+    rect.setAttribute('fill', '#0047BA'); rect.setAttribute('rx', 3);
+    rect.classList.add('bar-rect');
+    rect.setAttribute('tabindex', '0');
+    rect.setAttribute('role', 'button');
+    rect.setAttribute('aria-label', labels[i]+': '+v+' yards');
+    const activate = ()=>{
+      const fb = document.getElementById('q18fb');
+      document.querySelectorAll('#dpScoredBars .bar-rect').forEach(r=>r.classList.remove('correct','wrong'));
+      if(v===22){
+        rect.classList.add('correct');
+        fb.textContent='Correct — Q3, 22 yards, is the shortest bar.';
+        fb.className='feedback show ok';
+        addXP(15); mathCorrect++;
+        burstConfetti('football');
+      } else {
+        rect.classList.add('wrong');
+        fb.textContent='Not quite — look for the shortest bar on the chart.';
+        fb.className='feedback show bad';
+      }
+    };
+    rect.onclick = activate;
+    rect.onkeydown = (e)=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); activate(); } };
+    g.appendChild(rect);
+    const lbl = document.createElementNS('http://www.w3.org/2000/svg','text');
+    lbl.setAttribute('x', x+21); lbl.setAttribute('y', baseY+16);
+    lbl.setAttribute('font-size','11'); lbl.setAttribute('fill','#555'); lbl.setAttribute('text-anchor','middle');
+    lbl.textContent = labels[i];
+    g.appendChild(lbl);
+  });
+})();
+
+// ================= ELA SECTION (unchanged content, renumbered slides) =================
+
+buildSingleSelect('wq4opts','wq4fb',[
+  {text:'Marcus taking Coach\'s hand and the tightness in his chest easing', correct:true, explain:'Exactly — that shift only happens because of what Coach just said.'},
+  {text:'The scoreboard showing Panthers 13, Eagles 10', correct:false, explain:'That\'s the situation before the conversation, not a result of it.'},
+  {text:'Marcus sitting alone on the bench', correct:false, explain:'That\'s where the scene starts, before the turn.'}
+], ()=>{addXP(5); burstConfetti('classic');});
+
+buildSingleSelect('q4opts','q4fb',[
+  {text:'It ends the conversation quickly so Marcus can rest.', correct:false, explain:'The conversation leads directly into a plan for practice — it doesn\'t end there.'},
+  {text:'It shifts Marcus from expecting blame to being offered a concrete plan, changing his emotional state.', correct:true, explain:'Correct — this is the turning point the rest of the scene builds on.'},
+  {text:'It has no real effect on Marcus.', correct:false, explain:'The text says his chest eased — that\'s a real effect.'},
+  {text:'It makes Marcus feel worse.', correct:false, explain:'The passage says the tightness eased — that\'s relief, not feeling worse.'}
+], ()=>{addXP(10); elaCorrect++; burstConfetti('classic');});
+
+const q5data = [
+  {text:'That Coach will be proud of him for the tackle.', correct:false},
+  {text:'That Coach will be mad at him.', correct:true},
+  {text:'That Coach won\'t say anything at all.', correct:false},
+  {text:'That Coach will bench him for the season.', correct:false}
+];
+const q5opts = document.getElementById('q5opts');
+q5data.forEach(o=>{
+  const b=document.createElement('button'); b.className='opt'; b.textContent=o.text;
+  b.onclick=()=>{
+    document.querySelectorAll('#q5opts .opt').forEach(x=>x.classList.remove('sel','correct','wrong'));
+    if(o.correct){ b.classList.add('correct'); q5Correct = true; document.getElementById('q6box').style.display='block'; }
+    else { b.classList.add('wrong'); q5Correct = false; document.getElementById('q6box').style.display='none'; }
+  };
+  q5opts.appendChild(b);
+});
+const q6data = [
+  {text:'"You know what I remember about that play?"', correct:false},
+  {text:'"I thought you\'d be mad," Marcus says.', correct:true},
+  {text:'"Next practice, same route, same ball."', correct:false},
+  {text:'The scoreboard reading Panthers 13, Eagles 10.', correct:false}
+];
+const q6opts = document.getElementById('q6opts');
+q6data.forEach(o=>{
+  const b=document.createElement('button'); b.className='opt'; b.textContent=o.text;
+  b.onclick=()=>{
+    document.querySelectorAll('#q6opts .opt').forEach(x=>x.classList.remove('sel','correct','wrong'));
+    const fb = document.getElementById('q6fb');
+    if(o.correct && q5Correct){
+      b.classList.add('correct');
+      fb.textContent='Both parts correct — "I thought you\'d be mad" is the exact line that proves it.';
+      fb.className='feedback show ok';
+      addXP(20); elaCorrect++;
+      burstConfetti('classic');
+      document.getElementById('q5box').classList.add('ok');
+      document.getElementById('q6box').classList.add('ok');
+    } else {
+      b.classList.add('wrong');
+      fb.textContent='This only counts if Part 1 is also correct — check both parts.';
+      fb.className='feedback show bad';
+    }
+  };
+  q6opts.appendChild(b);
+});
+
+const articleSentences = [
+  {id:'s1', text:'The Arcadia Eagles pushed the Punta Gorda Panthers to the final minute Friday night before falling 20–17 in a season opener that came down to a single fourth-quarter drive.', correct:true},
+  {id:'s2', text:'Quarterback Jalen Torres and receiver Marcus Delgado were the story of the night, connecting on 15 passes and controlling long stretches of the clock even while trailing.', correct:false},
+  {id:'s3', text:'Delgado\'s night wasn\'t without a rough patch — a third-quarter drop briefly stalled an Eagles drive — but he answered by hauling in the team\'s final two targets of the game, including a fourth-quarter catch that pulled Arcadia within three.', correct:false},
+  {id:'s4', text:'The Eagles open Week 2 at home next Friday, looking to turn Friday\'s near-miss into their first win of the season.', correct:false}
+];
+function buildHotBody(containerId, scored){
+  const c = document.getElementById(containerId);
+  articleSentences.forEach((s,idx)=>{
+    const p = document.createElement('p');
+    p.className='hot-sentence';
+    p.textContent = s.text;
+    if(scored){
+      p.onclick=()=>{
+        document.querySelectorAll('#'+containerId+' .hot-sentence').forEach(x=>x.classList.remove('sel','correct','wrong'));
+        const fb = document.getElementById('q10fb');
+        if(s.correct){
+          p.classList.add('correct');
+          fb.textContent='Correct — this opening sentence carries the whole article\'s point.';
+          fb.className='feedback show ok';
+          addXP(15); elaCorrect++;
+          burstConfetti('classic');
+          document.getElementById('q10box').classList.add('ok');
+        } else {
+          p.classList.add('wrong');
+          fb.textContent='That\'s a supporting detail — look for the sentence the rest of the article backs up.';
+          fb.className='feedback show bad';
+        }
+      };
+    }
+    c.appendChild(p);
+    if(idx===0){
+      const box = document.createElement('div');
+      box.className='statbox';
+      box.innerHTML = '<div class="stlbl">By the Numbers</div>Jalen Torres: 15/20 passing (75%) &middot; Marcus Delgado: 8 catches on 10 targets (80%) &middot; Final: Panthers 20, Eagles 17';
+      c.appendChild(box);
+    }
+  });
+}
+buildHotBody('hotBody2', true);
+
+buildSingleSelect('q11opts','q11fb',[
+  {text:'It makes the stats easy to find and skim quickly, separate from the story.', correct:true, explain:'Correct — that\'s exactly what a text feature like a stat box is for.'},
+  {text:'It\'s just decoration with no real purpose.', correct:false, explain:'Text features are functional, not decorative.'},
+  {text:'Newspapers are required by law to box off statistics.', correct:false, explain:'There\'s no such rule.'}
+], ()=>{addXP(10); elaCorrect++; burstConfetti('classic');});
+
+buildSingleSelect('q12opts','q12fb',[
+  {text:'To show that even strong performers have a setback, making the recovery feel earned.', correct:true, explain:'Correct — including the drop makes the late-game catches carry more weight.'},
+  {text:'To criticize Delgado for a mistake.', correct:false, explain:'The tone isn\'t critical here.'},
+  {text:'It has no purpose and could be removed.', correct:false, explain:'It sets up the contrast with his strong finish.'}
+], ()=>{addXP(10); elaCorrect++; burstConfetti('classic');});
+
+buildSingleSelect('wq5opts','wq5fb',[
+  {text:'To celebrate loudly', correct:false, explain:'That\'s not a contrast with "reacted instantly."'},
+  {text:'To stay upset and withdrawn instead of responding right away', correct:true, explain:'Right — "sulk" is set against "reacted instantly," the opposite.'},
+  {text:'To immediately fix the problem', correct:false, explain:'That\'s closer to "reacted instantly" — sulk is the contrast.'}
+], ()=>{addXP(5); burstConfetti('classic');});
+
+buildSingleSelect('q7opts','q7fb',[
+  {text:'A punishment', correct:false, explain:'Reread what comes right before the word.'},
+  {text:'A fix or solution to a problem', correct:true, explain:'Correct — "more reps, not more worrying" is the fix.'},
+  {text:'A type of injury', correct:false, explain:'Nothing points toward an injury.'},
+  {text:'A team strategy', correct:false, explain:'Close, but it refers specifically to fixing the drop.'}
+], ()=>{addXP(10); elaCorrect++; burstConfetti('classic');});
+
+buildSingleSelect('q9opts','q9fb',[
+  {text:'Very slowly, after thinking it over', correct:false, explain:'The contrast with "sulk" points the opposite direction.'},
+  {text:'Immediately, without hesitation', correct:true, explain:'Correct — contrasted against "sulk," fast and without hesitating.'},
+  {text:'Angrily and without thinking', correct:false, explain:'This describes speed, not emotion.'}
+], ()=>{addXP(10); elaCorrect++; burstConfetti('classic');});
+
+buildSingleSelect('qAutoOpts','qAutoFb',[
+  {text:'Happening by itself, without needing to consciously think about it', correct:true, explain:'Correct — "auto-" means self.'},
+  {text:'Happening only with a machine', correct:false, explain:'That\'s the everyday car meaning, not how it applies to a skill here.'},
+  {text:'Happening very slowly', correct:false, explain:'"Auto-" points to "self," not to speed.'}
+], ()=>{addXP(10); elaCorrect++; burstConfetti('classic');});
+
+buildSingleSelect('qSulkOpts','qSulkFb',[
+  {text:'To stay upset and withdrawn', correct:true, explain:'Correct — the opposite of reacting instantly.'},
+  {text:'To celebrate', correct:false, explain:'Doesn\'t fit the contrast.'},
+  {text:'To leave the field immediately', correct:false, explain:'The contrast is about emotional response, not location.'}
+], ()=>{addXP(10); elaCorrect++; burstConfetti('classic');});
+
+(function(){
+  const words = [
+    {id:'remedy', text:'remedy'}, {id:'reacted', text:'reacted'},
+    {id:'automatic', text:'automatic'}, {id:'sulk', text:'sulk'}
+  ];
+  const defs = [
+    {id:'remedy', text:'a fix or solution'}, {id:'reacted', text:'responded instantly'},
+    {id:'automatic', text:'happening by itself'}, {id:'sulk', text:'stay upset, withdrawn'}
+  ];
+  defs.sort(()=>Math.random()-0.5);
+  const wordsCol = document.getElementById('matchWords');
+  const defsCol = document.getElementById('matchDefs');
+  let selectedWord = null;
+  let pairedCount = 0;
+  words.forEach(w=>{
+    const b = document.createElement('button');
+    b.className='match-item'; b.textContent=w.text; b.dataset.id=w.id;
+    b.onclick=()=>{
+      if(b.classList.contains('paired')) return;
+      document.querySelectorAll('#matchWords .match-item').forEach(x=>x.classList.remove('sel'));
+      b.classList.add('sel');
+      selectedWord = w.id;
+    };
+    wordsCol.appendChild(b);
+  });
+  defs.forEach(d=>{
+    const b = document.createElement('button');
+    b.className='match-item'; b.textContent=d.text; b.dataset.id=d.id;
+    b.onclick=()=>{
+      if(b.classList.contains('paired') || !selectedWord) return;
+      if(d.id===selectedWord){
+        b.classList.add('paired');
+        document.querySelector('#matchWords [data-id="'+selectedWord+'"]').classList.add('paired');
+        document.querySelector('#matchWords [data-id="'+selectedWord+'"]').classList.remove('sel');
+        addXP(5);
+        pairedCount++;
+        if(pairedCount===words.length) burstConfetti('classic');
+      } else {
+        b.style.borderColor = 'var(--bad)';
+        setTimeout(()=>{ b.style.borderColor=''; },500);
+      }
+      selectedWord = null;
+    };
+    defsCol.appendChild(b);
+  });
+})();
+
+buildSingleSelect('wq6opts','wq6fb',[
+  {text:'Although the Panthers led, the Eagles didn\'t give up.', correct:true, explain:'Correct — "although" connects the ideas, with the comma after the introductory clause.'},
+  {text:'Although the Panthers led the Eagles didn\'t give up.', correct:false, explain:'Missing the comma after the introductory clause — that comma is required, not optional.'},
+  {text:'The Panthers led, the Eagles didn\'t give up.', correct:false, explain:'That\'s a comma splice — two full sentences joined only by a comma isn\'t a legal combination.'}
+], ()=>{addXP(5); burstConfetti('classic');});
+
+buildSingleSelect('q13opts','q13fb',[
+  {text:'Jalen threw it high he almost couldn\'t reach it.', correct:false, explain:'This is the uncorrected run-on.'},
+  {text:'Jalen threw it high, and he almost couldn\'t reach it.', correct:true, explain:'Correct — a comma plus "and" properly joins the two ideas.'},
+  {text:'Jalen threw it high. he almost couldn\'t reach it.', correct:false, explain:'This fixes the run-on but breaks capitalization.'},
+  {text:'Jalen threw, it high he almost couldn\'t reach it.', correct:false, explain:'That comma placement doesn\'t make grammatical sense.'}
+], ()=>{addXP(15); elaCorrect++; burstConfetti('classic');});
+
+function selfCheckSentence(){
+  const val = document.getElementById('creativeSentence').value.trim();
+  const box = document.getElementById('selfCheckBox');
+  const connectors = ['although','because','when','if','since','while'];
+  const usedConnector = connectors.find(c => val.toLowerCase().includes(c));
+  box.style.display = 'block';
+  box.innerHTML = `
+    <label>${usedConnector ? '✅' : '⬜'} Used a connecting word (${usedConnector ? '"'+usedConnector+'"' : 'not found yet'})</label>
+    <label>${val.length > 15 ? '✅' : '⬜'} Long enough to actually describe an action</label>
+    <label>${/[.!?]$/.test(val) ? '✅' : '⬜'} Ends with punctuation</label>
+  `;
+  if(usedConnector && val.length>15){ addXP(10); burstConfetti('classic'); }
+}
+
+function finalizeScore(){
+  const name = document.getElementById('studentName').value.trim() || 'Champion';
+  document.getElementById('finalName').textContent = name + ', Great Work!';
+  document.getElementById('finalXP').textContent = xp;
+  document.getElementById('finalMath').textContent = Math.min(mathCorrect,mathTotal) + '/' + mathTotal;
+  document.getElementById('finalELA').textContent = Math.min(elaCorrect,elaTotal) + '/' + elaTotal;
+  const pct = ((mathCorrect+elaCorrect)/(mathTotal+elaTotal))*100;
+  let msg = '';
+  if(pct>=85) msg = 'Level 4-5 pace today — that\'s exactly the target.';
+  else if(pct>=60) msg = 'Solid Level 3 work — the Test Tactics call-outs are where the next jump comes from.';
+  else msg = 'Good first rep on this material — we come back to this exact game in Week 6.';
+  document.getElementById('masteryMsg').textContent = msg;
+  burstConfetti('classic');
+}
+
+function submitScore(){
+  // Live Formspree endpoint for FAST Prep Grade 6 Progress (shared across all 14 lessons).
+  const endpoint = 'https://formspree.io/f/xppzdzwb';
+  const name = document.getElementById('studentName').value.trim() || 'Unknown';
+  const payload = {
+    student: name,
+    lesson: 'FAST Prep G6 — Lesson 1: Kickoff Week (Football)',
+    date: new Date().toISOString().slice(0,10),
+    xp: xp,
+    math_correct: Math.min(mathCorrect,mathTotal),
+    math_total: mathTotal,
+    ela_correct: Math.min(elaCorrect,elaTotal),
+    ela_total: elaTotal
+  };
+  const statusEl = document.getElementById('submitStatus');
+  const btn = document.getElementById('submitBtn');
+  btn.disabled = true;
+  statusEl.textContent = 'Submitting...';
+  fetch(endpoint, {
+    method:'POST',
+    headers:{'Content-Type':'application/json','Accept':'application/json'},
+    body: JSON.stringify(payload)
+  }).then(r=>{
+    if(r.ok){ statusEl.textContent = 'Results saved. Nice work today!'; }
+    else { statusEl.textContent = 'Progress endpoint not yet connected — ask your tutor to save this manually for now.'; btn.disabled=false; }
+  }).catch(()=>{
+    statusEl.textContent = 'Progress endpoint not yet connected — ask your tutor to save this manually for now.';
+    btn.disabled=false;
+  });
+}
+
+renderDots();
+</script>
+</body>
+</html>
