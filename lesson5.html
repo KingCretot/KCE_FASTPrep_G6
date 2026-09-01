@@ -1,0 +1,1101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FAST Prep Grade 6 — Lesson 5: First Peoples, Living Traditions | KingCretot Experience</title>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0A1F3D; --gold:#C9A84C; --blue:#0047BA; --red:#DB2F30; --cream:#FAF7EF;
+  --ink:#1c1c1c; --ok:#2E7D32; --bad:#C0392B; --field:#1e4d2b;
+  --shadow:0 8px 24px rgba(10,31,61,.18);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{font-family:'Nunito',sans-serif;background:linear-gradient(160deg,#F4F1EA 0%,#EAE3D3 100%);color:var(--ink);min-height:100vh;font-size:17px;line-height:1.6}
+h1,h2,h3,.hud-title,.btn{font-family:'Oswald',sans-serif}
+.hud{position:fixed;top:0;left:0;right:0;background:linear-gradient(135deg,var(--navy),#071630);color:#fff;padding:10px 20px;display:flex;justify-content:space-between;align-items:center;z-index:100;box-shadow:var(--shadow);flex-wrap:wrap;gap:8px}
+.hud-left{display:flex;align-items:center;gap:12px}
+.kc-box{background:var(--navy);border:2px solid var(--gold);color:var(--gold);font-weight:700;font-size:1.05rem;border-radius:7px;padding:5px 10px;line-height:1}
+.hud-title{font-size:1rem;font-weight:600;letter-spacing:.3px}
+.hud-title small{display:block;font-family:'Nunito',sans-serif;font-size:.7rem;color:var(--gold);letter-spacing:1.5px;text-transform:uppercase;font-weight:800}
+.hud-right{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.stat{background:rgba(255,255,255,.12);padding:6px 14px;border-radius:20px;font-weight:800;font-size:.9rem;display:flex;align-items:center;gap:6px}
+.stat .big{color:var(--gold)}
+.xpbar{width:110px;height:9px;background:rgba(255,255,255,.2);border-radius:5px;overflow:hidden}
+.xpfill{height:100%;background:linear-gradient(90deg,var(--gold),#e8c874);transition:width .4s;width:0%}
+.wrap{max-width:900px;margin:0 auto;padding:100px 18px 44px}
+.slide{background:#fff;border-radius:20px;padding:32px;box-shadow:var(--shadow);min-height:480px;display:none;animation:pop .3s ease;border-top:5px solid var(--gold)}
+.slide.on{display:block}
+@keyframes pop{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+@keyframes confettiFall{0%{transform:translate(0,0) rotate(0deg);opacity:1}100%{transform:translate(var(--drift),105vh) rotate(var(--rot));opacity:.15}}
+.eyebrow{letter-spacing:2.5px;font-size:.72rem;color:var(--blue);text-transform:uppercase;font-weight:800;margin-bottom:6px}
+h1{font-size:2rem;color:var(--navy);letter-spacing:.3px;margin-bottom:8px;font-weight:700}
+h2{font-size:1.4rem;color:var(--navy);margin-bottom:10px;font-weight:600}
+h3{font-size:1.05rem;color:var(--blue);margin:16px 0 6px;font-weight:600}
+p{margin:9px 0}
+.badge{display:inline-block;padding:5px 14px;border-radius:14px;font-weight:800;font-size:.72rem;letter-spacing:1px;text-transform:uppercase;background:linear-gradient(135deg,var(--gold),#e8c874);color:var(--navy);margin-bottom:10px;margin-right:6px}
+.badge.subj-math{background:linear-gradient(135deg,var(--blue),#3068cf);color:#fff}
+.badge.subj-ela{background:linear-gradient(135deg,var(--red),#e8574f);color:#fff}
+.badge.step{background:#e8e4d8;color:var(--navy)}
+.btn{padding:13px 26px;border-radius:12px;font-weight:700;border:none;cursor:pointer;font-size:.95rem;letter-spacing:.4px;transition:all .15s;display:inline-flex;align-items:center;gap:8px}
+.btn:active{transform:translateY(2px)}
+.btn:disabled{opacity:.5;cursor:default}
+.btn-go{background:var(--navy);color:#fff;box-shadow:0 4px 0 #051329}
+.btn-back{background:#e8e4d8;color:#374151}
+.nav{display:flex;justify-content:space-between;margin-top:26px;gap:10px;flex-wrap:wrap}
+.dots{display:flex;gap:5px;justify-content:center;margin-top:16px;flex-wrap:wrap}
+.dot{width:9px;height:9px;border-radius:50%;background:#d8d2c2;transition:all .2s}
+.dot.on{background:var(--gold);transform:scale(1.4)}
+.dot.done{background:var(--ok)}
+.card{background:var(--cream);border:2px solid #E8DFC4;border-radius:14px;padding:16px 18px;margin:14px 0}
+.card-field{background:#eef7f0;border-color:#c7e3cc}
+.card-idea{background:#fff;border:2px dashed #C9C1A6;border-radius:14px;padding:14px 18px;margin:12px 0}
+.card-tactic{background:#eef2fb;border-color:#c9d7f5;position:relative;padding-left:50px}
+.card-tactic::before{content:"🎯";position:absolute;left:14px;top:16px;font-size:1.3rem}
+.card-tactic .lbl{font-weight:800;color:var(--blue);font-size:.78rem;letter-spacing:1px;text-transform:uppercase;margin-bottom:3px}
+.card-narrative{background:#fdf3e7;border-color:#e8cfa0;border-left:5px solid var(--gold);font-style:italic}
+.card-voice{background:#f0ede4;border:2px solid #cfc6a8;border-radius:14px;padding:16px 18px;margin:12px 0}
+.card-voice .voicelbl{font-weight:800;color:var(--navy);font-size:.72rem;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:6px}
+.step-lbl{font-weight:800;font-size:.72rem;letter-spacing:1.5px;text-transform:uppercase;color:#888;margin:18px 0 6px;display:flex;align-items:center;gap:8px}
+.step-lbl::after{content:"";flex:1;height:1px;background:#e0dbc8}
+.qbox{background:#fff;border:2.5px solid #E2E8F0;border-radius:14px;padding:18px;margin:14px 0;transition:border-color .2s}
+.qbox.ok{border-color:var(--ok)}
+.qtext{font-weight:700;margin-bottom:10px;font-size:1.02rem}
+.opt{display:block;width:100%;text-align:left;padding:11px 14px;margin:7px 0;border:2px solid #d8d2c2;border-radius:10px;background:#fff;cursor:pointer;font-family:inherit;font-size:.95rem;transition:all .15s}
+.opt:hover{border-color:var(--blue)}
+.opt.sel{border-color:var(--blue);background:#eef2fb}
+.opt.correct{border-color:var(--ok);background:#e9f6ea;font-weight:700}
+.opt.wrong{border-color:var(--bad);background:#fdecea}
+.feedback{margin-top:10px;padding:10px 14px;border-radius:10px;font-size:.9rem;font-weight:600;display:none}
+.feedback.show{display:block}
+.feedback.ok{background:#e9f6ea;color:var(--ok)}
+.feedback.bad{background:#fdecea;color:var(--bad)}
+.multiselect-note{font-size:.82rem;color:var(--blue);font-weight:700;margin-bottom:8px}
+.final-badge{text-align:center;padding:20px}
+.final-badge .medal{font-size:4rem}
+.scorebox{display:flex;gap:14px;justify-content:center;margin:18px 0;flex-wrap:wrap}
+.scorebox .cell{background:var(--cream);border:2px solid #E8DFC4;border-radius:12px;padding:14px 22px;text-align:center}
+.scorebox .cell .num{font-size:1.7rem;font-weight:800;color:var(--navy)}
+.scorebox .cell .lbl{font-size:.72rem;text-transform:uppercase;letter-spacing:1px;color:#888;margin-top:2px}
+.footer-note{text-align:center;font-size:.78rem;color:#999;margin-top:20px}
+.inline-input{padding:10px 12px;border:2px solid #d8d2c2;border-radius:8px;font-family:inherit;font-size:1rem}
+.vocab{background:var(--gold);color:var(--navy);padding:0 4px;border-radius:3px;font-weight:800;cursor:help}
+.match-wrap{display:flex;gap:24px;flex-wrap:wrap;margin:14px 0}
+.match-col{flex:1;min-width:200px}
+.match-item{display:block;width:100%;text-align:left;padding:10px 14px;margin:6px 0;border:2px solid #d8d2c2;border-radius:9px;background:#fff;cursor:pointer;font-family:inherit;font-size:.92rem}
+.match-item.sel{border-color:var(--blue);background:#eef2fb}
+.match-item.paired{border-color:var(--ok);background:#e9f6ea;cursor:default}
+.editing-passage{background:#fffdf7;border:1px solid #e8dfc4;border-radius:10px;padding:16px 18px;font-size:.96rem;line-height:1.7;margin:10px 0}
+.editing-target{background:#fff3cd;padding:1px 3px;border-radius:3px;font-weight:700}
+.selfcheck{background:#eef2fb;border:2px dashed #c9d7f5;border-radius:10px;padding:12px 16px;margin-top:10px;font-size:.88rem}
+.selfcheck label{display:block;margin:4px 0;cursor:pointer}
+</style>
+</head>
+<body>
+
+<div class="hud">
+  <div class="hud-left">
+    <div class="kc-box">KC</div>
+    <div class="hud-title">FAST Prep — Grade 6<br><small>Lesson 5 · First Peoples, Living Traditions</small></div>
+  </div>
+  <div class="hud-right">
+    <div class="stat">⚙ <span class="big" id="streakStat">0</span> Streak</div>
+    <div class="stat">⭐ <span class="big" id="xpStat">0</span> XP</div>
+    <div class="xpbar"><div class="xpfill" id="xpFill"></div></div>
+  </div>
+</div>
+
+<div class="wrap">
+
+<!-- SLIDE 0: WELCOME -->
+<div class="slide on" id="s0">
+  <div class="eyebrow">KingCretot Experience · FAST Readiness Track</div>
+  <h1>First Peoples, Living Traditions</h1>
+  <p style="font-size:1.05rem">The Bright Water Nation's cultural center runs workshops, tracks its own numbers, and keeps its own records — today's math lives there. And every family has a story that gets told a little differently each time it's passed down — today's ELA lives inside one of those.</p>
+  <div class="card card-field">
+    <h3 style="color:var(--field);margin-top:0">Today's plan</h3>
+    <p><strong>First Half — Math, four problems:</strong> exponents, prime factorization, and telling a statistical question from a non-statistical one, using the cultural center's own records.</p>
+    <p><strong>Switch:</strong> the center's numbers close, a family story opens.</p>
+    <p><strong>Second Half — ELA:</strong> two different narrators telling the same story, how the details shift across time, vocabulary, and cleaning up a run-on sentence.</p>
+  </div>
+  <p>What's your name?</p>
+  <input type="text" id="studentName" placeholder="Type your name here" style="width:100%;padding:12px 14px;border:2px solid #d8d2c2;border-radius:10px;font-family:inherit;font-size:1rem;margin-bottom:16px">
+  <div class="nav">
+    <span></span>
+    <button class="btn btn-go" onclick="goTo(1)">Begin  →</button>
+  </div>
+</div>
+
+<!-- SLIDE 1: MATH TEACH - EXPONENTS -->
+<div class="slide" id="s1">
+  <span class="badge subj-math">Math · MA.6.NSO.3.3</span>
+  <span class="badge step">I Do</span>
+  <h2>Record 1: Reading the Growth Numbers (Exponents)</h2>
+  <p>The Bright Water Nation's cultural center is expanding its craft workshop room — right now it's a square, 4 feet by 4 feet. Multiplying a number by itself, 4 &times; 4, can be written as <strong>4&sup2;</strong> (four squared, or four to the second power). 4&sup2; = <strong>16 square feet</strong>.</p>
+  <div class="card-idea">
+    <p>The exponent tells you how many times to multiply the base by itself. A storage crate shaped like a cube, 3 feet on every side, has a volume of 3 &times; 3 &times; 3 = <strong>3&sup3;</strong> (three cubed) = <strong>27 cubic feet</strong>.</p>
+  </div>
+  <div class="card-tactic">
+    <div class="lbl">Test Tactic</div>
+    <p>The small raised number is the exponent — it tells you how many copies of the base to multiply, not what to multiply the base BY once. 4&sup2; is 4&times;4, never 4&times;2.</p>
+  </div>
+  <div class="nav">
+    <button class="btn btn-back" onclick="goTo(0)">← Back</button>
+    <button class="btn btn-go" onclick="goTo(2)">Guided Practice  →</button>
+  </div>
+</div>
+
+<!-- SLIDE 2: EXPONENTS PRACTICE + ASSESS -->
+<div class="slide" id="s2">
+  <span class="badge subj-math">Math</span>
+  <span class="badge step">We Do</span>
+  <h2>Check the Next Power</h2>
+  <div class="qbox" id="wq1box">
+    <div class="qtext">What is 5&sup2;?</div>
+    <div id="wq1opts"></div>
+    <div class="feedback" id="wq1fb"></div>
+  </div>
+  <div class="step-lbl">You Do — Scored</div>
+  <span class="badge subj-math">FAST-Format Item</span>
+  <div class="qbox" id="q1box">
+    <div class="qtext">What is 2&#8308;? Type your answer.</div>
+    <input type="text" id="q1answer" class="inline-input" placeholder="Answer" style="width:140px">
+    <button class="btn btn-back" style="padding:10px 16px;margin-left:8px" onclick="checkQ1()">Check</button>
+    <div class="feedback" id="q1fb"></div>
+  </div>
+  <div class="qbox" id="q2box">
+    <div class="qtext">The center's craft supply closet is a cube, 5 feet on each side. What is its volume in cubic feet? Type your answer.</div>
+    <input type="text" id="q2answer" class="inline-input" placeholder="Volume" style="width:140px">
+    <button class="btn btn-back" style="padding:10px 16px;margin-left:8px" onclick="checkQ2()">Check</button>
+    <div class="feedback" id="q2fb"></div>
+  </div>
+  <div class="nav">
+    <button class="btn btn-back" onclick="goTo(1)">← Back</button>
+    <button class="btn btn-go" onclick="goTo(3)">Record 2  →</button>
+  </div>
+</div>
+
+<!-- SLIDE 3: MATH TEACH - PRIME FACTORIZATION -->
+<div class="slide" id="s3">
+  <span class="badge subj-math">Math · MA.6.NSO.3.4</span>
+  <span class="badge step">I Do</span>
+  <h2>Record 2: Sorting the Displays (Prime Factorization)</h2>
+  <p>The center has <strong>36</strong> handwoven baskets ready for display. To find every possible way to arrange them in equal rows, break 36 down into its <strong>prime factors</strong> — prime numbers that multiply together to make the original number.</p>
+  <div class="card-idea">
+    <p>36 = 6 &times; 6 = (2 &times; 3) &times; (2 &times; 3) = 2 &times; 2 &times; 3 &times; 3. Written with exponents: <strong>2&sup2; &times; 3&sup2;</strong>. Every factor in that list is prime — it can't be broken down any further.</p>
+  </div>
+  <div class="card-tactic">
+    <div class="lbl">Test Tactic</div>
+    <p>Keep breaking a number into two factors until every factor left is prime — a factor tree is the easiest way to track it. If a branch ends on a number that's still even, still divisible by 3, 5, or another prime, it isn't finished yet.</p>
+  </div>
+  <div class="nav">
+    <button class="btn btn-back" onclick="goTo(2)">← Back</button>
+    <button class="btn btn-go" onclick="goTo(4)">Guided Practice  →</button>
+  </div>
+</div>
+
+<!-- SLIDE 4: PRIME FACTORIZATION PRACTICE + ASSESS -->
+<div class="slide" id="s4">
+  <span class="badge subj-math">Math</span>
+  <span class="badge step">We Do</span>
+  <h2>Break Down the Next Batch</h2>
+  <div class="qbox" id="wq2box">
+    <div class="qtext">What is the prime factorization of 24, written using exponents?</div>
+    <div id="wq2opts"></div>
+    <div class="feedback" id="wq2fb"></div>
+  </div>
+  <div class="step-lbl">You Do — Scored</div>
+  <span class="badge subj-math">FAST-Format Item</span>
+  <div class="qbox" id="q3box">
+    <div class="qtext">What is the prime factorization of 40, written using exponents?</div>
+    <div id="q3opts"></div>
+    <div class="feedback" id="q3fb"></div>
+  </div>
+  <div class="qbox" id="q4box">
+    <div class="qtext">What is the largest prime factor of 60? Type your answer.</div>
+    <input type="text" id="q4answer" class="inline-input" placeholder="Answer" style="width:140px">
+    <button class="btn btn-back" style="padding:10px 16px;margin-left:8px" onclick="checkQ4()">Check</button>
+    <div class="feedback" id="q4fb"></div>
+  </div>
+  <div class="nav">
+    <button class="btn btn-back" onclick="goTo(3)">← Back</button>
+    <button class="btn btn-go" onclick="goTo(5)">Record 3  →</button>
+  </div>
+</div>
+
+<!-- SLIDE 5: MATH TEACH - STATISTICAL QUESTIONS -->
+<div class="slide" id="s5">
+  <span class="badge subj-math">Math · MA.6.DP.1.1</span>
+  <span class="badge step">I Do</span>
+  <h2>Record 3: Telling a Statistical Question From a Fact</h2>
+  <p>A <strong>statistical question</strong> is one where you'd expect the answer to vary — because it's really asking about many different people, events, or times, not one fixed thing.</p>
+  <div class="card-idea">
+    <p><strong>"How old is the center's oldest building?"</strong> has exactly one correct answer — not statistical.</p>
+    <p><strong>"How many people attend the center's craft workshops each month?"</strong> will come out different every time you check — different months bring different crowds. That variability is what makes it <strong>statistical</strong>.</p>
+  </div>
+  <div class="card-tactic">
+    <div class="lbl">Test Tactic</div>
+    <p>Ask yourself: if I asked this question about many different people or checked it on many different occasions, would I expect different answers? Yes — statistical. No, there's only one true answer — not statistical.</p>
+  </div>
+  <div class="nav">
+    <button class="btn btn-back" onclick="goTo(4)">← Back</button>
+    <button class="btn btn-go" onclick="goTo(6)">Guided Practice  →</button>
+  </div>
+</div>
+
+<!-- SLIDE 6: STATISTICAL QUESTIONS PRACTICE + ASSESS -->
+<div class="slide" id="s6">
+  <span class="badge subj-math">Math</span>
+  <span class="badge step">We Do</span>
+  <h2>Spot the Difference</h2>
+  <div class="qbox" id="wq3box">
+    <div class="qtext">Which is the statistical question: "How tall is the youth program director?" or "How tall are the students in the youth program?"</div>
+    <div id="wq3opts"></div>
+    <div class="feedback" id="wq3fb"></div>
+  </div>
+  <div class="step-lbl">You Do — Scored</div>
+  <span class="badge subj-math">FAST-Format Item</span>
+  <div class="qbox" id="q5box">
+    <div class="qtext">Which of these is a statistical question?</div>
+    <div id="q5opts"></div>
+    <div class="feedback" id="q5fb"></div>
+  </div>
+  <div class="qbox" id="q6box">
+    <div class="qtext">Which of these is NOT a statistical question?</div>
+    <div id="q6opts"></div>
+    <div class="feedback" id="q6fb"></div>
+  </div>
+  <div class="nav">
+    <button class="btn btn-back" onclick="goTo(5)">← Back</button>
+    <button class="btn btn-go" onclick="goTo(7)">Record 4  →</button>
+  </div>
+</div>
+
+<!-- SLIDE 7: MATH TEACH - MIXED REVIEW -->
+<div class="slide" id="s7">
+  <span class="badge subj-math">Math</span>
+  <span class="badge step">I Do</span>
+  <h2>Record 4: Reading the Whole Ledger</h2>
+  <p>Today's three ideas — exponents, prime factorization, and statistical questions — show up together in real record-keeping. The skill FAST actually tests is recognizing which one a question is really asking about.</p>
+  <div class="card-idea">
+    <p><strong>A small raised number next to a base</strong> &rarr; exponent, meaning repeated multiplication.</p>
+    <p><strong>"Break down into primes" or "arrange in equal groups"</strong> &rarr; prime factorization.</p>
+    <p><strong>"Would the answer vary if I asked again?"</strong> &rarr; statistical question.</p>
+  </div>
+  <div class="card-tactic">
+    <div class="lbl">Test Tactic</div>
+    <p>Not every prime factor of a number is itself odd or unfamiliar — 2 is prime too, and it's usually the first factor to pull out of an even number.</p>
+  </div>
+  <div class="nav">
+    <button class="btn btn-back" onclick="goTo(6)">← Back</button>
+    <button class="btn btn-go" onclick="goTo(8)">Guided Practice  →</button>
+  </div>
+</div>
+
+<!-- SLIDE 8: MIXED REVIEW PRACTICE + ASSESS -->
+<div class="slide" id="s8">
+  <span class="badge subj-math">Math</span>
+  <span class="badge step">We Do</span>
+  <h2>One More Power</h2>
+  <div class="qbox" id="wq4box">
+    <div class="qtext">What is 4&sup3;?</div>
+    <div id="wq4opts"></div>
+    <div class="feedback" id="wq4fb"></div>
+  </div>
+  <div class="step-lbl">You Do — Scored</div>
+  <span class="badge subj-math">FAST-Format Item</span>
+  <div class="qbox" id="q7box">
+    <div class="qtext">The workshop attendance projection uses 3&#8308;. What is 3&#8308;? Type your answer.</div>
+    <input type="text" id="q7answer" class="inline-input" placeholder="Answer" style="width:140px">
+    <button class="btn btn-back" style="padding:10px 16px;margin-left:8px" onclick="checkQ7()">Check</button>
+    <div class="feedback" id="q7fb"></div>
+  </div>
+  <div class="qbox" id="q8box">
+    <div class="qtext">Select ALL statements below that are true.</div>
+    <div class="multiselect-note">Select all that apply</div>
+    <div id="q8opts"></div>
+    <div class="feedback" id="q8fb"></div>
+  </div>
+  <div class="qbox" id="q9box">
+    <div class="qtext">Which of these best describes what makes a question a STATISTICAL question?</div>
+    <div id="q9opts"></div>
+    <div class="feedback" id="q9fb"></div>
+  </div>
+  <div class="nav">
+    <button class="btn btn-back" onclick="goTo(7)">← Back</button>
+    <button class="btn btn-go" onclick="goTo(9)">Switch  →</button>
+  </div>
+</div>
+
+<!-- SLIDE 9: SWITCH / TRANSITION -->
+<div class="slide" id="s9">
+  <div class="eyebrow">Switch</div>
+  <h2>Records Closed, a Story Opens</h2>
+  <div class="card-narrative">
+    <p>Numbers keep a record of what happened — but not every record gets written down. Some get told, and retold, and change a little every time they're passed along. That's next.</p>
+    <p>Stand up. Close your eyes for three seconds and picture something small from when you were younger. Notice how the picture isn't perfectly sharp — that's exactly what today's story is about.</p>
+  </div>
+  <div class="nav">
+    <span></span>
+    <button class="btn btn-go" onclick="goTo(10)">Read the Story  →</button>
+  </div>
+</div>
+
+<!-- SLIDE 10: ELA TEACH - MULTIPLE NARRATORS/POV -->
+<div class="slide" id="s10">
+  <span class="badge subj-ela">ELA · ELA.6.R.1.3</span>
+  <span class="badge step">I Do</span>
+  <h2>When a Story Has More Than One Narrator</h2>
+  <p>Oral storytelling — stories passed down by being told and retold rather than written — has been a way many families and communities, including many Indigenous nations, have carried history and memory across generations. One thing that happens naturally when a story is retold: different tellers bring their own point of view.</p>
+  <div class="card-idea">
+    <p>When a story has <strong>multiple narrators</strong>, each one tells events through their own memory, their own perspective, their own point of view. That doesn't make one version "the fake one" — it just means you're reading two honest accounts shaped by two different people.</p>
+  </div>
+  <p>As you read "The Story of the Blue Door," pay attention to who is narrating each part, and how each narrator's version differs.</p>
+  <div class="nav">
+    <button class="btn btn-back" onclick="goTo(9)">← Back</button>
+    <button class="btn btn-go" onclick="goTo(11)">Read the Story  →</button>
+  </div>
+</div>
+
+<!-- SLIDE 11: PASSAGE -->
+<div class="slide" id="s11">
+  <span class="badge subj-ela">Read · Literary Text</span>
+  <h2>"The Story of the Blue Door"</h2>
+  <div class="card-voice">
+    <div class="voicelbl">Grandmother's Version</div>
+    <p>My grandmother tells it like this: "When I was your age, our family moved into a house with a bright blue front door. The door was so unusual for our street that neighbors started calling our house 'the blue door house' before they even learned our name. I remember standing on the porch that first night, counting the blue door houses on our street — there was exactly one. Ours."</p>
+  </div>
+  <div class="card-voice">
+    <div class="voicelbl">Rosa's Version</div>
+    <p>When I tell the story now, it comes out a little different: my grandmother's family moved into a house with a blue door, and the whole neighborhood knew the house because of it. I always pictured the door as bright turquoise, though Grandma says it was more of a deep navy blue. And in my version, there were always three blue doors on the street — Grandma's, and two others down the block, which made me wonder as a kid if blue doors were just a thing everyone did that year.</p>
+  </div>
+  <div class="card-voice">
+    <div class="voicelbl">Rosa's Reflection</div>
+    <p>That's the strange thing about a story passed down: it doesn't stay exactly the same. Grandma remembers one blue door on the whole street. I remember three. Neither of us is really wrong — we're just telling the same story from two different points in time, shaped by two different memories.</p>
+  </div>
+  <div class="nav">
+    <button class="btn btn-back" onclick="goTo(10)">← Back</button>
+    <button class="btn btn-go" onclick="goTo(12)">Break It Down  →</button>
+  </div>
+</div>
+
+<!-- SLIDE 12: GUIDED CLOSE READ -->
+<div class="slide" id="s12">
+  <span class="badge subj-ela">ELA</span>
+  <span class="badge step">We Do</span>
+  <h2>Track the Two Voices</h2>
+  <p>Before answering anything, let's separate what each narrator actually says — together.</p>
+  <div class="card-idea">
+    <p><strong>Grandmother's narration:</strong> one blue door on the whole street, remembered from standing on the porch that first night.</p>
+    <p><strong>Rosa's narration:</strong> the same family story, but retold years later, with the door pictured as turquoise instead of navy, and three blue doors instead of one.</p>
+  </div>
+  <div class="qbox" id="wq5box">
+    <div class="qtext">Which sentence in the passage signals the shift from Grandma's narration to Rosa's narration?</div>
+    <div id="wq5opts"></div>
+    <div class="feedback" id="wq5fb"></div>
+  </div>
+  <div class="nav">
+    <button class="btn btn-back" onclick="goTo(11)">← Back</button>
+    <button class="btn btn-go" onclick="goTo(13)">Scored Questions  →</button>
+  </div>
+</div>
+
+<!-- SLIDE 13: ELA ASSESS - NARRATORS + POV -->
+<div class="slide" id="s13">
+  <span class="badge subj-ela">FAST-Format Item</span>
+  <span class="badge step">You Do — Scored</span>
+  <h2>Count the Voices</h2>
+  <div class="qbox" id="q10box">
+    <div class="qtext">How many different narrators tell part of this story? Type your answer.</div>
+    <input type="text" id="q10answer" class="inline-input" placeholder="Number" style="width:140px">
+    <button class="btn btn-back" style="padding:10px 16px;margin-left:8px" onclick="checkQ10()">Check</button>
+    <div class="feedback" id="q10fb"></div>
+  </div>
+  <div class="qbox" id="q11box">
+    <div class="qtext">According to the passage, how does Rosa's memory of the door's color differ from her grandmother's?</div>
+    <div id="q11opts"></div>
+    <div class="feedback" id="q11fb"></div>
+  </div>
+  <div class="qbox" id="q11bbox">
+    <div class="qtext">Which detail shows that Grandma's version comes from a more immediate, in-the-moment memory than Rosa's?</div>
+    <div id="q11bopts"></div>
+    <div class="feedback" id="q11bfb"></div>
+  </div>
+  <div class="nav">
+    <button class="btn btn-back" onclick="goTo(12)">← Back</button>
+    <button class="btn btn-go" onclick="goTo(14)">Then vs. Now  →</button>
+  </div>
+</div>
+
+<!-- SLIDE 14: ELA TEACH - COMPARE/CONTRAST ACROSS TIME -->
+<div class="slide" id="s14">
+  <span class="badge subj-ela">ELA · ELA.6.R.3.3</span>
+  <span class="badge step">I Do</span>
+  <h2>Comparing a Story Across Two Tellings</h2>
+  <p>When the same story gets told at two different points in time, comparing them isn't about finding "the wrong version." It's about noticing exactly which details shifted — and thinking about why memory might work that way.</p>
+  <div class="card-idea">
+    <p>Grandma's telling happened close to the actual event — one detailed, specific memory: one blue door. Rosa's telling happened years later, filtered through childhood memory of hearing the story: three blue doors, a different shade of blue. Comparing them side by side is exactly the skill FAST's compare/contrast items test.</p>
+  </div>
+  <div class="nav">
+    <button class="btn btn-back" onclick="goTo(13)">← Back</button>
+    <button class="btn btn-go" onclick="goTo(15)">Scored Round  →</button>
+  </div>
+</div>
+
+<!-- SLIDE 15: COMPARE/CONTRAST + EVIDENCE SCORED -->
+<div class="slide" id="s15">
+  <span class="badge subj-ela">FAST-Format Item</span>
+  <span class="badge step">You Do — Scored</span>
+  <h2>Compare the Two Tellings</h2>
+  <div class="qbox" id="q12box">
+    <div class="qtext">Which detail is described differently between Grandma's version and Rosa's version?</div>
+    <div id="q12opts"></div>
+    <div class="feedback" id="q12fb"></div>
+  </div>
+  <div class="qbox" id="q13box">
+    <div class="qtext"><strong>Evidence-Based Response, Part 1:</strong> What does Rosa conclude about why the story differs between her and her grandmother?</div>
+    <div id="q13opts"></div>
+  </div>
+  <div class="qbox" id="q14box" style="display:none">
+    <div class="qtext"><strong>Evidence-Based Response, Part 2:</strong> Which detail from the passage best supports that conclusion?</div>
+    <div id="q14opts"></div>
+    <div class="feedback" id="q14fb"></div>
+  </div>
+  <div class="card-tactic">
+    <div class="lbl">Test Tactic</div>
+    <p>Evidence-based items are graded as a pair — Part 2 only counts if Part 1 is right too. Find exactly what the passage concludes before hunting for its proof.</p>
+  </div>
+  <div class="nav">
+    <button class="btn btn-back" onclick="goTo(14)">← Back</button>
+    <button class="btn btn-go" onclick="goTo(16)">Vocabulary  →</button>
+  </div>
+</div>
+
+<!-- SLIDE 16: VOCABULARY -->
+<div class="slide" id="s16">
+  <span class="badge subj-ela">ELA · ELA.6.V.1.1 / 1.2 / 1.3</span>
+  <span class="badge step">I Do</span>
+  <h2>Four Words From the Story</h2>
+  <p><strong>Strategy — Context clues.</strong></p>
+  <div class="card-idea">
+    <p><em>"The door was so unusual for our street that neighbors started calling our house 'the blue door house'"</em> — the surrounding sentence describes something standing out from everything around it, pointing to what "unusual" means.</p>
+    <p><em>"I always pictured the door as bright turquoise"</em> — "pictured" here means imagined or formed a mental image, since Rosa never actually saw the original door herself.</p>
+  </div>
+  <div class="step-lbl">We Do</div>
+  <div class="qbox" id="wq6box">
+    <div class="qtext">The passage says the story was "shaped by two different memories." Based on that sentence, what does "shaped" mean here?</div>
+    <div id="wq6opts"></div>
+    <div class="feedback" id="wq6fb"></div>
+  </div>
+  <div class="nav">
+    <button class="btn btn-back" onclick="goTo(15)">← Back</button>
+    <button class="btn btn-go" onclick="goTo(17)">Scored Round  →</button>
+  </div>
+</div>
+
+<!-- SLIDE 17: VOCAB SCORED + MATCHING -->
+<div class="slide" id="s17">
+  <span class="badge subj-ela">FAST-Format Item</span>
+  <span class="badge step">You Do — Scored</span>
+  <h2>Word Check</h2>
+  <div class="qbox" id="q15box">
+    <div class="qtext">What does "unusual" mean as used in the passage?</div>
+    <div id="q15opts"></div>
+    <div class="feedback" id="q15fb"></div>
+  </div>
+  <div class="qbox" id="q16box">
+    <div class="qtext">What does "pictured" mean in "I always pictured the door as bright turquoise"?</div>
+    <div id="q16opts"></div>
+    <div class="feedback" id="q16fb"></div>
+  </div>
+  <div class="qbox" id="q17box">
+    <div class="qtext">What does "shaped" mean in "shaped by two different memories"?</div>
+    <div id="q17opts"></div>
+    <div class="feedback" id="q17fb"></div>
+  </div>
+  <div class="qbox" id="q18box">
+    <div class="qtext">What does "wonder" mean in "which made me wonder as a kid"?</div>
+    <div id="q18opts"></div>
+    <div class="feedback" id="q18fb"></div>
+  </div>
+  <h3>Bonus Mode: Match the Words</h3>
+  <p style="font-size:.9rem">Click a word, then click its matching meaning. Not scored toward your total — just extra XP.</p>
+  <div class="match-wrap">
+    <div class="match-col" id="matchWords"></div>
+    <div class="match-col" id="matchDefs"></div>
+  </div>
+  <div class="nav">
+    <button class="btn btn-back" onclick="goTo(16)">← Back</button>
+    <button class="btn btn-go" onclick="goTo(18)">Sentence Skills  →</button>
+  </div>
+</div>
+
+<!-- SLIDE 18: SENTENCE SKILLS TEACH -->
+<div class="slide" id="s18">
+  <span class="badge subj-ela">ELA · ELA.6.C.3.1</span>
+  <span class="badge step">I Do</span>
+  <h2>Splitting a Run-On Into Two Sentences</h2>
+  <p>Not every run-on needs to be joined — sometimes the cleanest fix is splitting two complete ideas into two separate sentences with a period and a capital letter.</p>
+  <div class="card-idea">
+    <p><strong>Run-on:</strong> "Rosa remembers three doors her grandmother remembers only one."</p>
+    <p><strong>Fixed:</strong> "Rosa remembers three doors. Her grandmother remembers only one." Two separate, complete ideas — no comma, no conjunction needed, just a clean break.</p>
+  </div>
+  <div class="step-lbl">We Do</div>
+  <div class="qbox" id="wq7box">
+    <div class="qtext">Which of these correctly splits a run-on into two sentences?</div>
+    <div id="wq7opts"></div>
+    <div class="feedback" id="wq7fb"></div>
+  </div>
+  <div class="nav">
+    <button class="btn btn-back" onclick="goTo(17)">← Back</button>
+    <button class="btn btn-go" onclick="goTo(19)">Scored Edit  →</button>
+  </div>
+</div>
+
+<!-- SLIDE 19: EDITING TASK CHOICE + CREATIVE SENTENCE -->
+<div class="slide" id="s19">
+  <span class="badge subj-ela">FAST-Format Item · Editing Task Choice</span>
+  <span class="badge step">You Do — Scored</span>
+  <h2>Fix Rosa's Notes</h2>
+  <div class="qbox" id="q19box">
+    <div class="qtext">Choose the best correction for the underlined text:</div>
+    <div class="editing-passage">Rosa wrote her project notes quickly before she forgot the details. <span class="editing-target">Grandma tells the story one way I tell it a different way.</span> Both versions still matter.</div>
+    <div id="q19opts"></div>
+    <div class="feedback" id="q19fb"></div>
+  </div>
+  <h3>Now You Try: Write One</h3>
+  <p>Write two short, complete sentences about a story someone in your own life has told you more than once — no comma splices, no run-ons.</p>
+  <textarea id="creativeSentence" rows="3" style="width:100%;padding:12px;border:2px solid #d8d2c2;border-radius:10px;font-family:inherit;font-size:.98rem" placeholder="Type your sentences here..."></textarea>
+  <button class="btn btn-back" style="margin-top:10px" onclick="selfCheckSentence()">Self-Check My Sentences</button>
+  <div class="selfcheck" id="selfCheckBox" style="display:none"></div>
+  <div class="nav">
+    <button class="btn btn-back" onclick="goTo(18)">← Back</button>
+    <button class="btn btn-go" onclick="goTo(20)">Closing Notes  →</button>
+  </div>
+</div>
+
+<!-- SLIDE 20: LOOKING AHEAD -->
+<div class="slide" id="s20">
+  <div class="eyebrow">Looking Ahead</div>
+  <h2>Scouting Report: Week 6</h2>
+  <p>Next week is a flexible review week — <strong>Football — "Halftime Adjustments"</strong>: a fast, low-prep spiral review mixing number sense and algebraic reasoning in Math, with a vocabulary and plot review game in ELA. It works fine over Zoom if that week needs to go remote.</p>
+  <p>Rosa's project on family storytelling gets presented at the end of the month — there's more to the story than just the blue door.</p>
+  <div class="nav">
+    <button class="btn btn-back" onclick="goTo(19)">← Back</button>
+    <button class="btn btn-go" onclick="goTo(21)">See Your Score  →</button>
+  </div>
+</div>
+
+<!-- SLIDE 21: FINAL SCORE -->
+<div class="slide" id="s21">
+  <div class="final-badge">
+    <div class="medal">🏆</div>
+    <h1 id="finalName">Great Work!</h1>
+    <p>First Peoples, Living Traditions complete.</p>
+    <div class="scorebox">
+      <div class="cell"><div class="num" id="finalXP">0</div><div class="lbl">Total XP</div></div>
+      <div class="cell"><div class="num" id="finalMath">0/9</div><div class="lbl">Math Correct</div></div>
+      <div class="cell"><div class="num" id="finalELA">0/10</div><div class="lbl">ELA Correct</div></div>
+    </div>
+    <p id="masteryMsg" style="font-weight:700;color:var(--navy)"></p>
+    <button class="btn btn-go" onclick="submitScore()" id="submitBtn">Submit My Results</button>
+    <p class="footer-note" id="submitStatus"></p>
+  </div>
+</div>
+
+<div class="dots" id="dots"></div>
+</div>
+
+<script>
+const TOTAL_SLIDES = 22;
+let current = 0;
+let xp = 0;
+let streak = 0;
+let mathCorrect = 0, mathTotal = 9;
+let elaCorrect = 0, elaTotal = 10;
+let q13Correct = false;
+
+function goTo(n){
+  document.getElementById('s'+current).classList.remove('on');
+  current = n;
+  document.getElementById('s'+current).classList.add('on');
+  renderDots();
+  window.scrollTo({top:0,behavior:'smooth'});
+  if(n===21){ finalizeScore(); }
+}
+
+function renderDots(){
+  const d = document.getElementById('dots');
+  d.innerHTML='';
+  for(let i=0;i<TOTAL_SLIDES;i++){
+    const dot = document.createElement('div');
+    dot.className = 'dot' + (i===current?' on':'') + (i<current?' done':'');
+    d.appendChild(dot);
+  }
+}
+
+function addXP(n){
+  xp += n;
+  document.getElementById('xpStat').textContent = xp;
+  document.getElementById('xpFill').style.width = Math.min(100,(xp/380)*100) + '%';
+  streak++;
+  document.getElementById('streakStat').textContent = streak;
+}
+
+function burstConfetti(){
+  const container = document.createElement('div');
+  container.style.cssText = 'position:fixed;inset:0;pointer-events:none;z-index:9999;overflow:hidden;';
+  document.body.appendChild(container);
+  const count = 28;
+  const colors = ['#C9A84C','#0047BA','#DB2F30','#0A1F3D','#ffffff'];
+  for(let i=0;i<count;i++){
+    const piece = document.createElement('div');
+    const startX = Math.random()*100;
+    const duration = 1.6 + Math.random()*1.3;
+    const delay = Math.random()*0.25;
+    const rotate = Math.random()*720-360;
+    const drift = (Math.random()*180-90);
+    piece.style.position='absolute';
+    piece.style.left=startX+'vw';
+    piece.style.top='-30px';
+    piece.style.setProperty('--drift', drift+'px');
+    piece.style.setProperty('--rot', rotate+'deg');
+    piece.style.animation = `confettiFall ${duration}s ease-in ${delay}s forwards`;
+    const c = colors[Math.floor(Math.random()*colors.length)];
+    const w = 8+Math.random()*6, h=12+Math.random()*8;
+    piece.style.width=w+'px'; piece.style.height=h+'px';
+    piece.style.background=c;
+    piece.style.borderRadius = Math.random()>0.5?'50%':'2px';
+    container.appendChild(piece);
+  }
+  setTimeout(()=>container.remove(), 3200);
+}
+
+function buildSingleSelect(optsId, fbId, data, onCorrect){
+  const container = document.getElementById(optsId);
+  data.forEach(o=>{
+    const b=document.createElement('button');
+    b.className='opt';
+    b.textContent=o.text;
+    b.onclick=()=>{
+      document.querySelectorAll('#'+optsId+' .opt').forEach(x=>x.classList.remove('sel','correct','wrong'));
+      const fb = document.getElementById(fbId);
+      if(o.correct){
+        b.classList.add('correct');
+        fb.textContent = o.explain || 'Correct.';
+        fb.className='feedback show ok';
+        b.closest('.qbox').classList.add('ok');
+        if(onCorrect) onCorrect();
+      } else {
+        b.classList.add('wrong');
+        fb.textContent = o.explain || 'Not quite — reread the clue and try again.';
+        fb.className='feedback show bad';
+      }
+    };
+    container.appendChild(b);
+  });
+}
+
+// ================= MATH: RECORD 1 (EXPONENTS) =================
+
+buildSingleSelect('wq1opts','wq1fb',[
+  {text:'25', correct:true, explain:'Right — 5 times 5 = 25.'},
+  {text:'10', correct:false, explain:'That adds 5+5 instead of multiplying 5 times 5.'},
+  {text:'52', correct:false, explain:'That places the digits side by side instead of evaluating the power.'}
+], ()=>{addXP(5); burstConfetti();});
+
+function checkQ1(){
+  const val = document.getElementById('q1answer').value.trim();
+  const fb = document.getElementById('q1fb');
+  if(val === '16'){
+    fb.textContent='Correct — 2 times 2 times 2 times 2 = 16.';
+    fb.className='feedback show ok';
+    addXP(15); mathCorrect++;
+    burstConfetti();
+    document.getElementById('q1box').classList.add('ok');
+  } else {
+    fb.textContent='Not yet — multiply four 2s together: 2 times 2 times 2 times 2.';
+    fb.className='feedback show bad';
+  }
+}
+
+function checkQ2(){
+  const val = document.getElementById('q2answer').value.trim();
+  const fb = document.getElementById('q2fb');
+  if(val === '125'){
+    fb.textContent='Correct — 5 times 5 times 5 = 125.';
+    fb.className='feedback show ok';
+    addXP(15); mathCorrect++;
+    burstConfetti();
+    document.getElementById('q2box').classList.add('ok');
+  } else {
+    fb.textContent='Not yet — multiply 5 by itself three times: 5 times 5 times 5.';
+    fb.className='feedback show bad';
+  }
+}
+
+// ================= MATH: RECORD 2 (PRIME FACTORIZATION) =================
+
+buildSingleSelect('wq2opts','wq2fb',[
+  {text:'2\u00b3 \u00d7 3', correct:true, explain:'Right — 24 = 2\u00d72\u00d72\u00d73, which is 2 cubed times 3.'},
+  {text:'2\u00b2 \u00d7 3\u00b2', correct:false, explain:'That works out to 36, not 24 — recheck the factor tree.'},
+  {text:'4 \u00d7 6', correct:false, explain:'Neither 4 nor 6 is prime — keep breaking them down further.'}
+], ()=>{addXP(5); burstConfetti();});
+
+buildSingleSelect('q3opts','q3fb',[
+  {text:'2\u00b3 \u00d7 5', correct:true, explain:'Correct — 40 = 2\u00d72\u00d72\u00d75, which is 2 cubed times 5.'},
+  {text:'2\u00b2 \u00d7 5', correct:false, explain:'That works out to 20, not 40.'},
+  {text:'2 \u00d7 5\u00b2', correct:false, explain:'That works out to 50, not 40.'},
+  {text:'4 \u00d7 10', correct:false, explain:'Neither 4 nor 10 is prime — keep breaking them down further.'}
+], ()=>{addXP(10); mathCorrect++; burstConfetti();});
+
+function checkQ4(){
+  const val = document.getElementById('q4answer').value.trim();
+  const fb = document.getElementById('q4fb');
+  if(val === '5'){
+    fb.textContent='Correct — 60 = 2\u00b2\u00d73\u00d75, so the prime factors are 2, 3, and 5. The largest is 5.';
+    fb.className='feedback show ok';
+    addXP(15); mathCorrect++;
+    burstConfetti();
+    document.getElementById('q4box').classList.add('ok');
+  } else {
+    fb.textContent='Not yet — break 60 down into its prime factors first, then pick the largest one.';
+    fb.className='feedback show bad';
+  }
+}
+
+// ================= MATH: RECORD 3 (STATISTICAL QUESTIONS) =================
+
+buildSingleSelect('wq3opts','wq3fb',[
+  {text:'"How tall is the youth program director?"', correct:false, explain:'That asks about ONE specific person — one fixed answer.'},
+  {text:'"How tall are the students in the youth program?"', correct:true, explain:'Right — that varies from student to student, so it\u2019s statistical.'}
+], ()=>{addXP(5); burstConfetti();});
+
+buildSingleSelect('q5opts','q5fb',[
+  {text:'How many people attend the youth program\u2019s craft workshops each week?', correct:true, explain:'Correct — attendance varies week to week, so this is statistical.'},
+  {text:'How many workshops were held last Tuesday?', correct:false, explain:'That asks about ONE specific day — one fixed answer, not statistical.'},
+  {text:'What is the workshop room\u2019s exact square footage?', correct:false, explain:'That is a single fixed measurement, not statistical.'}
+], ()=>{addXP(10); mathCorrect++; burstConfetti();});
+
+buildSingleSelect('q6opts','q6fb',[
+  {text:'How many craft kits are given out during each event, across the whole year?', correct:false, explain:'That varies event to event — it IS statistical, not the answer to this question.'},
+  {text:'How many kits were given out at last Saturday\u2019s specific event?', correct:true, explain:'Correct — that asks about ONE specific event, so it is NOT statistical.'},
+  {text:'How many minutes does each workshop run, across different sessions?', correct:false, explain:'That varies session to session — it IS statistical, not the answer to this question.'}
+], ()=>{addXP(10); mathCorrect++; burstConfetti();});
+
+// ================= MATH: RECORD 4 (MIXED REVIEW) =================
+
+buildSingleSelect('wq4opts','wq4fb',[
+  {text:'64', correct:true, explain:'Right — 4 times 4 times 4 = 64.'},
+  {text:'12', correct:false, explain:'That multiplies 4 times 3 instead of 4 times 4 times 4.'},
+  {text:'16', correct:false, explain:'That is 4 squared, not 4 cubed — one more factor of 4 is needed.'}
+], ()=>{addXP(5); burstConfetti();});
+
+function checkQ7(){
+  const val = document.getElementById('q7answer').value.trim();
+  const fb = document.getElementById('q7fb');
+  if(val === '81'){
+    fb.textContent='Correct — 3 times 3 times 3 times 3 = 81.';
+    fb.className='feedback show ok';
+    addXP(15); mathCorrect++;
+    burstConfetti();
+    document.getElementById('q7box').classList.add('ok');
+  } else {
+    fb.textContent='Not yet — multiply four 3s together: 3 times 3 times 3 times 3.';
+    fb.className='feedback show bad';
+  }
+}
+
+const q8data = [
+  {text:'2\u2074 = 16', correct:true},
+  {text:'5\u00b3 = 125', correct:true},
+  {text:'The prime factorization of 40 is 2\u00b3 \u00d7 5', correct:true},
+  {text:'The largest prime factor of 60 is 6', correct:false},
+  {text:'3\u2074 = 12', correct:false}
+];
+const q8opts = document.getElementById('q8opts');
+let q8selected = new Set();
+q8data.forEach((o,idx)=>{
+  const b = document.createElement('button');
+  b.className='opt'; b.textContent=o.text;
+  b.onclick=()=>{
+    if(q8selected.has(idx)){ q8selected.delete(idx); b.classList.remove('sel'); }
+    else { q8selected.add(idx); b.classList.add('sel'); }
+  };
+  q8opts.appendChild(b);
+});
+const q8btn = document.createElement('button');
+q8btn.className='btn btn-back'; q8btn.style.marginTop='10px';
+q8btn.textContent='Check My Selections';
+q8btn.onclick=()=>{
+  const fb = document.getElementById('q8fb');
+  const correctSet = new Set(q8data.map((o,i)=>o.correct?i:null).filter(x=>x!==null));
+  const isRight = q8selected.size===correctSet.size && [...q8selected].every(i=>correctSet.has(i));
+  document.querySelectorAll('#q8opts .opt').forEach(b=>b.classList.remove('correct','wrong'));
+  if(isRight){
+    document.querySelectorAll('#q8opts .opt').forEach((b,i)=>{
+      if(q8data[i].correct) b.classList.add('correct');
+    });
+    fb.textContent='All three correct — 6 isn\u2019t prime (it\u2019s 2\u00d73), and 3\u2074 is actually 81, not 12.';
+    fb.className='feedback show ok';
+    addXP(15); mathCorrect++;
+    burstConfetti();
+    document.getElementById('q8box').classList.add('ok');
+  } else {
+    document.querySelectorAll('#q8opts .opt').forEach((b,i)=>{
+      if(q8selected.has(i)) b.classList.add('wrong');
+    });
+    fb.textContent='Close — exactly three of the five statements are true. Try again.';
+    fb.className='feedback show bad';
+  }
+};
+q8opts.appendChild(q8btn);
+
+buildSingleSelect('q9opts','q9fb',[
+  {text:'It has only one correct numerical answer', correct:false, explain:'That describes a NON-statistical question.'},
+  {text:'It\u2019s expected to have variability in its answers across different people, events, or times', correct:true, explain:'Correct — that variability is exactly what makes a question statistical.'},
+  {text:'It must involve money', correct:false, explain:'Statistical questions can be about anything with variability — not just money.'},
+  {text:'It must be answered with a percentage', correct:false, explain:'A statistical question can be answered many ways, not only with a percentage.'}
+], ()=>{addXP(10); mathCorrect++; burstConfetti();});
+
+// ================= ELA SECTION =================
+
+buildSingleSelect('wq5opts','wq5fb',[
+  {text:'"My grandmother tells it like this:"', correct:false, explain:'That introduces Grandma\u2019s narration, not the shift away from it.'},
+  {text:'"When I tell the story now, it comes out a little different:"', correct:true, explain:'Right — this sentence directly signals the shift to Rosa\u2019s narration.'},
+  {text:'"That\u2019s the strange thing about a story passed down"', correct:false, explain:'That opens Rosa\u2019s REFLECTION, which comes after the shift already happened.'}
+], ()=>{addXP(5); burstConfetti();});
+
+function checkQ10(){
+  const val = document.getElementById('q10answer').value.trim();
+  const fb = document.getElementById('q10fb');
+  if(val === '2'){
+    fb.textContent='Correct — Grandmother and Rosa each narrate part of the story.';
+    fb.className='feedback show ok';
+    addXP(15); elaCorrect++;
+    burstConfetti();
+    document.getElementById('q10box').classList.add('ok');
+  } else {
+    fb.textContent='Not yet — count how many distinct people tell part of the story in their own words.';
+    fb.className='feedback show bad';
+  }
+}
+
+buildSingleSelect('q11opts','q11fb',[
+  {text:'Grandma remembers the door as navy blue; Rosa always pictured it as turquoise', correct:true, explain:'Correct — that is the exact color difference stated in the passage.'},
+  {text:'Grandma remembers the door as turquoise; Rosa always pictured it as navy blue', correct:false, explain:'That reverses the two colors — check who says which color.'},
+  {text:'Both narrators agree the door was bright red', correct:false, explain:'Neither narrator describes the door as red at all.'}
+], ()=>{addXP(10); elaCorrect++; burstConfetti();});
+
+buildSingleSelect('q11bopts','q11bfb',[
+  {text:'Grandma remembers standing on the porch that first night, counting the doors herself', correct:true, explain:'Correct — that describes her being there in the actual moment, not remembering something secondhand.'},
+  {text:'Rosa always pictured the door as bright turquoise', correct:false, explain:'That is Rosa\u2019s imagined, secondhand version — not evidence of Grandma\u2019s immediacy.'},
+  {text:'Neighbors started calling the house "the blue door house"', correct:false, explain:'That is a neutral detail both narrators would know — it doesn\u2019t show immediacy specifically.'},
+  {text:'Rosa wondered if blue doors were a thing everyone did that year', correct:false, explain:'That is Rosa\u2019s own later reflection, not evidence about Grandma\u2019s memory.'}
+], ()=>{addXP(10); elaCorrect++; burstConfetti();});
+
+buildSingleSelect('q12opts','q12fb',[
+  {text:'How many blue doors were on the street', correct:true, explain:'Correct — Grandma remembers one, Rosa remembers three.'},
+  {text:'Whether the family moved into a new house', correct:false, explain:'Both narrators agree on this part of the story — it doesn\u2019t change.'},
+  {text:'Whether the neighbors noticed the door', correct:false, explain:'Both narrators agree the neighbors noticed — that detail doesn\u2019t differ.'}
+], ()=>{addXP(10); elaCorrect++; burstConfetti();});
+
+const q13data = [
+  {text:'That neither of them is really wrong — they\u2019re telling the same story from two different points in time and memories', correct:true},
+  {text:'That her grandmother\u2019s memory is unreliable', correct:false},
+  {text:'That she made up her version on purpose', correct:false},
+  {text:'That the story was never really true to begin with', correct:false}
+];
+const q13opts = document.getElementById('q13opts');
+q13data.forEach(o=>{
+  const b=document.createElement('button'); b.className='opt'; b.textContent=o.text;
+  b.onclick=()=>{
+    document.querySelectorAll('#q13opts .opt').forEach(x=>x.classList.remove('sel','correct','wrong'));
+    if(o.correct){ b.classList.add('correct'); q13Correct = true; document.getElementById('q14box').style.display='block'; }
+    else { b.classList.add('wrong'); q13Correct = false; document.getElementById('q14box').style.display='none'; }
+  };
+  q13opts.appendChild(b);
+});
+const q14data = [
+  {text:'Neither of us is really wrong — we\u2019re just telling the same story from two different points in time, shaped by two different memories', correct:true},
+  {text:'Grandma remembers one blue door on the whole street. I remember three.', correct:false},
+  {text:'I always pictured the door as bright turquoise, though Grandma says it was more of a deep navy blue', correct:false},
+  {text:'The whole neighborhood knew the house because of it', correct:false}
+];
+const q14opts = document.getElementById('q14opts');
+q14data.forEach(o=>{
+  const b=document.createElement('button'); b.className='opt'; b.textContent=o.text;
+  b.onclick=()=>{
+    document.querySelectorAll('#q14opts .opt').forEach(x=>x.classList.remove('sel','correct','wrong'));
+    const fb = document.getElementById('q14fb');
+    if(o.correct && q13Correct){
+      b.classList.add('correct');
+      fb.textContent='Both parts correct — that closing line directly states the reflection you identified.';
+      fb.className='feedback show ok';
+      addXP(20); elaCorrect++;
+      burstConfetti();
+      document.getElementById('q13box').classList.add('ok');
+      document.getElementById('q14box').classList.add('ok');
+    } else {
+      b.classList.add('wrong');
+      fb.textContent='This only counts if Part 1 is also correct — check both parts.';
+      fb.className='feedback show bad';
+    }
+  };
+  q14opts.appendChild(b);
+});
+
+buildSingleSelect('wq6opts','wq6fb',[
+  {text:'Formed or influenced by something', correct:true, explain:'Right — the story was formed differently because of each person\u2019s own memory.'},
+  {text:'Cut into a specific physical shape', correct:false, explain:'That is the literal, unrelated meaning of "shaped" — not how it\u2019s used here.'},
+  {text:'Completely erased', correct:false, explain:'"Shaped" does not mean erased — it means formed or influenced.'}
+], ()=>{addXP(5); burstConfetti();});
+
+buildSingleSelect('q15opts','q15fb',[
+  {text:'Not common, standing out from what\u2019s typical', correct:true, explain:'Correct — the door stood out enough that neighbors named the house after it.'},
+  {text:'Broken or damaged', correct:false, explain:'Nothing in the sentence describes damage.'},
+  {text:'Extremely expensive', correct:false, explain:'Nothing in the sentence describes cost.'}
+], ()=>{addXP(10); elaCorrect++; burstConfetti();});
+
+buildSingleSelect('q16opts','q16fb',[
+  {text:'Imagined or formed a mental image of something', correct:true, explain:'Correct — Rosa never saw the original door, so she imagined its color.'},
+  {text:'Painted with a paintbrush', correct:false, explain:'That is a different, literal meaning of "pictured" — not how it\u2019s used here.'},
+  {text:'Photographed with a camera', correct:false, explain:'Nothing in the sentence describes an actual photograph.'}
+], ()=>{addXP(10); elaCorrect++; burstConfetti();});
+
+buildSingleSelect('q17opts','q17fb',[
+  {text:'Formed or influenced by something', correct:true, explain:'Correct — the story was formed differently by each person\u2019s own memory.'},
+  {text:'Physically cut with scissors', correct:false, explain:'That is unrelated to how the word is used here.'},
+  {text:'Kept exactly the same over time', correct:false, explain:'That is close to the opposite of what "shaped" suggests here.'}
+], ()=>{addXP(10); elaCorrect++; burstConfetti();});
+
+buildSingleSelect('q18opts','q18fb',[
+  {text:'To be curious or puzzled about something', correct:true, explain:'Correct — Rosa was curious about why there seemed to be more than one blue door.'},
+  {text:'To feel certain about something', correct:false, explain:'That is close to the opposite of "wonder."'},
+  {text:'To feel afraid of something', correct:false, explain:'Nothing in the sentence describes fear.'}
+], ()=>{addXP(10); elaCorrect++; burstConfetti();});
+
+(function(){
+  const words = [
+    {id:'unusual', text:'unusual'}, {id:'pictured', text:'pictured'},
+    {id:'shaped', text:'shaped'}, {id:'wonder', text:'wonder'}
+  ];
+  const defs = [
+    {id:'unusual', text:'not common, standing out'}, {id:'pictured', text:'imagined a mental image'},
+    {id:'shaped', text:'formed or influenced by something'}, {id:'wonder', text:'to be curious or puzzled'}
+  ];
+  defs.sort(()=>Math.random()-0.5);
+  const wordsCol = document.getElementById('matchWords');
+  const defsCol = document.getElementById('matchDefs');
+  let selectedWord = null;
+  let pairedCount = 0;
+  words.forEach(w=>{
+    const b = document.createElement('button');
+    b.className='match-item'; b.textContent=w.text; b.dataset.id=w.id;
+    b.onclick=()=>{
+      if(b.classList.contains('paired')) return;
+      document.querySelectorAll('#matchWords .match-item').forEach(x=>x.classList.remove('sel'));
+      b.classList.add('sel');
+      selectedWord = w.id;
+    };
+    wordsCol.appendChild(b);
+  });
+  defs.forEach(d=>{
+    const b = document.createElement('button');
+    b.className='match-item'; b.textContent=d.text; b.dataset.id=d.id;
+    b.onclick=()=>{
+      if(b.classList.contains('paired') || !selectedWord) return;
+      if(d.id===selectedWord){
+        b.classList.add('paired');
+        document.querySelector('#matchWords [data-id="'+selectedWord+'"]').classList.add('paired');
+        document.querySelector('#matchWords [data-id="'+selectedWord+'"]').classList.remove('sel');
+        addXP(5);
+        pairedCount++;
+        if(pairedCount===words.length) burstConfetti();
+      } else {
+        b.style.borderColor = 'var(--bad)';
+        setTimeout(()=>{ b.style.borderColor=''; },500);
+      }
+      selectedWord = null;
+    };
+    defsCol.appendChild(b);
+  });
+})();
+
+buildSingleSelect('wq7opts','wq7fb',[
+  {text:'Rosa remembers three doors. Her grandmother remembers only one.', correct:true, explain:'Correct — two complete sentences, properly split with a period and capital letter.'},
+  {text:'Rosa remembers three doors her grandmother remembers only one.', correct:false, explain:'This is the uncorrected run-on — no break between the two ideas at all.'},
+  {text:'Rosa remembers three doors, her grandmother remembers only one.', correct:false, explain:'That is a comma splice — a comma alone cannot join two complete sentences.'}
+], ()=>{addXP(5); burstConfetti();});
+
+buildSingleSelect('q19opts','q19fb',[
+  {text:'Grandma tells the story one way I tell it a different way.', correct:false, explain:'This is the uncorrected run-on.'},
+  {text:'Grandma tells the story one way. I tell it a different way.', correct:true, explain:'Correct — a period and capital letter cleanly split the two complete ideas.'},
+  {text:'Grandma tells the story one way, I tell it a different way.', correct:false, explain:'That is a comma splice — a comma alone cannot join two complete sentences.'},
+  {text:'Grandma tells the story, one way I tell it a different way.', correct:false, explain:'That comma placement does not correctly split the two ideas.'}
+], ()=>{addXP(15); elaCorrect++; burstConfetti();});
+
+function selfCheckSentence(){
+  const val = document.getElementById('creativeSentence').value.trim();
+  const box = document.getElementById('selfCheckBox');
+  const sentenceCount = (val.match(/[.!?]+/g) || []).length;
+  box.style.display = 'block';
+  box.innerHTML = `
+    <label>${sentenceCount >= 2 ? '✅' : '⬜'} Written as two separate complete sentences</label>
+    <label>${val.length > 15 ? '✅' : '⬜'} Long enough to describe two real ideas</label>
+    <label>${/[.!?]$/.test(val) ? '✅' : '⬜'} Ends with punctuation</label>
+  `;
+  if(sentenceCount >= 2 && val.length>15){ addXP(10); burstConfetti(); }
+}
+
+function finalizeScore(){
+  const name = document.getElementById('studentName').value.trim() || 'Champion';
+  document.getElementById('finalName').textContent = name + ', Great Work!';
+  document.getElementById('finalXP').textContent = xp;
+  document.getElementById('finalMath').textContent = Math.min(mathCorrect,mathTotal) + '/' + mathTotal;
+  document.getElementById('finalELA').textContent = Math.min(elaCorrect,elaTotal) + '/' + elaTotal;
+  const pct = ((mathCorrect+elaCorrect)/(mathTotal+elaTotal))*100;
+  let msg = '';
+  if(pct>=85) msg = 'Level 4-5 pace today — that\u2019s exactly the target.';
+  else if(pct>=60) msg = 'Solid Level 3 work — the Test Tactics call-outs are where the next jump comes from.';
+  else msg = 'Good first rep on this material — review comes back around in Week 6.';
+  document.getElementById('masteryMsg').textContent = msg;
+  burstConfetti();
+}
+
+function submitScore(){
+  // Live Formspree endpoint for FAST Prep Grade 6 Progress (shared across all 14 lessons).
+  const endpoint = 'https://formspree.io/f/xppzdzwb';
+  const name = document.getElementById('studentName').value.trim() || 'Unknown';
+  const payload = {
+    student: name,
+    lesson: 'FAST Prep G6 — Lesson 5: First Peoples, Living Traditions (Indigenous Peoples)',
+    date: new Date().toISOString().slice(0,10),
+    xp: xp,
+    math_correct: Math.min(mathCorrect,mathTotal),
+    math_total: mathTotal,
+    ela_correct: Math.min(elaCorrect,elaTotal),
+    ela_total: elaTotal
+  };
+  const statusEl = document.getElementById('submitStatus');
+  const btn = document.getElementById('submitBtn');
+  btn.disabled = true;
+  statusEl.textContent = 'Submitting...';
+  fetch(endpoint, {
+    method:'POST',
+    headers:{'Content-Type':'application/json','Accept':'application/json'},
+    body: JSON.stringify(payload)
+  }).then(r=>{
+    if(r.ok){ statusEl.textContent = 'Results saved. Nice work today!'; }
+    else { statusEl.textContent = 'Progress endpoint not yet connected — ask your tutor to save this manually for now.'; btn.disabled=false; }
+  }).catch(()=>{
+    statusEl.textContent = 'Progress endpoint not yet connected — ask your tutor to save this manually for now.';
+    btn.disabled=false;
+  });
+}
+
+renderDots();
+</script>
+</body>
+</html>
